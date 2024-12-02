@@ -1,0 +1,44 @@
+# Người dịch: Chanhne
+
+# Ở đây bạn có thể thiết lập các bảng điểm cho từng thế giới <worldname>:<filename>
+# Nếu bạn không thêm thế giới ở đây, nó sẽ không có bảng điểm trong thế giới đó!
+# Thế giới có 2 bảng điểm, nó sẽ kích hoạt chúng dựa trên thứ tự chúng được liệt kê,
+# trong ví dụ này, nó sẽ kiểm tra xem người chơi có thể có adminboard hay không và nếu không,
+# chuyển sang defaultscoreboard
+worlds:
+  #Bảng điểm toàn cầu không bắt buộc và có thể bị xóa mà không gây ra bất kỳ sự cố nào. Plugin chỉ ẩn bảng điểm trong trường hợp đó.
+  global:
+  - adminboard
+  - playerboard
+  # world:
+  # - adminboard
+  # - defaultscoreboard
+  # world_the_end: endscoreboard
+  # world_nether: netherscoreboard
+
+#Bây giờ chỉ có người chơi có quyền animatedscoreboard.test mới nhận được bảng điểm
+permissions:
+  adminboard: animatedscoreboard.test
+
+#Nếu giá trị này được đặt là true, plugin sẽ cố gắng sử dụng các placeholder của PlaceholderAPI
+placeholderapi: true
+
+#Nếu giá trị này được đặt là true, nó sẽ kiểm tra trên SpigotMC xem có phiên bản mới của plugin và thông báo cho bạn!
+check_updates: true
+
+#Khi giá trị này được đặt là true, nó sẽ gửi các thông báo thông tin đến console, điều này hữu ích hơn nếu có gì đó không đúng
+debug_mode: false
+
+#Điều này sẽ kích hoạt các trigger sự kiện, nếu giá trị này được đặt là false, các trigger sự kiện sẽ không hoạt động
+enable-triggers: false
+
+#Chúng ta nên sử dụng lưu trữ dữ liệu nào:
+# - YAML 	: lưu trữ dữ liệu người chơi ở dạng dễ đọc trong playerdata.yml
+# - SQLITE	: lưu trữ dữ liệu người chơi trong cơ sở dữ liệu SQLite cục bộ gọi là playerdata-sqlite.db
+player-storage: SQLITE
+
+#Chỉ bật cái này nếu bạn đang chạy server.jar phiên bản 1.13+ nhưng vẫn chấp nhận các client dưới 1.13
+force-legacy: false
+
+#Cố gắng phân tích màu sắc trong các placeholders.
+hex-in-placeholders: true

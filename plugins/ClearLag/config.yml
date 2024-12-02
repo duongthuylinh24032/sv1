@@ -1,0 +1,520 @@
+# Người dịch: Chanhne
+
+#--------------------------------------------------------------------#
+#                   Cấu Hình ClearLag File                           #
+#--------------------------------------------------------------------#
+# Cấu hình theo sở thích của bạn, tải lại cấu hình bằng cách gõ: /lagg reload #
+#                                -                                   #
+# Đây là hướng dẫn hữu ích về cách thiết lập cấu hình này! (Cập nhật) #
+# http://dev.bukkit.org/bukkit-plugins/clearlagg/pages/config-setup/ #
+#--------------------------------------------------------------------#
+#          Tất cả tên mob có thể có: https://goo.gl/cch8YK           #
+#--------------------------------------------------------------------#
+config-version: 20
+
+# -- 'use-internal-tps' Liệu clearlag có nên sử dụng TPS nội bộ đã tính toán không? (Cải thiện độ chính xác)
+# -- 'language' Clearlag hỗ trợ nhiều ngôn ngữ (https://github.com/bob7l/Clearlag-Languages) được cộng đồng dịch
+# -- 'use-internal-tps' Liệu Clearlag có nên sử dụng /tps của Spigot không? (Cập nhật theo phút, chậm hơn nhiều nhưng chính xác hơn!)
+settings:
+  language: English
+  auto-update: false
+  enable-api: true
+  use-internal-tps: true
+
+# Điều khiển tất cả các việc phát sóng của Clearlag. Tắt nó sẽ tắt tất cả các thông báo của Clearlag
+# -- 'enabled' Liệu clearlag có phát sóng thông điệp không? (Ví dụ: Xóa tự động, cảnh báo, v.v.)
+# -- 'async' Liệu thông điệp có được phát sóng trên một luồng khác không
+# -- 'use-permission-for-broadcasts' Liệu clearlag có sử dụng quyền để phát sóng không?
+# -- 'permission' Quyền là gì? (Mặc định, nó là quyền mặc định của bukkit)
+global-broadcasts:
+  enabled: true
+  async: false
+  use-permission-for-broadcasts: false
+  permission: bukkit.broadcast
+
+# Giám sát luồng chính của máy chủ để phát hiện tình trạng khóa/đóng băng. Giúp tìm ra nguyên nhân gây ra hiện tượng giật lag
+# LƯU Ý: Điều này sẽ in ra chủ yếu là stacktrace. Bạn phải tự giải thích stacktrace
+# LƯU Ý: (!Quan trọng!) Clearlag sẽ in MỌI thứ vào nhật ký máy chủ Spigot/Bukkit của bạn!
+# LƯU Ý: Thời gian 'Thu thập rác' lớn thường có nghĩa là đợt giật lag do bộ thu gom rác (vấn đề bộ nhớ cơ bản..)
+# -- 'enabled' Liệu tính năng này có được bật không (In dữ liệu vào nhật ký của bạn, không phải trong trò chơi)
+# -- 'min-elapsed-time' Thời gian (TRONG MILLISECOND) của một tick máy chủ khi nào được coi là đóng băng/khóa? Tôi không khuyến khích đi dưới ~80
+# -- 'check-interval' Tần suất (TRONG MILLISECOND) để máy chủ được kiểm tra? Càng giảm số, độ chính xác càng cao
+# -- 'follow-stack' Liệu Clearlag có tiếp tục in stacktrace mỗi khi nó thay đổi (Có thể sẽ bị spam rất nhiều)?
+# Hướng dẫn-> https://dev.bukkit.org/projects/clearlagg/pages/finding-the-cause-of-lag-spikes
+lag-spike-helper:
+  enabled: false
+  min-elapsed-time: 500
+  check-interval: 100
+  follow-stack: true
+
+# Giới hạn số lượng chuyển vật phẩm cho tất cả các hopper trong một chunk
+# -- 'transfer-limit' Số lượng chuyển vật phẩm mỗi lần kiểm tra, cho đến khi hopper bị vô hiệu hóa
+# -- 'check-interval' Thời gian (giây) mà giới hạn chuyển vật phẩm sẽ được đặt lại
+hopper-limiter:
+  enabled: false
+  transfer-limit: 5
+  check-interval: 1
+
+# Đo lường mức sử dụng RAM của bạn. Nếu vượt qua 'limit', thực hiện 'commands:'
+# LƯU Ý: Đây là điều bình thường nếu máy chủ của bạn sử dụng rất nhiều bộ nhớ. Bộ thu gom rác của JVM sẽ tự động giải phóng bộ nhớ.
+# LƯU Ý: Chỉ sử dụng cái này nếu bạn có rất ít bộ nhớ không thể hỗ trợ máy chủ
+# -- 'ram-limit' tính bằng MB, đừng đặt nó bằng đúng với số bộ nhớ đã cấp
+# -- 'interval' là thời gian mà clearlag sẽ kiểm tra mức sử dụng RAM
+# -- 'commands' là danh sách các lệnh sẽ được thực hiện khi đạt đến giới hạn RAM của bạn
+ram-meter:
+  enabled: false
+  interval: 20
+  ram-limit: 5000
+  commands:
+    - 'lagg killmobs'
+    - 'lagg clear'
+
+# Cấu hình lệnh '/lagg halt' làm gì
+# -- 'remove-entities' loại bỏ các thực thể như vật phẩm, TNT đã kích nổ và mob
+# -- 'disable-natural-entity-spawning' vô hiệu hóa việc sinh ra thực thể tự nhiên trong thế giới của máy chủ
+# -- 'halted' phần này xác định các hành động sẽ bị dừng khi thực hiện '/lagg halt'
+halt-command:
+  remove-entities: true
+  disable-natural-entity-spawning: true
+  halted:
+    fire: true
+    fire-burn: true
+    explosion: true
+    decay: true
+    block-fade: true
+    block-form: true
+    block-spread: true
+    block-natural-change: true
+
+# Giới hạn tốc độ di chuyển của người chơi khi đi bộ hoặc bay trong một tick (20 tick mỗi giây)
+# Tôi RẤT khuyến khích bạn sử dụng tính năng này trên các máy chủ có tốc độ người chơi/bay cao để ngăn chặn quá tải chunk
+# Bạn cũng có thể sử dụng các giới hạn tốc độ của Spigot nếu có sẵn trên phiên bản của bạn (hiệu suất tốt hơn)
+# -- 'move-max-speed' Tốc độ di chuyển tối đa khi đi bộ
+# -- 'fly-max-speed'  Tốc độ tối đa khi bay
+player-speed-limiter:
+  enabled: false
+  move-max-speed: 0.7
+  fly-max-speed: 0.8
+
+# Đặt độ tuổi của các vật phẩm khi chúng mới được sinh ra để chúng tự động biến mất nhanh hơn, hoặc chậm hơn các vật phẩm khác
+# Khuyến khích sử dụng cho các máy chủ có nhiều vật phẩm không cần thiết (Như đá)
+# Danh sách vật liệu: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+# -- 'items' Danh sách các vật liệu của các thực thể với tuổi sinh ra của chúng (Tính bằng giây)
+
+item-spawn-age-setter:
+  enabled: false
+  items:
+    stone: 240
+    grass: 240
+    cobblestone: 240
+    log: 240
+    stone_axe: 240
+    stone_pickaxe: 240
+    stone_sword: 240
+    wooden_axe: 240
+    wooden_pickaxe: 240
+    wooden_sword: 240
+    rotten_flesh: 240
+    gravel: 240
+    dirt: 240
+    leather: 200
+    sand: 240
+    bone: 240
+    beef: 240
+    chicken: 160
+    rabbit: 240
+    salmon: 240
+    cactus: 210
+    wool: 180
+    arrow: 160
+    PORKCHOP: 240
+    potato: 240
+    RED_TULIP: 240
+
+# Liệu mob có nên bị giảm sức mạnh để ngăn chặn việc sinh sản quá mức nhằm giảm tải CPU (Và có thể cải thiện TPS)
+# Khi mob bị mắc kẹt quá gần nhau, va chạm giữa chúng rất nặng và gây tải cao cho máy chủ
+# -- 'max-mobs' có nghĩa là số lượng động vật con/trưởng thành tối đa được phép trong 'check-radius'
+# -- 'check-radius' là bán kính mà clearlag sẽ kiểm tra các 'max-mobs'
+mob-breeding-limiter:
+  enabled: false
+  max-mobs: 6
+  check-radius: 15
+
+# Liệu clearlag có nên xóa các nhật ký trong thư mục /logs khi máy chủ khởi động không?
+# -- 'days-old' có nghĩa là số ngày tối đa của nhật ký để nó bị xóa
+log-purger:
+  enabled: false
+  days-old: 3
+
+# Loại thực thể nào KHÔNG NÊN bị xóa khi thực hiện lệnh /lagg area?
+area-filter:
+    - Itemframe
+    - Minecart
+    - Wolf
+    - Villager
+    - Horse
+    - ARMOR_STAND
+
+# Liệu clearlag có nên reset cấu hình hoặc cố gắng cập nhật cấu hình của bạn khi có bản cập nhật mới không?
+# -- 'force-update' là việc clearlag có reset cấu hình của bạn với một phiên bản mới hay không
+# -- Cài đặt false sẽ khiến clearlag cập nhật cấu hình của bạn thay vì reset
+config-updater:
+  force-update: false
+
+# Giới hạn số lượng mob egg spawner để người chơi không thể "quá tải" máy chủ với chúng
+# -- 'check-radius' là bán kính mà clearlag sẽ kiểm tra các thực thể xung quanh
+# -- 'max-mobs' là số lượng thực thể tối đa trong bán kính trước khi việc sinh sản bị chặn
+mobegg-limiter:
+  enabled: false
+  check-radius: 8
+  max-mobs: 5
+
+# Tắt việc tạo chunk mới, hoặc giới hạn số lượng chunk có thể được tải đồng thời.
+# Có thể gây nhiều lỗi với các bản Spigot 1.8+, không khuyến khích sử dụng!
+# -- 'create-new-chunks' tắt hoặc bật việc tạo chunk mới. False sẽ không cho phép tạo chunk mới
+# -- !KHÔNG ỔN ĐỊNH TRÊN CÁC BẢN SPIGOT!
+chunk-limiter:
+  enabled: false
+  limit: 6000
+  create-new-chunks: true
+
+# Thay đổi phạm vi nhìn của các thực thể
+# -- Càng thấp thì hiệu suất xử lý thực thể càng tốt và tiết kiệm nhiều chu kỳ CPU
+# -- Nếu quá cao, mong đợi sẽ có lỗi / lag nhiều
+mob-range:
+  enabled: false
+  zombie: 30
+  skeleton: 30
+  creeper: 20
+
+# Thời gian mà các vật phẩm/Mob sẽ tồn tại trên mặt đất
+# -- live-time tính bằng tick (20 tick mỗi giây)
+live-time:
+  enabled: false
+  interval: 10
+  mobtimer: true
+  itemtimer: true
+  arrowtimer: true
+  arrowkilltime: 15
+  moblivetime: 600
+  itemlivetime: 240
+
+tnt-minecart:
+  enabled: false
+  max: 2
+  radius: 6
+  # Tùy chọn này cấm đặt quá nhiều tnt-minecart
+  # -- 'radius' là bán kính mà clearlag sẽ kiểm tra TNT-Minecarts
+
+dispenser-reducer:
+  enabled: false
+  time: 100
+  # Tùy chọn này giảm tỷ lệ bắn của dispenser toàn cầu
+  # -- 'time' tính bằng mili giây
+
+tnt-reducer:
+  enabled: false
+  check-radius: 5
+  max-primed: 3
+  # Tùy chọn này giảm sự nổ của một lượng lớn TNT và giảm lag TNT
+  # -- 'check-radius' là bán kính mà clearlag sẽ kiểm tra TNT đã bật kíp
+  # -- 'max-primed' là số TNT đã bật kíp tối đa trong bán kính cho phép trước khi clearlag bắt đầu xóa
+
+firespread-reducer:
+  enabled: false
+  time: 2000
+  # Tùy chọn này giảm tốc độ lan truyền lửa
+  # -- 'time' tính bằng mili giây
+
+chunk-entity-limiter:
+  enabled: false
+  limit: 10
+  entities:
+    - Squid
+    - Zombie
+    - Skeleton
+    - Creeper
+    - Chicken
+    - Pig
+    - Sheep
+    - Cow
+    - Horse
+  # - Pig liveTime=100 <- Mob này sẽ bị XÓA nếu nó đã sống được 100 ticks (5 giây)
+
+per-entity-chunk-entity-limiter:
+  enabled: false
+  entity-limits:
+    - Squid limit:1
+    - Zombie limit:2
+    - Skeleton limit:2
+    - Creeper limit:2
+    - Chicken limit:3
+    - Pig limit:5
+    - Sheep limit:5
+    - Cow limit:5
+    - Horse limit:3 !hasName
+    - Villager limit:4
+    - Arrow limit:4 inGround
+    - Rabbit limit:2
+    - PufferFish limit:2
+    - Silverfish limit:2
+    - TROPICAL_FISH limit:2
+    - COD limit:2
+    - DOLPHIN limit:2
+    - Bat limit:1
+    - Armorstand limit:10
+  passive-cleaner:
+    passive-cleaning-enabled: false
+    check-interval: 20
+    chunk-batch-size: 100
+    # Giới hạn thực thể trong mỗi chunk. Rất hữu ích để hạn chế các mob vô dụng như squid, nhưng không phải zombie
+    # -- 'entity-limits' liệt kê tất cả các thực thể, bộ lọc của chúng và 'limit' để xác định giới hạn của chúng
+    # -- 'passive-purger' Kích hoạt kiểm tra ngẫu nhiên các chunk để xem chúng có vượt quá giới hạn hay không.
+    # -- Hữu ích khi bạn muốn ngăn chặn việc khai thác lag
+    # -- 'passive-cleaning-enabled' Kích hoạt chức năng lọc thụ động
+    # -- 'check-interval' Khoảng thời gian (tính bằng ticks, 50MS) để kiểm tra các chunk
+    # -- 'chunk-batch-size' Số lượng chunk được kiểm tra cùng lúc
+
+spawn-limiter:
+  enabled: false
+  interval: 15
+  mobs: 300
+  animals: 300
+  # Số lượng mob tối đa được phép sinh ra toàn cầu
+  # -- 'interval' là khoảng thời gian kiểm tra số lượng sinh sản hiện tại
+
+tps-meter:
+  enabled: false
+  trigger-broadcast-message: '&6[ClearLag] &cMáy chủ đang quá tải, thực thi các biện pháp giảm lag'
+  recover-broadcast-message: '&6[ClearLag] &aMáy chủ không còn quá tải!'
+  broadcast-enabled: false
+  interval: 15
+  tps-trigger: 14.0
+  tps-recover: 19.0
+  commands:
+    - 'lagg killmobs'
+    - 'lagg clear'
+    - 'lagg halt on'
+  recover-commands:
+    - 'lagg halt off'
+  # Đo lường TPS của bạn, nếu TPS quá thấp, thực thi các lệnh bạn đã viết ở dưới!
+  # -- 'interval' là thời gian mà tps-meter sẽ kiểm tra TPS
+  # -- 'tps-trigger' là mức TPS mà các lệnh sẽ được thực thi
+  # -- 'tps-recover' là mức TPS khi TPS được coi là ổn định sau khi 'tps-trigger' được thực thi
+  # -- 'commands' liệt kê các lệnh sẽ được thực thi khi đạt mức TPS trigger
+  # -- 'recover-commands' liệt kê các lệnh sẽ được thực thi khi TPS hồi phục
+  # -- 'trigger-broadcast-message' là thông điệp sẽ được phát sóng khi tps-trigger được thực thi
+  # -- 'recover-broadcast-message' là thông điệp sẽ được phát sóng khi TPS hồi phục
+  # -- 'broadcast-enabled' xác định xem tps-meter có nên phát sóng hay không
+
+kill-mobs:
+   remove-named: false
+   mob-filter:
+   - Villager
+   - Wolf
+   #  - Pig !name="Test" <- Thực thể này sẽ bị lọc nếu tên của nó KHÔNG phải là "Test"
+   #  - Zombie hasName <- Thực thể này sẽ bị lọc nếu nó CÓ tên
+   - ARMOR_STAND
+   - Horse
+   # Đây là lệnh /lagg killmobs, chỉ ra những thực thể KHÔNG muốn bị xóa!
+   # -- 'remove-named', khi FALSE, các thực thể có tên tùy chỉnh SẼ KHÔNG bị xóa
+# Người dịch: Chanhne
+
+# Điều này làm yếu đi các mob-spawners (Cả tự nhiên và do người chơi tạo ra)
+#-------------------------------------------------
+# Điều này dựa trên các vùng (chunk) thay vì các mob-spawners. Điều này nhằm ngăn chặn
+# sự tích tụ quá nhiều mob-spawners trong một khu vực nhỏ để "vượt qua" 
+# giới hạn mà bạn đã thiết lập. Nó cũng giúp tạo ra các khóa một cách dễ dàng hơn
+# tăng hiệu suất.
+# -- 'max-spawn' là số lượng mob tối đa được phép sinh ra từ một mob-spawner
+# -- 'remove-mobs-on-chunk-unload' là liệu Clearlag có xóa các mob được sinh ra từ mobspawner khi vùng chunk bị xóa không (Rất khuyến khích)
+mobspawner:
+  enabled: false
+  max-spawn: 4
+  remove-mobs-on-chunk-unload: true
+
+# Không sử dụng nếu bạn có CB++ hoặc Spigot!
+item-merger:
+  enabled: false
+  radius: 6
+
+# Tùy chọn xóa tự động
+# -- cảnh báo hoạt động như sau; time = thời gian cảnh báo, msg = thông điệp cảnh báo tại thời gian đó
+# -- LƯU Ý: Phần 'remove' bên dưới áp dụng cho công cụ xóa này!
+# -- LƯU Ý: Đặt khoảng thời gian quá ngắn có thể gây ra sự cố!
+# -- LƯU Ý: Để tắt "cảnh báo", đặt thành "warnings: []"
+# -- LƯU Ý: Quyền bukkit.broadcast.user sẽ cho phép người chơi thấy các thông báo (Nếu không được bật mặc định)
+#
+#        !==[ Tất cả các giá trị chuỗi PHẢI nằm trong dấu '']]==!
+#
+# -- 'remove-entities' liệt kê các thực thể sẽ bị XÓA khi xóa
+# -- 'warnings' liệt kê các cảnh báo sẽ được đưa ra vào các thời điểm đã chỉ định
+# -- 'item-filter' Các vật phẩm trên mặt đất không nên bị xóa trong quá trình xóa
+# -- 'remove-entities' Các thực thể NÊN bị xóa trong quá trình xóa
+auto-removal:
+  enabled: true
+  broadcast-message: '&6[ClearLag] &aĐã xóa +RemoveAmount thực thể!'
+  broadcast-removal: true
+  autoremoval-interval: 460
+  world-filter:
+  # - this_world <-Thế giới này sẽ bị bỏ qua trong quá trình xóa!
+  boat: false
+  falling-block: true
+  experience-orb: true
+  painting: false
+  projectile: false
+  item: true
+  itemframe: false
+  minecart: false
+  primed-tnt: true
+  item-filter:
+  # - Stone <-ID vật phẩm này sẽ bị bỏ qua trong quá trình xóa!
+  # - Grass
+  remove-entities:
+    - Arrow onGround
+    - Snowball
+    - Egg
+    - Fireball
+    - Boat !isMounted
+    - Minecart !isMounted
+    - MINECART_TNT
+  # - cow <- Loại mob này sẽ bị XÓA trong quá trình xóa!
+  # - MINECART_MOB_SPAWNER
+  # - Pig liveTime=100 <- Mob này sẽ bị XÓA nếu nó đã sống trong 100 ticks (5 giây)
+  # - Minecart !isMounted <- Thực thể này sẽ bị XÓA nếu nó KHÔNG được cưỡi
+  # - Wolf !hasName <- Thực thể này sẽ bị XÓA nếu nó không có tên
+  warnings:
+    # Cảnh báo ở phút thứ 10 (bắt đầu)
+    - 'time:1 msg:&4[ClearLag] &cCảnh báo: Chu kỳ dọn dẹp đã bắt đầu, vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+
+    # Cảnh báo mỗi phút
+    - 'time:60 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:120 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:180 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:240 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:300 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:360 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:420 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:480 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:540 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+
+    # Cảnh báo tăng dần trong phút cuối (10 giây/lần)
+    - 'time:550 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:560 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:570 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:580 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:590 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+
+    # Cảnh báo từng giây trong 10 giây cuối
+    - 'time:591 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:592 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:593 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:594 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:595 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:596 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:597 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:598 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa trong &7+remaining &cgiây!'
+    - 'time:599 msg:&4[ClearLag] &cCảnh báo: Vật phẩm trên mặt đất sẽ bị xóa NGAY BÂY GIỜ!'
+
+# Những gì sẽ bị xóa khi sử dụng lệnh /lagg clear, gần giống như xóa tự động
+command-remove:
+  world-filter:
+  # - this_world <-Thế giới này sẽ bị bỏ qua trong quá trình xóa!
+  broadcast-removal: false
+  boat: true
+  falling-block: true
+  experience-orb: true
+  painting: false
+  projectile: true
+  item: true
+  itemframe: false
+  minecart: true
+  primed-tnt: true
+  item-filter:
+  # - Stone <-ID vật phẩm này sẽ bị bỏ qua trong quá trình xóa!
+  # - Grass
+  remove-entities:
+  # - cow <- Loại mob này sẽ bị XÓA trong quá trình xóa!
+  # - MINECART_MOB_SPAWNER
+  # - Pig liveTime=100 <- Mob này sẽ bị XÓA nếu nó đã sống trong 100 ticks (5 giây)
+  # - Minecart !isMounted <- Thực thể này sẽ bị XÓA nếu nó KHÔNG được cưỡi
+  # - Wolf !hasName <- Thực thể này sẽ bị XÓA nếu nó không có tên
+
+# Cực kỳ cũ, nhưng vẫn hoạt động. Chỉ xác định giới hạn thực thể toàn cầu. Tôi khuyên dùng 'custom-trigger-removal' thay vì
+# -- 'max' là số thực thể tối đa được phép trước khi kích hoạt việc xóa thực thể
+limit:
+  enabled: false
+  max: 1000
+  check-interval: 60
+  broadcast-message: '&6[ClearLag] &aĐã đạt giới hạn, xóa +RemoveAmount thực thể!'
+  world-filter:
+  # - this_world <-Thế giới này sẽ bị bỏ qua trong quá trình xóa!
+  broadcast-removal: true
+  boat: true
+  falling-block: true
+  experience-orb: true
+  painting: false
+  projectile: true
+  item: true
+  itemframe: false
+  minecart: true
+  primed-tnt: true
+  item-filter:
+  # - Stone
+  # - Grass <-ID vật phẩm này sẽ bị bỏ qua trong quá trình xóa!
+
+
+# Tạo các quy trình xóa tùy chỉnh của riêng bạn!
+# -- cảnh báo hoạt động như sau; time = thời gian cảnh báo, msg = thông điệp cảnh báo tại thời gian đó
+# -- LƯU Ý: Phần 'remove' bên dưới áp dụng cho công cụ xóa này!
+# \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
+# >    ĐỌC HƯỚNG DẪN TẠI -> https://dev.bukkit.org/projects/clearlagg/pages/config-setup <- ĐỌC HƯỚNG DẪN    <
+# /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\
+custom-trigger-removal:
+  enabled: false
+  triggers:
+    trigger1:
+      trigger-type: tps-trigger
+      run-interval: 5
+      tps-trigger: 14.0
+      tps-recover: 19.0
+      jobs:
+        command-executor:
+          commands:
+            - 'lagg killmobs'
+            - 'lagg clear'
+            - 'lagg halt'
+          recover-commands:
+            - 'lagg halt'
+        entity-clearer:
+          execute-job-time: 120
+          warnings:
+            - 'time:60 msg:&4[ClearLag] &cCác thực thể/vật phẩm sẽ bị xóa trong &7+remaining &cgiây!'
+            - 'time:100 msg:&4[ClearLag] &cCác thực thể/vật phẩm sẽ bị xóa trong &720 &cgiây!'
+            - 'time:110 msg:&4[ClearLag] &cCác thực thể/vật phẩm sẽ bị xóa trong &710 &cgiây!'
+          world-filter:
+          # - world <-Thế giới này sẽ bị bỏ qua trong quá trình xóa
+          removeEntities:
+            - item
+            - zombie !hasName
+            - skeleton !hasName
+            - pig !hasName
+            - cow !hasName
+    trigger2:
+      trigger-type: entity-limit-trigger
+      run-interval: 25
+      limit: 200
+      world-filter:
+        # - world <-Thế giới này sẽ bị bỏ qua trong quá trình kiểm tra
+      entity-limits:
+        - zombie
+        - skeleton
+        - enderman
+      jobs:
+        entity-clearer:
+          world-filter:
+          # - world <-Thế giới này sẽ bị bỏ qua trong quá trình xóa
+          remove-entities:
+            - zombie
+            - skeleton
+            - enderman

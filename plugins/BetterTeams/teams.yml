@@ -1,0 +1,6 @@
+storageType: YAML
+teamNameLookup:
+- admin:93c240de-b8d4-4aec-8086-c37d0ea7c30a
+playerLookup:
+- 00000000-0000-0000-0009-01f505fa1a73:93c240de-b8d4-4aec-8086-c37d0ea7c30a
+chestClaims: []

@@ -1,0 +1,10 @@
+name: Chanhne
+kits:
+  iron:
+    cooldown: 1732632917859
+    one_time: false
+    bought: false
+  food:
+    cooldown: 1732625738504
+    one_time: false
+    bought: false

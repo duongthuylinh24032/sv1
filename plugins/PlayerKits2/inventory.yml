@@ -1,0 +1,58 @@
+inventories:
+  main_inventory:
+    slots: 54
+    title: "&4&lKits"
+    0;1;7;8;9;17;36;44;45;46;52;53:
+      item:
+        id: "BLACK_STAINED_GLASS_PANE"
+        name: " "
+    20:
+      type: "kit: iron"
+    24:
+      type: "kit: food"
+    49:
+      item:
+        id: "DIAMOND_BLOCK"
+        name: "&eKits Cao Cấp"
+      open_inventory: premium_kits_inventory
+  premium_kits_inventory:
+    slots: 54
+    title: "&e&lKits Cao Cấp"
+    0;1;7;8;9;17;36;44;45;46;52;53:
+      item:
+        id: "YELLOW_STAINED_GLASS_PANE"
+        name: " "
+    22:
+      type: "kit: diamond"
+    49:
+      item:
+        id: "IRON_BLOCK"
+        name: "&eKits Thông Thường"
+      open_inventory: main_inventory
+  preview_inventory:
+    slots: 54
+    title: "&4&lXem Trước Bộ Kit"
+    45:
+      item:
+        id: "ARROW"
+        name: "&7Quay Lại"
+      open_inventory: previous
+  buy_requirements_inventory:
+    slots: 27
+    title: "&4&lYêu Cầu Mua Kit"
+    13:
+      item:
+        id: "BOOK"
+        name: "&c&lYêu Cầu"
+        lore:
+          - "%kit_requirements_message%"
+    10:
+      item:
+        id: "RED_STAINED_GLASS_PANE"
+        name: "&cQuay Lại"
+      type: buy_no
+    16:
+      item:
+        id: "GREEN_STAINED_GLASS_PANE"
+        name: "&aMua"
+      type: buy_yes

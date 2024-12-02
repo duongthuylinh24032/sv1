@@ -1,0 +1,201 @@
+# Tất cả các danh mục công cụ và danh sách vật phẩm và khối của chúng được định nghĩa tại đây.
+#
+# Các giá trị trong danh sách khối tương ứng 1:1 với ID trong trò chơi. Việc thêm "minecraft:" là tùy chọn.
+# Để chỉ định các trạng thái, hãy làm như vậy với [dấu ngoặc vuông] như trong lệnh /setblock mặc định. Ví dụ,
+# "minecraft:chest[waterlogged=true]" sẽ tìm kiếm bất kỳ rương nào có trạng thái nước. Các trạng thái chưa được định nghĩa sẽ bị bỏ qua khi kiểm tra.
+#
+# Mỗi danh mục có thể định nghĩa bất kỳ tùy chọn nào sau đây:
+# "RepairFriendly", "MaxVeinSize", "Cost" và "DisabledWorlds"
+# Nếu KHÔNG được định nghĩa, giá trị toàn cục (giá trị trong config.yml) sẽ được sử dụng thay thế.
+# Mọi thứ ngoại trừ 'Items' là TÙY CHỌN. Chúng không yêu cầu phải thiết lập.
+#
+# Ngoài ra, 'Priority' có thể được thiết lập là một số nguyên, điều này xác định độ ưu tiên của danh mục này
+# đối với danh mục khác trong trường hợp chúng đều khai báo cùng một vật phẩm.
+# Ví dụ, nếu hai danh mục có cùng vật phẩm minecraft:diamond_pickaxe, danh mục có độ ưu tiên cao nhất sẽ được chọn.
+# Vui lòng tránh tình huống mà nhiều danh mục có cùng vật phẩm, nhưng nếu thật sự cần thiết (ví dụ: cho cấu trúc quyền hạn),
+# hãy gán cho mỗi danh mục một mức độ ưu tiên khác nhau.
+#
+# Hơn nữa, 'NBT' có thể được thiết lập là một chuỗi phải có trên một vật phẩm trong NBT key
+# "PublicBukkitValues": { "veinminer:veinminer": "the_value" }
+# Ví dụ, một danh mục định nghĩa NBT: "MyValue" cũng phải có NBT key
+# "PublicBukkitValues": { "veinminer:veinminer": "MyValue" }
+# Nếu không được thiết lập, không yêu cầu giá trị NBT.
+#
+# Các giá trị mặc định:
+# Nếu các giá trị như "RepairFriendly", "MaxVeinSize", "Cost", hoặc "DisabledWorlds" không được chỉ định trong một danh mục,
+# plugin sẽ sử dụng các cài đặt toàn cục được định nghĩa trong config.yml.
+
+# ExampleCategory:
+#   RepairFriendly: true
+#   MaxVeinSize: 32
+#   Cost: 100.0
+#   DisabledWorlds:
+#   - 'world_name'
+#   - 'other_world_name'
+#   Priority: 10 # This is optional and defaults to 0
+#   NBT: "ExampleValue" # This is optional and defaults to no required NBT
+#   Items:
+#   - 'minecraft:wooden_sword'
+#   - 'minecraft:stone_sword'
+#   - 'minecraft:golden_sword'
+#   - 'minecraft:iron_sword'
+#   - 'minecraft:diamond_sword'
+#   - 'minecraft:netherite_sword'
+#   BlockList:
+#   - 'minecraft:stone'
+#   - 'minecraft:cobblestone'
+
+Axe:
+  Items:
+  - 'minecraft:wooden_axe'
+  - 'minecraft:stone_axe'
+  - 'minecraft:golden_axe'
+  - 'minecraft:iron_axe'
+  - 'minecraft:diamond_axe'
+  - 'minecraft:netherite_axe'
+  BlockList:
+  - 'minecraft:acacia_log'
+  - 'minecraft:acacia_wood'
+  - 'minecraft:birch_log'
+  - 'minecraft:birch_wood'
+  - 'minecraft:brown_mushroom_block'
+  - 'minecraft:carved_pumpkin'
+  - 'minecraft:cherry_log'
+  - 'minecraft:cherry_wood'
+  - 'minecraft:crimson_hyphae'
+  - 'minecraft:crimson_stem'
+  - 'minecraft:dark_oak_log'
+  - 'minecraft:dark_oak_wood'
+  - 'minecraft:jungle_log'
+  - 'minecraft:jungle_wood'
+  - 'minecraft:mangrove_log'
+  - 'minecraft:mangrove_roots'
+  - 'minecraft:mangrove_wood'
+  - 'minecraft:melon'
+  - 'minecraft:oak_log'
+  - 'minecraft:oak_wood'
+  - 'minecraft:pumpkin'
+  - 'minecraft:red_mushroom_block'
+  - 'minecraft:spruce_log'
+  - 'minecraft:spruce_wood'
+  - 'minecraft:warped_hyphae'
+  - 'minecraft:warped_stem'
+
+Hoe:
+  Items:
+  - 'minecraft:wooden_hoe'
+  - 'minecraft:stone_hoe'
+  - 'minecraft:golden_hoe'
+  - 'minecraft:iron_hoe'
+  - 'minecraft:diamond_hoe'
+  - 'minecraft:netherite_hoe'
+  BlockList:
+  - 'minecraft:beetroots[age=3]'
+  - 'minecraft:brown_mushroom'
+  - 'minecraft:carrots[age=7]'
+  - 'minecraft:moss_block'
+  - 'minecraft:moss_carpet'
+  - 'minecraft:potatoes[age=7]'
+  - 'minecraft:red_mushroom'
+  - 'minecraft:sculk'
+  - 'minecraft:sculk_vein'
+  - 'minecraft:wheat[age=7]'
+
+Pickaxe:
+  Items:
+  - 'minecraft:wooden_pickaxe'
+  - 'minecraft:stone_pickaxe'
+  - 'minecraft:golden_pickaxe'
+  - 'minecraft:iron_pickaxe'
+  - 'minecraft:diamond_pickaxe'
+  - 'minecraft:netherite_pickaxe'
+  BlockList:
+  - 'minecraft:amethyst_cluster'
+  - 'minecraft:ancient_debris'
+  - 'minecraft:coal_ore'
+  - 'minecraft:copper_ore'
+  - 'minecraft:deepslate_coal_ore'
+  - 'minecraft:deepslate_copper_ore'
+  - 'minecraft:deepslate_diamond_ore'
+  - 'minecraft:deepslate_emerald_ore'
+  - 'minecraft:deepslate_gold_ore'
+  - 'minecraft:deepslate_iron_ore'
+  - 'minecraft:deepslate_lapis_ore'
+  - 'minecraft:deepslate_redstone_ore'
+  - 'minecraft:diamond_ore'
+  - 'minecraft:emerald_ore'
+  - 'minecraft:gold_ore'
+  - 'minecraft:iron_ore'
+  - 'minecraft:lapis_ore'
+  - 'minecraft:nether_gold_ore'
+  - 'minecraft:nether_quartz_ore'
+  - 'minecraft:raw_copper_block'
+  - 'minecraft:raw_gold_block'
+  - 'minecraft:raw_iron_block'
+  - 'minecraft:redstone_ore'
+
+Shears:
+  Items:
+  - 'minecraft:shears'
+  BlockList:
+  - 'minecraft:acacia_leaves'
+  - 'minecraft:azalea_leaves'
+  - 'minecraft:birch_leaves'
+  - 'minecraft:black_wool'
+  - 'minecraft:blue_wool'
+  - 'minecraft:brown_wool'
+  - 'minecraft:cherry_leaves'
+  - 'minecraft:cobweb'
+  - 'minecraft:cyan_wool'
+  - 'minecraft:dark_oak_leaves'
+  - 'minecraft:flowering_azalea_leaves'
+  - 'minecraft:gray_wool'
+  - 'minecraft:green_wool'
+  - 'minecraft:jungle_leaves'
+  - 'minecraft:light_blue_wool'
+  - 'minecraft:light_gray_wool'
+  - 'minecraft:lime_wool'
+  - 'minecraft:magenta_wool'
+  - 'minecraft:mangrove_leaves'
+  - 'minecraft:oak_leaves'
+  - 'minecraft:orange_wool'
+  - 'minecraft:pink_wool'
+  - 'minecraft:purple_wool'
+  - 'minecraft:red_wool'
+  - 'minecraft:spruce_leaves'
+  - 'minecraft:white_wool'
+  - 'minecraft:yellow_wool'
+
+Shovel:
+  Items:
+  - 'minecraft:wooden_shovel'
+  - 'minecraft:stone_shovel'
+  - 'minecraft:golden_shovel'
+  - 'minecraft:iron_shovel'
+  - 'minecraft:diamond_shovel'
+  - 'minecraft:netherite_shovel'
+  BlockList:
+  - 'minecraft:clay'
+  - 'minecraft:gravel'
+  - 'minecraft:mud'
+  - 'minecraft:muddy_mangrove_roots'
+  - 'minecraft:powder_snow'
+  - 'minecraft:red_sand'
+  - 'minecraft:sand'
+  - 'minecraft:snow'
+  - 'minecraft:soul_sand'
+  - 'minecraft:soul_soil'
+
+# Không hỗ trợ danh sách "Items", nhưng hỗ trợ tất cả các tùy chọn khác
+
+Hand:
+  BlockList: []
+
+# Không hỗ trợ bất kỳ giá trị cấu hình nào khác ngoài "BlockList"
+# Áp dụng danh sách các khối này cho tất cả các danh mục khác, để tránh lặp lại
+
+All:
+  BlockList:
+  - 'minecraft:blue_ice'
+  - 'minecraft:ice'
+  - 'minecraft:packed_ice'

@@ -1,0 +1,67 @@
+# Để tùy chỉnh các danh mục hoặc chỉnh sửa danh sách block, xem tệp categories.yml
+
+MetricsEnabled: true
+PerformUpdateChecks: true
+
+DefaultActivationStrategy: SNEAK
+DefaultVeinMiningPattern: 'veinminer:default'
+CollectItemsAtSource: true
+CollectExperienceAtSource: true
+OnlyDamageOnFirstBlock: false
+NerfMcMMO: false
+
+# "RepairFriendly", "MaxVeinSize", "Cost" và "DisabledWorlds" có thể được
+# định nghĩa riêng cho từng danh mục trong tệp categories.yml
+RepairFriendly: false
+MaxVeinSize: 64
+Cost: 0.0
+DisabledWorlds:
+- WorldName
+
+DisabledGameModes:
+- CREATIVE
+- SPECTATOR
+
+Hunger:
+  HungerModifier: 2.5
+  MinimumFoodLevel: 1
+  HungryMessage: "&7You are too hungry to vein mine!"
+
+Client:
+  AllowActivationKeybind: true
+  AllowPatternSwitchingKeybind: true
+  AllowWireframeRendering: true
+
+# VeinMiner hỗ trợ 3 loại lưu trữ khác nhau (SQLite là mặc định)
+#   JSON: Dữ liệu của mỗi người chơi được lưu trong tệp JSON riêng dưới thư mục chỉ định. Tạo ra rất nhiều tệp, rất lộn xộn và thường không được khuyến khích.
+#   SQLite: Dữ liệu người chơi được lưu trong bảng cơ sở dữ liệu SQLite. Một cơ sở dữ liệu tệp phẳng. Thường nhanh hơn và gọn gàng hơn JSON.
+#   MySQL: Dữ liệu người chơi được lưu từ xa trong cơ sở dữ liệu MySQL (MySQL, MariaDB, v.v.). Sử dụng nếu bạn muốn chia sẻ dữ liệu VeinMiner trên nhiều máy chủ và có một máy chủ MySQL để sử dụng.
+Storage:
+  # Có thể là "JSON", "SQLite", hoặc "MySQL"
+  Type: 'SQLite'
+
+  JSON:
+    Directory: '%plugin%/playerdata/'
+
+  MySQL:
+    Host: 'localhost'
+    Port: 3306
+    Username: 'username'
+    Password: 'password'
+    Database: 'veinminer'
+    TablePrefix: 'veinminer_'
+
+Aliases:
+- 'minecraft:acacia_log;minecraft:acacia_wood'
+- 'minecraft:birch_log;minecraft:birch_wood'
+- 'minecraft:brown_mushroom_block;minecraft:red_mushroom_block'
+- 'minecraft:carved_pumpkin;minecraft:pumpkin'
+- 'minecraft:cherry_log;minecraft:cherry_wood'
+- 'minecraft:crimson_hyphae;minecraft:crimson_stem'
+- 'minecraft:dark_oak_log;minecraft:dark_oak_wood'
+- 'minecraft:short_grass;minecraft:tall_grass'
+- 'minecraft:jungle_log;minecraft:jungle_wood'
+- 'minecraft:mangrove_log;minecraft:mangrove_wood'
+- 'minecraft:oak_log;minecraft:oak_wood'
+- 'minecraft:spruce_log;minecraft:spruce_wood'
+- 'minecraft:warped_hyphae;minecraft:warped_stem'

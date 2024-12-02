@@ -1,0 +1,492 @@
+
+# This messages file uses MiniMessage formatting, a new form of message formatting for newer versions of MC.
+# More information about this formatting can be found here: https://docs.advntr.dev/minimessage/format.html# 
+# If you prefer to use the Legacy Code format (i.e. &a, &b, etc.) then you can still use that format.
+# 
+# It is important to note though that this format may be subject to removal in a future version of AT, however nothing is set in stone yet.
+Common:
+  # The prefixes for messages, the first element of this list will be usable as <prefix>,
+  # with each element after that being usable as <prefix:index> with index being the items index in the list.
+  prefixes:
+  - <aqua>↑</aqua> <dark_gray>»</dark_gray>
+Teleport:
+  eventBeforeTP: <prefix> <gray>Đang chuyển đến trong <aqua><countdown> giây</aqua>,
+    vui lòng không di chuyển!
+  # This is an example use for titles and subtitles in the plugin.
+  # This feature is supported only if you're on version 1.8.8 or newer.
+  eventBeforeTP_title:
+    length: 80
+    fade-in: 0
+    fade-out: 10
+    '0': <gray><b>Đang chuyển đến...</b></gray>
+    '20': <aqua>></aqua> <gray><b>Đang chuyển đến...</b></gray> <aqua><
+    '40': <aqua>>></aqua> <gray><b>Đang chuyển đến...</b></gray> <aqua><<
+    '60': <aqua>>>> <b><yellow>Đã chuyển đến!</yellow></b> <aqua><<<
+  eventBeforeTP_subtitle:
+    '0': <aqua>Vui lòng không di chuyển!
+    '60': ''
+  eventBeforeTPMovementAllowed: <prefix> <gray>Đang chuyển đến trong <aqua><countdown></aqua>
+    giây!
+  eventTeleport: <prefix> <gray>Đang chuyển đến...
+  eventMovement: <prefix> <gray>Chuyển đã bị hủy do di chuyển.
+  eventMovement_title:
+    length: 60
+    fade-in: 0
+    fade-out: 10
+    '0': <yellow><b>! <red>Đã hủy</red> !
+  teleportingToSpawn: <prefix> <gray>Đang chuyển bạn đến spawn!
+  teleporting: <prefix> <gray>Đang chuyển đến <aqua><player></aqua>!
+  teleportingToHome: <prefix> <gray>Đang chuyển đến <aqua><home></aqua>!
+  teleportingToHomeOther: <prefix> <gray>Đang chuyển đến nhà của <aqua><player></aqua>,
+    <aqua><home></aqua>!
+  teleportingToWarp: <prefix> <gray>Đang chuyển bạn đến <aqua><warp></aqua>!
+  teleportingPlayerToSelf: <prefix> <gray>Đang chuyển <aqua><player></aqua> đến bạn!
+  teleportingSelfToPlayer: <prefix> <gray>Đang chuyển bạn đến <aqua><player></aqua>!
+  teleportingToRandomPlace: <prefix> <gray>Đang chuyển bạn đến một nơi ngẫu nhiên!
+  teleportingToLastLoc: <prefix> <gray>Đang chuyển đến vị trí cuối cùng của bạn!
+  teleportedToOfflinePlayer: <prefix> <gray>Đã chuyển đến người chơi ngoại tuyến <aqua><player></aqua>!
+  teleportedOfflinePlayerHere: <prefix> <gray>Đã chuyển người chơi ngoại tuyến <aqua><player></aqua>
+    đến vị trí của bạn!
+Error:
+  noPermission: <prefix> <gray>Bạn không có quyền sử dụng lệnh này!
+  noPermissionSign: <prefix> <gray>Bạn không có quyền tạo biển báo này!
+  featureDisabled: <prefix> <gray>Tính năng này đã bị vô hiệu hóa!
+  noRequests: <prefix> <gray>Bạn không có yêu cầu nào đang chờ!
+  tpOff: <prefix> <aqua><player> <gray>đã tắt tính năng chuyển teleport của họ!
+  tpBlock: <prefix> <aqua><player> <gray>đã chặn bạn gửi yêu cầu đến họ!
+  alreadyOn: <prefix> <gray>Yêu cầu teleport của bạn đã được bật rồi!
+  alreadyOff: <prefix> <gray>Yêu cầu teleport của bạn đã được tắt rồi!
+  alreadyBlocked: <prefix> <gray>Người chơi này đã bị chặn rồi!
+  neverBlocked: <prefix> <gray>Người chơi này chưa từng bị chặn!
+  onCooldown: <prefix> <gray>Vui lòng chờ thêm <aqua><time></aqua> giây để sử dụng
+    lệnh này!
+  requestSentToSelf: <prefix> <gray>Bạn không thể gửi yêu cầu cho chính mình!
+  noSuchPlayer: <prefix> <gray>Người chơi này hiện không trực tuyến hoặc không tồn
+    tại!
+  alreadySentRequest: <prefix> <gray>Bạn đã gửi yêu cầu đến <aqua><player></aqua>
+    rồi!
+  notEnoughGeneral: |2
+        <prefix> <gray>Bạn không đủ tài nguyên để chuyển đến đó!
+        <prefix> <gray>Bạn cần <aqua><cost></aqua>!
+  notEnoughEXP: |-
+    <prefix> <gray>Bạn không có đủ cấp EXP để chuyển đến đó!
+        <prefix> <gray>Bạn cần ít nhất <aqua><levels></aqua> cấp EXP!
+  notEnoughEXPPoints: |-
+    <prefix> <gray>Bạn không có đủ điểm EXP để chuyển đến đó!
+        <prefix> <gray>Bạn cần ít nhất <aqua><points></aqua> điểm EXP!
+  notEnoughMoney: |-
+    <prefix> <gray>Bạn không có đủ tiền để chuyển đến đó!
+        <prefix> <gray>Bạn cần ít nhất <aqua><amount></aqua>!
+  requestExpired: <prefix> <gray>Yêu cầu teleport của bạn đến <aqua><player></aqua>
+    đã hết hạn!
+  noPlayerInput: <prefix> <gray>Bạn phải nhập tên người chơi!
+  blockSelf: <prefix> <gray>Bạn không thể chặn chính mình!
+  noRequestsFromPlayer: <prefix> <gray>Bạn không có yêu cầu nào đang chờ từ <aqua><player></aqua>!
+  invalidPageNo: <prefix> <gray>Bạn đã nhập một số trang không hợp lệ!
+  noHomeInput: <prefix> <gray>Bạn phải nhập tên nhà!
+  noSuchHome: <prefix> <gray>Nhà này không tồn tại!
+  noBedHome: <prefix> <gray>Bạn chưa có điểm spawn giường!
+  noBedHomeOther: <prefix> <aqua><player></aqua> <gray>không có điểm spawn giường!</gray>
+  reachedHomeLimit: <prefix> <gray>Bạn không thể đặt thêm nhà nữa!
+  homeAlreadySet: <prefix> <gray>Bạn đã có một nhà gọi là <aqua><home></aqua>!
+  noWarpInput: <prefix> <gray>Bạn phải nhập tên điểm warp!
+  noSuchWarp: <prefix> <gray>Điểm warp này không tồn tại!
+  warpAlreadySet: <prefix> <gray>Đã có một điểm warp gọi là <aqua><warp></aqua>!
+  noSuchWorld: <prefix> <gray>Thế giới này không tồn tại!
+  worldUnloaded: <prefix> <gray>Xin lỗi, thế giới đích đến không tồn tại hoặc chưa
+    được tải. Vui lòng thông báo cho quản trị viên máy chủ!
+  noLocation: <prefix> <gray>Bạn không có vị trí nào để chuyển đến!
+  notAPlayer: <prefix> <gray>Bạn phải là người chơi để thực thi lệnh này!
+  noHomes: <prefix> <gray>Bạn chưa có nhà nào!
+  noHomesOther: <prefix> <aqua><player></aqua> <gray>chưa có nhà nào!</gray>
+  tooFarAway: <prefix> <gray>Điểm đích teleport quá xa, bạn không thể chuyển đến đó!</gray>
+  noRequestsSent: <prefix> <gray>Không thể gửi yêu cầu đến ai cả :(
+  onCountdown: <prefix> <gray>Bạn không thể sử dụng lệnh này khi đang đợi teleport!</gray>
+  noPermissionWarp: <prefix> <gray>Bạn không thể warp đến <aqua><warp></aqua>!</gray>
+  cantTPToWorld: <prefix> <gray>Bạn không thể teleport ngẫu nhiên trong thế giới này!</gray>
+  cantTPToWorldLim: <prefix> <gray>Bạn không thể teleport đến <aqua><world></aqua>!</gray>
+  tooFewArguments: <prefix> <gray>Các tham số quá ít!</gray>
+  invalidArgs: <prefix> <gray>Tham số không hợp lệ!</gray>
+  cantTPToPlayer: <prefix> <gray>Bạn không thể yêu cầu teleport đến <aqua><player></aqua>!</gray>
+  noWarps: <prefix> <gray>Hiện tại không có điểm warp nào!</gray>
+  noAccessHome: <prefix> <gray>Bạn không thể truy cập vào <aqua><home></aqua> lúc
+    này!</gray>
+  moveHomeFail: <prefix> <gray>Nhà đã được di chuyển nhưng dữ liệu chưa được lưu thành
+    công. Plugin sẽ cố gắng khắc phục điều này.</gray>
+  setMainHomeFail: <prefix> <gray>Nhà chính đã được thiết lập nhưng dữ liệu chưa được
+    lưu thành công. Plugin sẽ cố gắng khắc phục điều này.</gray>
+  deleteHomeFail: <prefix> <gray>Nhà đã được xóa nhưng dữ liệu chưa được lưu thành
+    công. Plugin sẽ cố gắng khắc phục điều này.</gray>
+  setHomeFail: <prefix> <gray>Nhà đã được thiết lập nhưng dữ liệu chưa được lưu thành
+    công. Plugin sẽ cố gắng khắc phục điều này.</gray>
+  deleteWarpFail: <prefix> <gray>Điểm warp đã được xóa nhưng dữ liệu chưa được lưu
+    thành công. Plugin sẽ cố gắng khắc phục điều này.</gray>
+  purgeWarpsFail: <prefix> <gray>Không thể xóa các điểm warp. Vui lòng kiểm tra bảng
+    điều khiển để biết thêm thông tin.</gray>
+  purgeHomesFail: <prefix> <gray>Không thể xóa các nhà. Vui lòng kiểm tra bảng điều
+    khiển để biết thêm thông tin.</gray>
+  homesNotLoaded: <prefix> <gray>Các nhà cho người chơi này chưa được tải, vui lòng
+    đợi một chút (thậm chí chỉ một giây) trước khi thử lại!</gray>
+  noOfflineLocation: <prefix> <gray>Không tìm thấy vị trí ngoại tuyến cho <aqua><player></aqua>!</gray>
+  failedOfflineTeleport: <prefix> <gray>Không thể teleport đến người chơi ngoại tuyến
+    <aqua><player></aqua>!</gray>
+  failedOfflineTeleportHere: <prefix> <gray>Không thể teleport người chơi ngoại tuyến
+    <aqua><player></aqua> đến vị trí của bạn!</gray>
+  alreadySearching: <prefix> <gray>Đang tìm kiếm một vị trí để teleport đến!</gray>
+  mirrorSpawnNoArguments: <prefix> <gray>Không có thế giới/điểm spawn nào được chỉ
+    định!</gray>
+  mirrorSpawnLackOfArguments: <prefix> <gray>Bạn phải là người chơi để chỉ định một
+    thế giới duy nhất - vui lòng chỉ định một thế giới và một điểm spawn để phản chiếu
+    người chơi!</gray>
+  noSuchSpawn: <prefix> <gray>Không có điểm spawn nào gọi là <aqua><spawn></aqua>!</gray>
+  cannotSetMainSpawn: <prefix> <gray>Bạn chỉ có thể thiết lập các điểm spawn hiện
+    có làm điểm spawn chính thay vì tạo các điểm mới!</gray>
+  cannotSetMainSpawnConsole: <prefix> <gray>Bạn chỉ có thể thiết lập các điểm spawn
+    hiện có làm điểm spawn chính thay vì tạo các điểm mới, vì bạn không phải là người
+    chơi!</gray>
+  nonAlphanumericSpawn: <prefix> <gray>Các điểm spawn cần phải là chữ cái và số!</gray>
+  removeSpawnNoArgs: <prefix> <gray>Bạn phải chỉ định một điểm spawn để xóa!</gray>
+  noSuchPlugin: <prefix> <gray>Plugin này không được hỗ trợ để nhập/xuất dữ liệu!</gray>
+  cantImport: <prefix> <gray>Không thể nhập dữ liệu plugin từ <aqua><plugin></aqua>
+    (hãy đảm bảo plugin được kích hoạt và do đúng tác giả tạo!)</gray>
+  cantExport: <prefix> <gray>Không thể xuất dữ liệu plugin từ <aqua><plugin></aqua>
+    (hãy đảm bảo plugin được
+  noPluginSpecified: <prefix> <gray>Bạn cần chỉ định một plugin để nhập/xuất dữ liệu!
+  invalidOption: <prefix> <gray>Đây không phải là một tùy chọn hợp lệ để nhập/xuất
+    dữ liệu!
+  notEnoughItems: |-
+    <prefix> <gray>Bạn không có đủ vật phẩm để chuyển đến đó!
+        <prefix> <gray>Bạn cần ít nhất <aqua><amount></aqua> <type>(s)!
+  mirrorSpawnFail: <prefix> <gray>Không thể phản chiếu điểm spawn <aqua><from></aqua>
+    sang <aqua><spawn></aqua>!
+  removeSpawnFail: <prefix> <gray>Không thể xóa điểm spawn <aqua><spawn></aqua>!
+  setMainSpawnFail: <prefix> <gray>Không thể thiết lập điểm spawn chính <aqua><spawn></aqua>!
+  blockFail: <prefix> <gray>Không thể lưu thao tác chặn <aqua><player></aqua>!
+  unblockFail: <prefix> <gray>Không thể lưu thao tác gỡ chặn <aqua><player></aqua>!
+  noParticlePlugins: <prefix> <gray>Không có plugin hiệu ứng nào trên máy chủ này!
+    Bạn cần ít nhất một plugin (PlayerParticles) để sử dụng lệnh này.
+  notEnoughArgs: <prefix> <gray>Bạn chưa nhập đủ tham số để chạy lệnh này!
+  failedMapIconUpdate: <prefix> <gray>Không thể cập nhật biểu tượng trên bản đồ! Vui
+    lòng kiểm tra bảng điều khiển để biết thêm thông tin.
+  setWarpFail: <prefix> <gray>Không thể thiết lập điểm warp <warp>!
+  teleportFailed: <prefix> <gray>Xin lỗi, chúng tôi không thể teleport bạn :(
+  randomLocFailed: <prefix> <gray>Xin lỗi, chúng tôi không tìm được vị trí để teleport
+    bạn đến :(
+Info:
+  tpOff: <prefix> <gray>Đã tắt yêu cầu dịch chuyển thành công!
+  tpOn: <prefix> <gray>Đã bật yêu cầu dịch chuyển thành công!
+  tpAdminOff: <prefix> <gray>Đã tắt yêu cầu dịch chuyển cho <aqua><player></aqua>
+    thành công!
+  tpAdminOn: <prefix> <gray>Đã bật yêu cầu dịch chuyển cho <aqua><player></aqua> thành
+    công!
+  requestSent: |2
+        <prefix> <gray>Đã gửi yêu cầu thành công đến <aqua><player></aqua>!
+        <prefix> <gray>Họ có <aqua><lifetime></aqua> để phản hồi!
+        <prefix> <gray>Để hủy yêu cầu, hãy dùng <aqua>/tpcancel</aqua>.
+
+                            <click:run_command:'/tpcancel <player>'><hover:show_text:'<red>Nhấn vào đây để hủy yêu cầu.'><gray><bold>[HỦY]</hover></click>
+  tpaRequestReceived: |2
+        <prefix> <gray>Người chơi <aqua><player></aqua> muốn dịch chuyển đến bạn!
+        <prefix> <gray>Nếu bạn muốn chấp nhận, hãy dùng <aqua>/tpayes</aqua>, nếu không thì dùng <aqua>/tpano</aqua>.
+        <prefix> <gray>Bạn có <aqua><lifetime></aqua> để phản hồi!
+
+                            <click:run_command:'/tpayes <player>'><hover:show_text:'<green>Nhấn vào đây để chấp nhận yêu cầu.'><green><bold>[CHẤP NHẬN]</hover></click>             <click:run_command:'/tpano <player>'><hover:show_text:'<red>Nhấn vào đây để từ chối yêu cầu.'><red><bold>[TỪ CHỐI]</red></bold></hover></click>
+  tpaRequestHere: |2
+        <prefix> <gray>Người chơi <aqua><player></aqua> muốn bạn dịch chuyển đến họ!
+        <prefix> <gray>Nếu bạn muốn chấp nhận, hãy dùng <aqua>/tpayes</aqua>, nếu không thì dùng <aqua>/tpano</aqua>.
+        <prefix> <gray>Bạn có <aqua><lifetime> giây</aqua> để phản hồi!
+
+                          <click:run_command:'/tpayes <player>'><hover:show_text:'<green>Nhấn vào đây để chấp nhận yêu cầu.'><green><bold>[CHẤP NHẬN]</bold></hover></click>             <click:run_command:'/tpano <player>'><hover:show_text:'<red>Nhấn vào đây để từ chối yêu cầu.'><red><bold>[TỪ CHỐI]</red></bold></hover></click>
+  blockPlayer: <prefix> <aqua><player> <gray>đã bị chặn.
+  tpCancel: <prefix> <gray>Bạn đã hủy yêu cầu dịch chuyển.
+  tpCancelResponder: <prefix> <aqua><player> <gray>đã hủy yêu cầu dịch chuyển của
+    họ.
+  multipleRequestsCancel: '<prefix> <gray>Bạn có nhiều yêu cầu dịch chuyển đang chờ!
+    Nhấn vào một trong các mục sau để hủy:'
+  multipleRequestsIndex: <prefix> <click:run_command:<command> <player>><player></click>
+  multipleRequestsList: <prefix> <gray>Nhập /tpalist <Số Trang> để xem các yêu cầu
+    khác.
+  multipleRequestAccept: '<prefix> <gray>Bạn có nhiều yêu cầu dịch chuyển đang chờ!
+    Nhấn vào một trong các mục sau để chấp nhận:'
+  multipleRequestDeny: '<prefix> <gray>Bạn có nhiều yêu cầu dịch chuyển đang chờ!
+    Nhấn vào một trong các mục sau để từ chối:'
+  requestDeclined: <prefix> <gray>Bạn đã từ chối yêu cầu dịch chuyển!
+  requestDeclinedResponder: <prefix> <gray><aqua><player></aqua> đã từ chối yêu cầu
+    dịch chuyển của bạn!
+  requestDisplaced: <prefix> <gray>Yêu cầu của bạn đã bị hủy vì <aqua><player></aqua>
+    đã nhận yêu cầu khác!
+  deletedHome: <prefix> <gray>Đã xóa nhà <aqua><home></aqua> thành công!
+  deletedHomeOther: <prefix> <gray>Đã xóa nhà <aqua><home></aqua> cho <aqua><player></aqua>
+    thành công!
+  setHome: <prefix> <gray>Đã thiết lập nhà <aqua><home></aqua> thành công!
+  setHomeOther: <prefix> <gray>Đã thiết lập nhà <aqua><home></aqua> cho <aqua><player></aqua>
+    thành công!
+  setSpawn: <prefix> <gray>Đã thiết lập điểm spawn thành công!
+  setWarp: <prefix> <gray>Đã thiết lập warp <aqua><warp></aqua> thành công!
+  deletedWarp: <prefix> <gray>Đã xóa warp <aqua><warp></aqua> thành công!
+  purgeWarpsWorld: <prefix> <gray>Đã xóa toàn bộ warp trong <aqua><world></aqua> thành
+    công!
+  purgeWarpsCreator: <prefix> <gray>Đã xóa toàn bộ warp được tạo bởi <aqua><player></aqua>
+    thành công!
+  purgeHomesWorld: <prefix> <gray>Đã xóa toàn bộ nhà trong <aqua><world></aqua> thành
+    công!
+  purgeHomesCreator: <prefix> <gray>Đã xóa toàn bộ nhà được tạo bởi <aqua><player></aqua>
+    thành công!
+  searching: <prefix> <gray>Đang tìm kiếm vị trí...
+  unblockPlayer: <prefix> <gray>Đã bỏ chặn <aqua><player></aqua> thành công!
+  reloadingConfig: <prefix> <gray>Đang tải lại cấu hình <aqua>AdvancedTeleport</aqua>...
+  reloadedConfig: <prefix> <gray>Đã tải lại cấu hình thành công!
+  warps: <aqua><bold>Các điểm warp <dark_gray>» <reset>
+  homes: <aqua><bold>Các ngôi nhà <dark_gray>» <reset>
+  homesOther: <aqua><bold>Nhà của <player> <dark_gray>» <reset>
+  requestAccepted: <prefix> <gray>Bạn đã chấp nhận yêu cầu dịch chuyển!
+  requestAcceptedResponder: <prefix> <gray><aqua><player></aqua> đã chấp nhận yêu
+    cầu dịch chuyển của bạn!
+  paymentVault: <prefix> <gray>Bạn đã thanh toán <aqua><amount></aqua> và hiện tại
+    có <aqua><balance></aqua>!
+  paymentEXP: <prefix> <gray>Bạn đã thanh toán <aqua><amount> cấp EXP</aqua> và hiện
+    tại có <aqua><levels></aqua> cấp!
+  paymentPoints: <prefix> <gray>Bạn đã thanh toán <aqua><amount> điểm EXP</aqua> và
+    hiện tại có <aqua><points></aqua> điểm!
+  createdWarpSign: <prefix> <gray>Bảng dịch chuyển đã được tạo thành công!
+  createdRTPSign: <prefix> <gray>Bảng RandomTP đã được tạo thành công!
+  createdSpawnSign: <prefix> <gray>Bảng spawn đã được tạo thành công!
+  tpallRequestSent: <prefix> <gray>Đã gửi yêu cầu dịch chuyển tới <aqua><amount></aqua>
+    người chơi thành công!
+  teleportedToLoc: '<prefix> <gray>Bạn đã được dịch chuyển thành công đến <aqua><x></aqua>,
+    <aqua><y></aqua>, <aqua><z></aqua>! (Yaw: <aqua><yaw></aqua>, Pitch: <aqua><pitch></aqua>,
+    World: <aqua><world></aqua>)'
+  teleportedToLocOther: '<prefix> <gray><aqua><player></aqua> đã được dịch chuyển
+    thành công đến <aqua><x></aqua>, <aqua><y></aqua>, <aqua><z></aqua>! (Yaw: <aqua><yaw></aqua>,
+    Pitch: <aqua><pitch></aqua>, World: <aqua><world></aqua>)'
+  movedWarp: <prefix> <gray>Điểm dịch chuyển <aqua><warp></aqua> đã được di chuyển
+    tới vị trí hiện tại của bạn!
+  movedHome: <prefix> <gray>Ngôi nhà <aqua><home></aqua> đã được di chuyển tới vị
+    trí hiện tại của bạn!
+  movedHomeOther: <prefix> <gray>Ngôi nhà <aqua><home></aqua> của <aqua><player></aqua>
+    đã được di chuyển tới vị trí hiện tại của bạn!
+  setMainHome: <prefix> <gray><aqua><home></aqua> đã được đặt làm nhà chính của bạn!
+  setAndMadeMainHome: <prefix> <gray><aqua><home></aqua> đã được đặt tại vị trí hiện
+    tại của bạn và trở thành nhà chính!
+  setMainHomeOther: <prefix> <gray><aqua><home></aqua> đã được đặt làm nhà chính cho
+    <aqua><player></aqua>!
+  setAndMadeMainHomeOther: <prefix> <gray><aqua><home></aqua> đã được đặt tại vị trí
+    hiện tại của bạn và trở thành nhà chính cho <aqua><player></aqua>!
+  mirroredSpawn: <prefix> <gray>Điểm spawn của <aqua><from></aqua> đã được sao chép
+    tới <aqua><spawn></aqua>!
+  setMainSpawn: <prefix> <gray>Điểm spawn chính đã được đặt thành <aqua><spawn></aqua>!
+    Tất cả người chơi sẽ dịch chuyển đến đó nếu không có quyền hoặc điểm spawn khác.
+  removedSpawn: <prefix> <gray>Điểm spawn <aqua><spawn></aqua> đã bị xóa!
+  setSpawnSpecial: <prefix> <gray>Điểm spawn đặc biệt <aqua><spawn></aqua> đã được
+    đặt!
+  importStarted: <prefix> <gray>Bắt đầu nhập từ <aqua><plugin></aqua>...
+  importFinished: <prefix> <gray>Đã hoàn tất nhập từ <aqua><plugin></aqua>!
+  exportStarted: <prefix> <gray>Bắt đầu xuất sang <aqua><plugin></aqua>...
+  exportFinished: <prefix> <gray>Đã hoàn tất xuất sang <aqua><plugin></aqua>!
+  paymentItems: <prefix> <gray>Bạn đã thanh toán <aqua><amount> <type>(s)</aqua> cho
+    dịch chuyển này!
+  updateInfo: |-
+    <prefix> <hover:show_text:'<aqua>Phiên bản hiện tại <dark_gray>» <gray><version>
+    <aqua>Phiên bản mới <dark_gray>» <gray><new-version>
+    <aqua>Tiêu đề <dark_gray>» <gray><title>'><click:open_url:'https://www.spigotmc.org/resources/advancedteleport.64139/'><gray>AdvancedTeleport có bản cập nhật mới! Nhấp/di chuột lên văn bản này để biết thêm thông tin.</click></hover>
+  defaultParticlesUpdated: <prefix> <gray>Các hạt chờ mặc định đã được đặt theo thiết
+    lập hiện tại của bạn!
+  specificParticlesUpdated: <prefix> <gray>Các hạt chờ cho <aqua><type></aqua> đã
+    được đặt theo thiết lập hiện tại của bạn!
+  mapIconUpdateClickTooltip: <prefix> <gray>Đã cập nhật tooltip nhấp chuột cho <type>
+    <aqua><name></aqua>! Bản đồ sẽ được cập nhật sớm.
+  mapIconUpdateHoverTooltip: <prefix> <gray>Đã cập nhật tooltip di chuột cho <type>
+    <aqua><name></aqua>! Bản đồ sẽ được cập nhật sớm.
+  mapIconUpdateIcon: <prefix> <gray>Đã cập nhật biểu tượng cho <type> <aqua><name></aqua>!
+    Bản đồ sẽ được cập nhật sớm.
+  mapIconUpdateSize: <prefix> <gray>Đã cập nhật kích thước biểu tượng cho <type> <aqua><name></aqua>!
+    Bản đồ sẽ được cập nhật sớm.
+  mapIconUpdateVisibility: <prefix> <gray>Đã cập nhật tính năng hiển thị biểu tượng
+    cho <type> <aqua><name></aqua>! Bản đồ sẽ được cập nhật sớm.
+  mirrorSpawnSame: <prefix> <gray>Điểm spawn của <aqua><from></aqua> và <aqua><spawn></aqua>
+    đã giống nhau! Đừng lo lắng :)
+Tooltip:
+  homes: '<prefix> <gray>Dịch chuyển bạn đến nhà: <aqua><home>'
+  warps: '<prefix> <gray>Dịch chuyển bạn đến warp: <aqua><warp>'
+  location: |2-
+
+    <aqua>X <dark_gray>» <gray><x>
+    <aqua>Y <dark_gray>» <gray><y>
+    <aqua>Z <dark_gray>» <gray><z>
+    <aqua>Thế giới <dark_gray>» <gray><world>
+Menu:
+  Help:
+    header: <aqua>・．<gray>━━━━━━━━━━━</gray> <dark_gray>❰</dark_gray> <bold>Teleport
+      Nâng Cao</bold> <gray><current_page>/<total_pages> <dark_gray>❱</dark_gray>
+      <gray>━━━━━━━━━━━</gray>．・
+    option: <dark_gray>» <aqua><usage></aqua> ~ <gray><description>
+Descriptions:
+  Subcommands:
+    help: Gửi menu trợ giúp, cung cấp danh sách đầy đủ các lệnh.
+    info: Gửi thông tin về plugin.
+    import: Nhập dữ liệu từ một plugin khác để sử dụng trong AT.
+    export: Xuất dữ liệu trong AT sang một plugin khác.
+    reload: Tải lại cấu hình của plugin.
+    clearcache: Xóa bộ nhớ đệm RTP.
+    map:
+      setclicktooltip: Đặt tooltip cho biểu tượng AT trong plugin bản đồ khi nó được
+        nhấn (trừ Dynmap).
+      sethovertooltip: Đặt tooltip cho biểu tượng AT trong plugin bản đồ khi nó được
+        di chuột lên.
+      seticon: Đặt hình ảnh cho biểu tượng AT trong plugin bản đồ.
+      setsize: Đặt kích thước cho biểu tượng AT trong plugin bản đồ (trừ Dynmap).
+      setvisible: Đặt độ hiển thị cho biểu tượng AT trong plugin bản đồ khi nó được
+        nhấn.
+  at: Lệnh chính của AT.
+  tpa: Gửi yêu cầu dịch chuyển đến một người chơi khác.
+  tpahere: Gửi yêu cầu để người chơi khác dịch chuyển đến bạn.
+  tpyes: Chấp nhận yêu cầu dịch chuyển của một người chơi.
+  tpno: Từ chối yêu cầu dịch chuyển của một người chơi.
+  tpcancel: Hủy yêu cầu dịch chuyển của bạn đến một người chơi.
+  toggletp: Bật hoặc tắt việc cho phép người chơi gửi yêu cầu dịch chuyển đến bạn.
+  tpon: Cho phép người chơi gửi yêu cầu dịch chuyển đến bạn.
+  tpoff: Ngăn không cho người chơi gửi yêu cầu dịch chuyển đến bạn.
+  tpblock: Chặn một người chơi cụ thể không thể gửi yêu cầu dịch chuyển đến bạn.
+  tpunblock: Bỏ chặn người chơi để họ có thể gửi yêu cầu dịch chuyển đến bạn.
+  back: Dịch chuyển bạn về vị trí trước đó.
+  tpalist: Liệt kê tất cả các yêu cầu dịch chuyển hiện tại của bạn.
+  tpo: Dịch chuyển ngay lập tức đến một người chơi.
+  tpohere: Dịch chuyển ngay lập tức một người chơi đến vị trí của bạn.
+  tpall: Gửi yêu cầu dịch chuyển đến tất cả mọi người trong máy chủ để họ đến vị trí
+    của bạn.
+  tploc: Dịch chuyển bạn đến một vị trí cụ thể.
+  tpoffline: Dịch chuyển bạn đến một người chơi đang offline.
+  tpofflinehere: Dịch chuyển một người chơi đang offline đến vị trí của bạn.
+  tpr: Dịch chuyển bạn đến một vị trí ngẫu nhiên.
+  warp: Dịch chuyển bạn đến một điểm warp đã được thiết lập.
+  warps: Hiển thị danh sách các warp bạn có thể dịch chuyển đến.
+  setwarp: Thiết lập một điểm warp tại vị trí hiện tại của bạn.
+  delwarp: Xóa một điểm warp.
+  movewarp: Di chuyển một điểm warp đến vị trí mới.
+  spawn: Dịch chuyển bạn đến điểm spawn.
+  setspawn: Đặt điểm spawn với một tên cụ thể nếu có.
+  mirrorspawn: Chuyển hướng người dùng /spawn từ một thế giới đến một điểm spawn khác.
+  setmainspawn: Đặt một điểm spawn cụ thể làm spawn chính. Nếu chưa có, nó sẽ được
+    tạo ra nếu bạn có quyền dùng /setspawn.
+  removespawn: Xóa một điểm spawn cụ thể. Nếu không chỉ định, điểm spawn trong thế
+    giới hiện tại sẽ bị xóa.
+  home: Dịch chuyển bạn đến vị trí nhà của bạn.
+  homes: Hiển thị danh sách các vị trí nhà mà bạn đã thiết lập.
+  sethome: Đặt một vị trí nhà tại vị trí hiện tại của bạn.
+  delhome: Xóa một vị trí nhà.
+  movehome: Di chuyển một vị trí nhà đến vị trí mới.
+  setmainhome: Đặt một vị trí nhà tại vị trí hiện tại của bạn hoặc biến một vị trí
+    nhà thành nhà chính.
+  purge: Xóa tất cả warp hoặc nhà của người chơi hoặc trong thế giới được chỉ định.
+  particles: Áp dụng hiệu ứng hạt của bạn vào cấu hình mặc định hoặc một cấu hình
+    lệnh cụ thể.
+Usages:
+  Subcommands:
+    help: /at help [Category|Page]
+    info: /at info
+    import: /at import <Plugin> [All|Homes|LastLocs|Warps|Spawns|Players]
+    export: /at export <Plugin> [All|Homes|LastLocs|Warps|Spawns|Players]
+    purge: /at purge <Homes|Warps> <Player|World> <Player Name|World Name>
+    reload: /at reload
+    clearcache: /at clearcache [World]
+    particles: /at particles [Tpa|Tpahere|Home|Tpr|Warp|Spawn|Back]
+    map:
+      setclicktooltip: /at map setclicktooltip <Home|Warp|Spawn> [Home Owner] <Tooltip>
+      sethovertooltip: /at map sethovertooltip <Home|Warp|Spawn> [Home Owner] <Tooltip>
+      seticon: /at map seticon <Home|Warp|Spawn> [Home Owner] <Image Name>
+      setsize: /at map setsize <Home|Warp|Spawn> [Home Owner] <Image Size>
+      setvisible: /at map setvisible <Home|Warp|Spawn> [Home Owner] <true|false>
+  at: /at <Command>
+  tpa: /tpa <Player>
+  tpahere: /tpahere <Player>
+  tpyes: /tpyes [Player]
+  tpno: /tpno [Player]
+  tpcancel: /tpcancel [Player]
+  toggletp: /toggletp
+  tpon: /tpon
+  tpoff: /tpoff
+  tpblock: /tpblock <Player> [Reason]
+  tpunblock: /tpunblock <Player>
+  back: /back
+  tpalist: /tpalist
+  tpo: /tpo <Player>
+  tpohere: /tpohere <Player>
+  tpall: /tpall
+  tploc: /tploc <x|~> <y|~> <z|~> [Yaw|~] [Pitch|~] [World|~] [Player] [precise|noflight]
+  tpoffline: /tpoffline <Player>
+  tpofflinehere: /tpofflinehere <Player>
+  tpr: /tpr [World]
+  warp: /warp <Warp>
+  warps: /warps
+  setwarp: /setwarp <Name>
+  delwarp: /delwarp <Name>
+  movewarp: /movewarp <Name>
+  spawn: /spawn
+  setspawn: /setspawn [ID]
+  mirrorspawn: /mirrorspawn <To Point>|[From World] [To Point]
+  setmainspawn: /setmainspawn [Point]
+  removespawn: /removespawn [Point]
+  home: /home [Home]
+  homes: /homes
+  sethome: /sethome <Name>
+  delhome: /delhome <Home>
+  movehome: /movehome <Home>
+  setmainhome: /setmainhome <Home>
+Usages-Admin:
+  tpr: /tpr [World] [Player]
+  home: /home [Home]|<Player> <Home>
+  homes: /homes [Player]
+  delhome: /delhome <Home>|<Player> <Home>
+  sethome: /sethome <Name>|<Player> <Name>
+  movehome: /movehome <Home>|<Player> <Home>
+  setmainhome: /setmainhome <Home>|<Player> <Home>
+  spawn: /spawn <ID>
+Signs:
+  bed: <blue><bold>[Bed]</bold></blue>
+  home: <blue><bold>[Home]</bold></blue>
+  homes: <blue><bold>[Homes]</bold></blue>
+  randomtp: <blue><bold>[RandomTP]</bold></blue>
+  spawn: <blue><bold>[Spawn]</bold></blue>
+  warp: <blue><bold>[Warp]</bold></blue>
+  warps: <blue><bold>[Warps]</bold></blue>
+Forms:
+  tpahere-title: TPAHere Request
+  tpahere-description: Chọn người chơi để gửi yêu cầu TPAHere.
+  tpa-title: TPA Request
+  tpa-description: Chọn người chơi để gửi yêu cầu TPA.
+  tpa-received-title: TPA Request
+  tpa-received-description: Người chơi <player> muốn dịch chuyển đến bạn!
+  tpa-received-accept: Chấp nhận
+  tpa-received-deny: Từ chối
+  tpahere-received-title: TPAHere Request
+  tpahere-received-description: Người chơi <player> muốn bạn dịch chuyển đến họ!
+  tpahere-received-accept: Chấp nhận
+  tpahere-received-deny: Từ chối
+  home-title: Homes
+  home-description: Chọn nhà để dịch chuyển đến.
+  sethome-title: Set Home
+  sethome-description: Nhập tên nhà.
+  delhome-title: Delete Home
+  delhome-description: Chọn nhà để xóa.
+  setmainhome-title: Set Main Home
+  setmainhome-description: Nhập tên nhà đã tồn tại hoặc tên mới.
+  movehome-title: Move Home
+  movehome-description: Chọn nhà để di chuyển.
+  warp-title: Warps
+  warp-description: Chọn warp để dịch chuyển đến.
+  delwarp-title: Delete Warp
+  delwarp-description: Chọn warp để xóa.
+  setwarp-title: Set Warp
+  setwarp-description: Nhập tên warp.
+  movewarp-title: Move Warp
+  movewarp-description: Chọn warp để di chuyển.
+  tpblock-title: Block Player
+  tpblock-description: Chọn người chơi để chặn.
+  tpunblock-title: Unblock Player
+  tpunblock-description: Chọn người chơi để mở chặn.
+  tpcancel-title: Cancel TP Request
+  tpcancel-description: Chọn yêu cầu để hủy.
+  tpo-title: Teleport
+  tpo-description: Chọn người chơi để dịch chuyển đến.
+  tpohere-title: Teleport Here
+  tpohere-description: Chọn người chơi để dịch chuyển đến vị trí của bạn.

@@ -1,0 +1,4 @@
+&6Chào mừng, {PLAYER}&6!  
+&6Gõ &c/help&6 để xem danh sách các lệnh.  
+&6Gõ &c/list&6 để xem danh sách người chơi đang trực tuyến.  
+&6Người chơi trực tuyến: &c{ONLINE} &6- Thời gian trong thế giới: &c{WORLDTIME12}

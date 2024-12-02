@@ -1,0 +1,38 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 42.113.16.206
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1732898403335
+  login: 1732896148047
+money: '99999'
+last-account-name: ABaBao
+logoutlocation:
+  world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+  world-name: world
+  x: -487.38608511715853
+  y: 77.0
+  z: -112.76353766566353
+  yaw: -134.9991455078125
+  pitch: 23.55000114440918
+lastlocation:
+  world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+  world-name: world
+  x: -488.5
+  y: 74.02442408821369
+  z: -110.5
+  yaw: -159.7496337890625
+  pitch: -45.00001525878906

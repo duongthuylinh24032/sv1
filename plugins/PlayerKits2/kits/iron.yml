@@ -1,0 +1,47 @@
+cooldown: 10800
+items:
+  1:
+    id: IRON_AXE
+    amount: 1
+  2:
+    id: IRON_PICKAXE
+    amount: 1
+  3:
+    id: IRON_SWORD
+    amount: 1
+display:
+  default:
+    id: IRON_AXE
+    name: '&c&lBộ &cSắt'
+    lore:
+      - '&fBộ kit này bao gồm:'
+      - '&8- &7x1 Rìu Sắt'
+      - '&8- &7x1 Cuốc Sắt'
+      - '&8- &7x1 Thanh Kiếm Sắt'
+      - ' '
+      - '&7Thời gian chờ: &c3 giờ'
+      - ''
+      - '&aNhấn trái để nhận!'
+      - '&bNhấn phải để xem trước!'
+    item_flags:
+      - HIDE_ATTRIBUTES
+  cooldown:
+    id: IRON_AXE
+    name: "&c&lBộ &cSắt"
+    lore:
+      - '&fBộ kit này bao gồm:'
+      - '&8- &7x1 Rìu Sắt'
+      - '&8- &7x1 Cuốc Sắt'
+      - '&8- &7x1 Thanh Kiếm Sắt'
+      - ' '
+      - "&cBạn cần chờ &7%time%"
+      - "&cthì mới có thể nhận lại bộ kit này."
+    item_flags:
+      - HIDE_ATTRIBUTES
+actions:
+  claim:
+    1:
+      action: "playsound: BLOCK_NOTE_BLOCK_PLING;10;2"
+  error:
+    1:
+      action: "playsound: BLOCK_NOTE_BLOCK_PLING;10;0.1"

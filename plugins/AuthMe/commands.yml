@@ -1,0 +1,74 @@
+
+# This configuration file allows you to execute commands on various events.
+# Supported placeholders in commands:
+#   %p is replaced with the player name.
+#   %nick is replaced with the player's nick name
+#   %ip is replaced with the player's IP address
+#   %country is replaced with the player's country
+# 
+# For example, if you want to send a welcome message to a player who just registered:
+# onRegister:
+#   welcome:
+#     command: 'msg %p Welcome to the server!'
+#     executor: CONSOLE
+# 
+# This will make the console execute the msg command to the player.
+# Each command under an event has a name you can choose freely (e.g. 'welcome' as above),
+# after which a mandatory 'command' field defines the command to run,
+# and 'executor' defines who will run the command (either PLAYER or CONSOLE). Longer example:
+# onLogin:
+#   welcome:
+#     command: 'msg %p Welcome back!'
+#     executor: PLAYER
+#   broadcast:
+#     command: 'broadcast %p has joined, welcome back!'
+#     executor: CONSOLE
+# 
+# You can also add delay to command. It will run after the specified ticks. Example:
+# onLogin:
+#   rules:
+#     command: 'rules'
+#     executor: PLAYER
+#     delay: 200
+# 
+# Supported command events: onLogin, onSessionLogin, onFirstLogin, onJoin, onLogout, onRegister, onUnregister
+# 
+# For onLogin and onFirstLogin, you can use 'ifNumberOfAccountsLessThan' and 'ifNumberOfAccountsAtLeast'
+# to specify limits to how many accounts a player can have (matched by IP) for a command to be run:
+# onLogin:
+#   warnOnManyAccounts:
+#     command: 'say Uh oh! %p has many alt accounts!'
+#     executor: CONSOLE
+#     ifNumberOfAccountsAtLeast: 5
+# Commands to run for players logging in whose 'last login date' was empty
+# Cấu hình lệnh tự động cho các sự kiện người chơi
+
+# Khi người chơi đăng ký
+onRegister: {}
+
+# Khi người chơi đăng nhập
+onLogin: {}
+
+# Khi người chơi đăng nhập lần đầu
+onFirstLogin:
+  welcome:
+    command: 'msg %p Chào mừng bạn đến lần đầu tiên!'
+    executor: CONSOLE
+
+# Khi người chơi đăng nhập trong phiên
+onSessionLogin: {}
+
+# Khi người chơi tham gia server
+onJoin: {}
+
+# Khi người chơi đăng xuất khỏi server
+onLogout:
+  farewell:
+    command: 'say %p đã rời khỏi server.'
+    executor: CONSOLE
+
+# Khi người chơi hủy đăng ký tài khoản
+onUnregister:
+  farewell:
+    command: 'say %p đã hủy đăng ký.'
+    executor: CONSOLE

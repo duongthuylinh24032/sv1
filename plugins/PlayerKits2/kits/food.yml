@@ -1,0 +1,38 @@
+cooldown: 3600
+items:
+  1:
+    id: COOKED_BEEF
+    amount: 5
+  2:
+    id: COOKED_CHICKEN
+    amount: 5
+display:
+  default:
+    id: COOKED_BEEF
+    name: '&c&lBộ &cThực Phẩm'
+    lore:
+      - '&fBộ kit này bao gồm:'
+      - '&8- &7x5 Thịt Bò Nướng'
+      - '&8- &7x5 Thịt Gà Nướng'
+      - ' '
+      - '&7Thời gian chờ: &c1 giờ'
+      - ''
+      - '&aNhấn trái để nhận!'
+      - '&bNhấn phải để xem trước!'
+  cooldown:
+    id: COOKED_BEEF
+    name: "&c&lBộ &cThực Phẩm"
+    lore:
+      - '&fBộ kit này bao gồm:'
+      - '&8- &7x5 Thịt Bò Nướng'
+      - '&8- &7x5 Thịt Gà Nướng'
+      - ' '
+      - "&cBạn cần chờ &7%time%"
+      - "&cthì mới có thể nhận lại bộ kit này."
+actions:
+  claim:
+    1:
+      action: "playsound: BLOCK_NOTE_BLOCK_PLING;10;2"
+  error:
+    1:
+      action: "playsound: BLOCK_NOTE_BLOCK_PLING;10;0.1"

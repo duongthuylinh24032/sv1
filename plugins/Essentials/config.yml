@@ -1,0 +1,1154 @@
+###################################################### ###########
+# +------------------------------------------------ ------+ #
+# |                       Ghi chú | #
+# +------------------------------------------------ ------+ #
+###################################################### ###########
+
+# Đây là file cấu hình cho EssentialsX.
+# Cấu hình này được tạo cho phiên bản 2.20.1.
+
+# Nếu bạn muốn sử dụng các ký tự đặc biệt trong tài liệu này, chẳng hạn như chữ cái có dấu, bạn PHẢI lưu tệp dưới dạng UTF-8, không phải ANSI.
+# Nếu bạn gặp lỗi khi tải Essentials, hãy đảm bảo rằng:
+# - Không có tab nào: YAML chỉ cho phép khoảng trắng
+# - Thụt lề đúng: Hệ thống phân cấp YAML hoàn toàn dựa trên thụt lề
+# - Bạn đã "thoát" tất cả các dấu nháy đơn trong văn bản của mình: Nếu bạn muốn viết "don't" chẳng hạn, hãy viết "don''t" thay thế (lưu ý dấu nháy đơn kép)
+# - Văn bản có ký hiệu được đặt trong dấu ngoặc đơn hoặc dấu ngoặc kép
+
+# Nếu cần trợ giúp, bạn có thể tham gia cộng đồng EssentialsX: https://essentialsx.net/community.html
+
+###################################################### ###########
+# +------------------------------------------------ ------+ #
+# |                 Essentials (Global)                   | #
+# +------------------------------------------------ ------+ #
+###################################################### ###########
+
+# Mã màu trong khoảng 0-9 hoặc a-f. Đặt thành 'không' để tắt.
+# Trong 1.16+ bạn cũng có thể sử dụng mã màu hex ở đây. (Ví dụ: #613e1d có màu nâu).
+ops-name-color: '-1'
+
+# (Các) ký tự đặt trước tất cả các biệt hiệu, để bạn biết chúng không phải là tên người dùng thực sự.
+# Người dùng có Essentials.nick.hideprefix sẽ không có (các) ký tự ở đầu
+nickname-prefix: '~'
+
+# Độ dài tối đa được phép trong biệt hiệu. Tiền tố biệt hiệu không được bao gồm trong này.
+max-nick-length: 15
+
+# Danh sách các cụm từ không thể sử dụng trong biệt danh. Bạn có thể bao gồm các biểu thức thông thường ở đây.
+# Người dùng có Essentials.nick.blacklist.bypass sẽ có thể bỏ qua bộ lọc này.
+nick-blacklist:
+#- Notch
+#- '^Xương bữa tối'
+
+# Khi tùy chọn này được bật, việc kiểm tra độ dài biệt danh sẽ loại trừ mã màu trong tên người chơi.
+# tức là: "&6Notch" có 7 ký tự (2 là một phần của mã màu), độ dài 5 được sử dụng khi tùy chọn này được đặt thành true
+ignore-colors-in-max-nick-length: false
+
+# Khi tùy chọn này được bật, tên hiển thị của người dùng ẩn sẽ không được hiển thị. Điều này ngăn cản người chơi khỏi bị
+# có thể thấy rằng họ đang trực tuyến trong khi biến mất.
+hide-displayname-in-vanish: true
+
+# Tắt tính năng này nếu bạn có bất kỳ plugin nào khác sửa đổi tên hiển thị của người dùng.
+change-displayname: true
+
+# Tùy chọn này sẽ khiến Essentials hiển thị tên hiển thị của người chơi thay vì tên người dùng khi tab hoàn thành các lệnh Essentials.
+change-tab-complete-name: false
+
+# Khi tùy chọn này được bật, danh sách (tab) người chơi sẽ được cập nhật với tên hiển thị.
+# Giá trị của tên hiển thị thay đổi (ở trên) phải đúng.
+#thay đổi danh sách người chơi: đúng
+
+# Khi EssentialsChat.jar không được sử dụng, hãy buộc các yếu tố cần thiết thêm tiền tố và hậu tố từ các plugin cấp phép vào tên hiển thị.
+# Cài đặt này bị bỏ qua nếu EssentialsChat.jar được sử dụng và mặc định là 'true'.
+# Giá trị của tên hiển thị thay đổi (ở trên) phải đúng.
+# Không chỉnh sửa cài đặt này trừ khi bạn biết mình đang làm gì!
+#add-tiền tố-hậu tố: sai
+
+# Khi tùy chọn này được bật, tiền tố người chơi sẽ được hiển thị trong danh sách người chơi.
+# Tính năng này chỉ hoạt động với Minecraft phiên bản 1.8 trở lên.
+# Giá trị thay đổi danh sách người chơi này phải đúng
+#thêm tiền tố vào danh sách người chơi: đúng
+
+# Khi tùy chọn này được bật, hậu tố người chơi sẽ được hiển thị trong danh sách người chơi.
+# Tính năng này chỉ hoạt động với Minecraft phiên bản 1.8 trở lên.
+# Giá trị thay đổi danh sách người chơi này phải đúng
+#add-hậu tố trong danh sách người chơi: đúng
+
+# Nếu điểm đến dịch chuyển không an toàn, người chơi có nên được dịch chuyển đến địa điểm an toàn gần nhất không?
+# Nếu điều này được đặt thành đúng, Essentials sẽ cố gắng dịch chuyển người chơi đến gần điểm đến đã định.
+# Nếu điều này được đặt thành sai, nỗ lực dịch chuyển tức thời đến các vị trí không an toàn sẽ bị hủy kèm theo một cảnh báo.
+teleport-safety: true
+
+# Điều này sẽ vô hiệu hóa mạnh mẽ việc kiểm tra an toàn dịch chuyển tức thời mà không có cảnh báo nếu cố gắng dịch chuyển tức thời đến các địa điểm không an toàn.
+# teleport-safety và tùy chọn này cần được đặt thành true để buộc dịch chuyển tức thời đến các vị trí nguy hiểm.
+force-disable-teleport-safety: false
+
+# Nếu người chơi dịch chuyển đến một địa điểm không an toàn ở chế độ sáng tạo, phiêu lưu hoặc thần thánh; họ sẽ không được dịch chuyển đến một
+#địa điểm an toàn. Nếu bạn muốn người chơi luôn được dịch chuyển đến vị trí an toàn, hãy đặt tùy chọn này thành true.
+force-safe-teleport-location: false
+
+# Nếu người chơi có bất kỳ hành khách nào, việc dịch chuyển sẽ thất bại. Hành khách của họ có nên xuống ngựa trước khi họ được dịch chuyển không?
+# Nếu điều này được đặt thành đúng, Essentials sẽ xuống ngựa hành khách của người chơi trước khi dịch chuyển.
+# Nếu điều này được đặt thành sai, việc cố gắng dịch chuyển tức thời sẽ bị hủy kèm theo một cảnh báo.
+teleport-passenger-dismount: true
+
+# Độ trễ, tính bằng giây, được yêu cầu giữa /home, /tp, v.v.
+teleport-cooldown: 15
+
+# Độ trễ tính bằng giây trước khi người dùng thực sự dịch chuyển tức thời. Nếu người dùng di chuyển hoặc bị tấn công trong khung thời gian này, dịch chuyển sẽ bị hủy.
+teleport-delay: 5
+
+# Độ trễ tính bằng giây, người chơi không thể bị người chơi khác tấn công sau khi họ đã được dịch chuyển bằng lệnh.
+# Điều này cũng sẽ ngăn người chơi tấn công người chơi khác.
+teleport-invulnerability: 4
+
+# Có thực hiện tất cả dịch chuyển tức thời đến trung tâm của khối hay không; trong đó tọa độ thập phân x và z trở thành 0,5
+teleport-to-center: true
+
+# Độ trễ, tính bằng giây, được yêu cầu giữa các lần thử /heal or /feed attempts.
+heal-cooldown: 60
+
+# Bạn có muốn loại bỏ hiệu ứng thuốc khi chữa lành vết thương cho người chơi không?
+remove-effects-on-heal: true
+
+# Gần bán kính
+# Bán kính mặc định với /near
+# Được sử dụng để sử dụng bán kính trò chuyện nhưng chúng tôi sẽ tách nó ra.
+near-radius: 200
+
+# Những điều cần tránh /item và /give.
+# ví dụ: danh sách đen sinh sản vật phẩm: 10,11,46
+item-spawn-blacklist:
+
+# Đặt giá trị này thành true nếu bạn muốn quy tắc xuất hiện vật phẩm dựa trên quyền.
+#Lưu ý: Khi đó blacklist ở trên sẽ bị bỏ qua.
+# Các quyền ví dụ (những quyền này nằm trong trình quản lý quyền của bạn):
+# - Essentials.itemspawn.item-all
+# - Essentials.itemspawn.item-[itemname]
+# - Essentials.itemspawn.item-[itemid]
+# - Essentials.give.item-all
+# - Essentials.give.item-[itemname]
+# - Essentials.give.item-[itemid]
+# - Essentials.unlimited.item-all
+# - Essentials.unlimited.item-[itemname]
+# - Essentials.unlimited.item-[itemid]
+# - Essentials.unlimited.item-bucket # Đặt chất lỏng không giới hạn
+#
+# Để biết thêm thông tin, hãy truy cập http://wiki.ess3.net/wiki/Command_Reference/ICheat#Item.2FGive
+permission-based-item-spawn: false
+
+# Giới hạn Mob đối với lệnh /spawnmob cho mỗi lần thực thi.
+spawnmob-limit: 10
+
+# Chúng ta có nên thông báo cho người dùng khi sử dụng /lightning không?
+warn-on-smite: true
+
+# Chúng ta có nên bỏ vật phẩm thay vì thêm vào kho nếu kho mục tiêu đã đầy không?
+drop-items-if-full: false
+
+# Thông báo thư cần thiết
+# Chúng tôi có nên thông báo cho người chơi nếu họ không có thư mới không?
+notify-no-new-mail: true
+
+# Chỉ định khoảng thời gian (tính bằng giây) giữa mỗi lần người chơi được thông báo về thư họ có.
+# Hữu ích cho các máy chủ có nhiều lưu lượng thư.
+notify-player-of-mail-cooldown: 60
+
+# Motd và quy tắc hiện được cấu hình trong các tệp motd.txt và quy tắc.txt.
+
+# Khi một lệnh xung đột với một plugin khác, theo mặc định, Essentials sẽ cố gắng buộc plugin KHÁC được ưu tiên.
+# Các lệnh trong danh sách này, sẽ yêu cầu Essentials “không bỏ cuộc” lệnh với các plugin khác.
+# Ở trạng thái này, plugin nào 'thắng' dường như gần như ngẫu nhiên.
+#
+# Nếu bạn có hai plugin có cùng lệnh và bạn muốn buộc Essentials tiếp quản, bạn cần có bí danh.
+# Buộc những thứ thiết yếu phải lấy 'thần' bí danh 'thần' thành 'bản ngã'.
+# Xem https://bukkit.fandom.com/wiki/Commands.yml#aliases để biết thêm thông tin.
+
+overridden-commands:
+#  - god
+#  - info
+
+# Việc tắt lệnh ở đây sẽ ngăn Essentials xử lý lệnh, điều này sẽ không ảnh hưởng đến xung đột lệnh.
+# Bạn không cần phải tắt các lệnh được sử dụng trong các plugin khác, chúng sẽ tự động được ưu tiên.
+# Xem https://bukkit.fandom.com/wiki/Commands.yml#aliases để ánh xạ lệnh tới các plugin khác.
+disabled-commands:
+#  - nick
+#  - clear
+
+# Essentials có hiển thị cách sử dụng lệnh chi tiết hay không.
+# Nếu được đặt thành false, Essentials sẽ thu gọn tất cả cách sử dụng thành một thông báo sử dụng duy nhất.
+verbose-command-usages: true
+
+# Những lệnh này sẽ được hiển thị cho người chơi đã bật enabledplayer perms.
+# Bạn có thể thêm lệnh từ các plugin khác mà bạn có thể muốn theo dõi hoặc
+# xóa các lệnh được sử dụng cho mục đích mà bạn không muốn theo dõi.
+# Đặt - '*' để nghe tất cả các lệnh có thể.
+socialspy-commands:
+  - msg
+  - w
+  - r
+  - mail
+  - m
+  - t
+  - whisper
+  - emsg
+  - tell
+  - er
+  - reply
+  - ereply
+  - email
+  - action
+  - describe
+  - eme
+  - eaction
+  - edescribe
+  - etell
+  - ewhisper
+  - pm
+
+# Liệu tin nhắn riêng tư và công khai từ những người chơi bị tắt tiếng có xuất hiện trong phần mềm gián điệp xã hội hay không.
+# Nếu vậy, chúng sẽ khác với những thứ được gửi bởi người chơi bình thường.
+socialspy-listen-muted-players: true
+
+# Liệu gián điệp xã hội nên theo dõi tin nhắn riêng tư hay chỉ các lệnh từ danh sách trên.
+# Nếu sai, mạng xã hội gián điệp sẽ chỉ giám sát các lệnh từ danh sách trên.
+socialspy-messages: true
+
+# Các cài đặt sau sẽ lắng nghe khi người chơi thay đổi thế giới.
+# Nếu bạn sử dụng plugin khác để kiểm soát tốc độ và chuyến bay, bạn nên thay đổi chúng thành sai.
+
+# Khi người chơi thay đổi thế giới, EssentialsX có nên đặt lại chuyến bay của họ không?
+# Điều này sẽ vô hiệu hóa chuyến bay nếu người chơi không có Essentials.fly.
+world-change-fly-reset: true
+
+# Khi người chơi thay đổi thế giới, chúng ta có nên đặt lại tốc độ của họ theo quyền của họ không?
+# Điều này sẽ đặt lại tốc độ của người chơi về mặc định nếu họ không có Essentials.speed.
+# Nếu người chơi không có Essentials.speed.bypass, thao tác này sẽ đặt lại tốc độ của họ về mức tối đa được chỉ định ở trên.
+world-change-speed-reset: true
+
+# Lệnh tắt tiếng
+# Các lệnh này sẽ bị tắt khi người chơi bị tắt tiếng.
+# Sử dụng '*' để tắt mọi lệnh.
+# Essentials đã tắt các lệnh nhắn tin của Essentials theo mặc định.
+# Nó chỉ quan tâm đến lệnh root, không args sau đó (nó thấy /f chat giống /f)
+
+mute-commands:
+  - f
+  - kittycannon
+ # - '*'
+
+# Nếu bạn không muốn sử dụng hệ thống cấp phép, bạn có thể xác định danh sách 'player perms' bên dưới.
+# Danh sách này không có hiệu lực nếu bạn đang sử dụng hệ thống cấp phép được hỗ trợ.
+# Nếu bạn đang sử dụng hệ thống cấp phép không được hỗ trợ, chỉ cần xóa phần này.
+# Đưa vào danh sách trắng các lệnh và quyền mà bạn muốn cấp cho người chơi theo mặc định (mọi thứ khác chỉ tùy chọn).
+# Đây là những quyền không có "essentials". phần.
+#
+# Để bật tính năng này, vui lòng đặt quyền use-bukkit-permissions thành false.
+player-commands:
+  - afk
+  - afk.auto
+  - back
+  - back.ondeath
+  - balance
+  - balance.others
+  - balancetop
+  - build
+  - chat.color
+  - chat.format
+  - chat.shout
+  - chat.question
+  - clearinventory
+  - compass
+  - depth
+  - delhome
+  - getpos
+  - geoip.show
+  - help
+  - helpop
+  - home
+  - home.others
+  - ignore
+  - info
+  - itemdb
+  - kit
+  - kits.tools
+  - list
+  - mail
+  - mail.send
+  - me
+  - motd
+  - msg
+  - msg.color
+  - nick
+  - near
+  - pay
+  - ping
+  - protect
+  - r
+  - rules
+  - renamehome
+  - realname
+  - seen
+  - sell
+  - sethome
+  - setxmpp
+  - signs.create.protection
+  - signs.create.trade
+  - signs.break.protection
+  - signs.break.trade
+  - signs.use.balance
+  - signs.use.buy
+  - signs.use.disposal
+  - signs.use.enchant
+  - signs.use.free
+  - signs.use.gamemode
+  - signs.use.heal
+  - signs.use.info
+  - signs.use.kit
+  - signs.use.mail
+  - signs.use.protection
+  - signs.use.repair
+  - signs.use.sell
+  - signs.use.time
+  - signs.use.trade
+  - signs.use.warp
+  - signs.use.weather
+  - spawn
+  - suicide
+  - time
+  - tpa
+  - tpaccept
+  - tpahere
+  - tpdeny
+  - warp
+  - warp.list
+  - world
+  - worth
+  - xmpp
+
+# Sử dụng tùy chọn này để buộc xử lý quyền dựa trên superperms bất kể plugin perms đã cài đặt được phát hiện.
+# Điều này hữu ích nếu bạn muốn các quyền dựa trên siêu quyền (có ký tự đại diện) cho các plugin quyền tùy chỉnh.
+# Nếu bạn muốn sử dụng các quyền tích hợp của EssentialsX bằng cách sử dụng phần `lệnh người chơi` ở trên, hãy đặt phần này thành sai.
+# Mặc định là đúng.
+use-bukkit-permissions: true
+
+# Khi tùy chọn này được bật, bộ công cụ sử dụng một lần (tức là độ trễ < 0) sẽ được
+# bị xóa khỏi danh sách /kit khi người chơi không thể sử dụng nó nữa
+skip-used-one-time-kits-from-kit-list: false
+
+# Khi được bật, áo giáp từ bộ dụng cụ sẽ tự động được trang bị miễn là các khe áo giáp của người chơi trống.
+kit-auto-equip: false
+
+# Xác định chức năng của lệnh /createkit.
+# Nếu điều này đúng, /createkit sẽ cung cấp cho người dùng một liên kết có mã kit.
+# Nếu điều này sai, /createkit sẽ thêm bộ công cụ này trực tiếp vào tệp cấu hình kits.yml.
+# Mặc định là sai.
+pastebin-createkit: false
+
+# Xác định xem /createkit có tạo ra các bộ công cụ bằng cách sử dụng tuần tự hóa mục NBT hay không.
+# Nếu điều này đúng, /createkit sẽ lưu trữ các mục dưới dạng NBT; nếu không, nó sẽ sử dụng định dạng mục mà con người có thể đọc được của Essentials.
+# Bằng cách sử dụng tuần tự hóa NBT, /createkit có thể lưu trữ các vật phẩm có siêu dữ liệu phức tạp như hộp shulker và vũ khí có thuộc tính tùy chỉnh.
+# CẢNH BÁO: Tùy chọn này chỉ hoạt động trên máy chủ giấy 1.15.2+ và nó sẽ bỏ qua mọi trình tuần tự hóa tùy chỉnh từ các plugin khác như Magic.
+# CẢNH BÁO: Khi tạo bộ công cụ thông qua /createkit với tùy chọn này được bật, bạn sẽ không thể hạ cấp máy chủ của mình bằng các mục bộ công cụ này.
+# Tùy chọn này chỉ ảnh hưởng đến /createkit - bạn vẫn có thể tạo bộ công cụ thủ công trong `kits.yml` bằng định dạng mục mà con người có thể đọc được của Essentials.
+# Mặc định là sai.
+use-nbt-serialization-in-createkit: false
+
+# Kiểm soát dấu hiệu thiết yếu
+# Xem http://wiki.ess3.net/wiki/Sign_Tutorial để biết hướng dẫn về cách sử dụng chúng.
+# Để bật biển báo, hãy xóa ký hiệu #. Để tắt tất cả các biển báo, hãy bình luận/xóa từng biển báo.
+# Hỗ trợ biển báo màu cần thiết sẽ được bật khi bất kỳ loại biển báo nào được bật.
+# Màu sắc không phải là một biển báo thực tế, nó dùng để cho phép sử dụng mã màu trên các biển báo khi được cấp quyền chính xác.
+
+enabledSigns:
+  #- color
+  #- balance
+  #- buy
+  #- sell
+  #- trade
+  #- free
+  #- warp
+  #- kit
+  #- mail
+  #- enchant
+  #- gamemode
+  #- heal
+  #- info
+  #- spawnmob
+  #- repair
+  #- time
+  #- weather
+  #- anvil
+  #- cartography
+  #- disposal
+  #- grindstone
+  #- loom
+  #- smithing
+  #- workbench
+
+# Mỗi người chơi có thể tương tác với các dấu hiệu Essentials bao nhiêu lần mỗi giây.
+# Giá trị phải nằm trong khoảng 1-20, 20 hầu như không có khả năng bảo vệ độ trễ.
+# Số thấp hơn sẽ giảm khả năng bị lag nhưng có thể gây khó chịu cho người chơi.
+sign-use-per-second: 4
+
+# Cho phép ID vật phẩm trên các dấu hiệu có sẵn từ 1.13 trở lên.
+# Bạn không thể sử dụng ID vật phẩm trên các biển hiệu mới, nhưng điều này sẽ cho phép người chơi tương tác với các biển hiệu đó
+# được đặt trước 1.13.
+allow-old-id-signs: false
+
+# Danh sách ký tên Thiết yếu không nên bảo vệ. Tính năng này đặc biệt hữu ích khi
+# một plugin khác cung cấp dấu hiệu mà EssentialsX cung cấp, nhưng Essentials sẽ ghi đè.
+# Ví dụ: nếu một plugin cung cấp ký hiệu [kit] và bạn muốn sử dụng ký hiệu của chúng thay vì
+# Essentials thì chỉ cần thêm bộ bên dưới và Essentials sẽ không bảo vệ nó.
+#
+# Xem https://github.com/drtshock/Essentials/pull/699 để biết thêm thông tin.
+#- bộ
+
+# Sao lưu chạy lệnh batch/bash tùy chỉnh trong một khoảng thời gian được chỉ định.
+# Máy chủ sẽ cứu thế giới trước khi thực hiện lệnh sao lưu và vô hiệu hóa
+# lưu trong quá trình sao lưu để ngăn chặn tham nhũng trên thế giới hoặc các xung đột khác.
+# Sao lưu cũng có thể được kích hoạt thủ công bằng /backup.
+backup:
+  # Khoảng thời gian tính bằng phút.
+  interval: 30
+  # Nếu đúng, tác vụ sao lưu sẽ chạy ngay cả khi không có người chơi trực tuyến.
+  always-run: false
+  # Trừ khi bạn thêm lệnh hoặc tập lệnh sao lưu hợp lệ vào đây, tính năng này sẽ vô dụng.
+  # Sử dụng 'save-all' để bắt buộc lưu thế giới thông thường mà không cần sao lưu.
+  # Lệnh ví dụ bên dưới sử dụng rdiff-backup: https://rdiff-backup.net/
+  #command: 'rdiff-backup bản sao lưu World1/World1'
+
+# Đặt điều này đúng để cho phép mỗi sợi dọc.
+per-warp-permission: false
+
+# Sắp xếp đầu ra của lệnh /list theo nhóm.
+# Bạn có thể ẩn và hợp nhất các nhóm được hiển thị trong /list bằng cách xác định hành vi mong muốn tại đây.
+# Hướng dẫn chi tiết và ví dụ có thể tìm thấy trên wiki: http://wiki.ess3.net/wiki/List
+list:
+  # Để hợp nhất các nhóm, hãy liệt kê các nhóm bạn muốn hợp nhất
+  #Nhân viên: chủ sở hữu quản trị viên người điều hành
+  Admins: owner admin
+  # Để giới hạn nhóm, hãy đặt giới hạn người dùng tối đa
+  #thợ xây dựng: 20
+  # Để ẩn nhóm, đặt nhóm là ẩn
+  #mặc định: ẩn
+  # Bỏ ghi chú dòng bên dưới để liệt kê tất cả người chơi không có nhóm
+  #Người chơi: '*'
+
+# Hiển thị tên thật trong /list bên cạnh những người chơi đang sử dụng biệt hiệu.
+real-names-on-list: false
+
+# Thêm đầu ra cho bảng điều khiển.
+debug: true
+
+# Đặt ngôn ngữ cho tất cả tin nhắn.
+# Nếu bạn không đặt cài đặt này, ngôn ngữ mặc định của máy chủ sẽ được sử dụng.
+# Ví dụ: để đặt ngôn ngữ sang tiếng Anh, hãy đặt ngôn ngữ thành en, để sử dụng tệp "messages_en.properties".
+# Đừng quên bỏ dấu # ở đầu dòng.
+# Để biết thêm thông tin, hãy truy cập http://wiki.ess3.net/wiki/Locale
+locale: vi
+
+# Tắt chế độ thần thánh khi mọi người rời khỏi máy chủ.
+remove-god-on-disconnect: false
+
+# Tự động AFK
+# Sau thời gian chờ nàyviính bằng giây, người dùng sẽ được đặt là AFK.
+# Tính năng này yêu cầu người chơi phải có nút Essentials.afk.auto.
+# Đặt thành -1 để không hết thời gian chờ.
+auto-afk: 300
+
+# Tự động đá AFK
+# Sau thời gian chờ này tính bằng giây, người dùng sẽ bị đuổi khỏi máy chủ.
+# Essentials.afk.kickexempt ghi đè tính năng này.
+# Đặt thành -1 để không hết thời gian chờ.
+auto-afk-kick: 360
+
+# Đặt giá trị này thành true nếu bạn muốn đóng băng trình phát, nếu trình phát đó đang AFK.
+# Khi đó người chơi hoặc quái vật khác không thể đẩy người chơi ra khỏi chế độ AFK.
+# Điều này cũng sẽ kích hoạt chế độ thần tạm thời cho người chơi AFK.
+# Người chơi phải sử dụng lệnh /afk để thoát khỏi chế độ AFK.
+freeze-afk-players: true
+
+# Khi người chơi đang AFK, liệu anh ta có thể nhặt được vật phẩm không?
+# Kích hoạt tính năng này khi bạn không muốn mọi người chạy không tải trong bẫy mob.
+disable-item-pickup-while-afk: true
+
+# Cài đặt này kiểm soát xem người chơi có được đánh dấu là hoạt động khi tương tác hay không.
+# Khi cài đặt này sai, người chơi sẽ cần hủy AFK theo cách thủ công bằng lệnh /afk.
+cancel-afk-on-interact: true
+
+# Chúng tôi có nên tự động xóa trạng thái afk khi người chơi di chuyển không?
+# Người chơi sẽ bị xóa khỏi AFK khi trò chuyện/lệnh bất kể cài đặt này.
+# Tắt tính năng này để giảm độ trễ của máy chủ.
+cancel-afk-on-move: false
+
+# Chúng tôi có nên tự động xóa trạng thái afk khi người chơi gửi tin nhắn trò chuyện không?
+cancel-afk-on-chat: false
+
+# Có nên bỏ qua người chơi AFK khi người chơi khác đang cố ngủ không?
+# Khi cài đặt này sai, người chơi sẽ không thể bỏ qua đêm nếu một số người chơi AFK.
+# Người dùng có quyền nút Essentials.sleepingignored sẽ luôn bị bỏ qua.
+sleep-ignores-afk-players: true
+
+# Có nên bỏ qua những người chơi đã biến mất khi những người chơi khác đang cố ngủ không?
+# Khi cài đặt này sai, người chơi sẽ không thể bỏ qua đêm nếu người chơi biến mất không ngủ.
+# Người dùng có quyền nút Essentials.sleepingignored sẽ luôn bị bỏ qua.
+sleep-ignores-vanished-player: true
+
+# Đặt tên danh sách người chơi khi họ AFK. Theo mặc định, đây không phải là thông tin chỉ định rằng Essentials
+# không được can thiệp vào tên danh sách của người chơi AFK.
+# Bạn có thể sử dụng mã màu, sử dụng {USERNAME} tên người chơi hoặc {PLAYER} cho tên hiển thị của người chơi.
+afk-list-name: "&c[AFK] {USERNAME}"
+
+# Khi người chơi vào hoặc thoát khỏi chế độ AFK, thông báo AFK có nên được phát không
+# tới toàn bộ máy chủ hay chỉ tới người chơi?
+# Khi cài đặt này sai, chỉ người chơi mới được thông báo khi thay đổi trạng thái AFK.
+broadcast-afk-message: true
+
+# Bạn có thể tắt thông báo die của Minecraft tại đây.
+death-messages: true
+
+# Essentials nên xử lý thế nào với những người chơi có quyền Essentials.keepinv có vật phẩm với
+# lời nguyền biến mất khi chết?
+# Bạn có thể đặt giá trị này thành "keep" (để giữ vật phẩm), "drop" (để bỏ vật phẩm) hoặc "delete" (để xóa vật phẩm).
+# Mặc định là "keep"
+vanishing-items-policy: keep
+
+# Essentials nên xử lý thế nào với những người chơi có quyền Essentials.keepinv có vật phẩm với
+# lời nguyền ràng buộc khi họ chết?
+# Bạn có thể đặt giá trị này thành "keep" (để giữ vật phẩm), "drop" (để bỏ vật phẩm) hoặc "delete" (để xóa vật phẩm).
+# Mặc định là "keep"
+binding-items-policy: drop
+
+# Khi người chơi chết, họ có được nhận tọa độ nơi họ chết không?
+send-info-after-death: true
+
+# Người chơi có quyền có thể tham gia và chia tay trong im lặng không?
+# Bạn có thể kiểm soát điều này bằng các quyền Essentials.silentjoin và Essentials.silentquit nếu nó được bật.
+# Ngoài ra, những người có Essentials.silentjoin.vanish sẽ biến mất khi tham gia.
+allow-silent-join-quit: false
+
+# Bạn có thể đặt tùy chỉnh tham gia và thoát tin nhắn tại đây. Đặt tùy chọn này thành "không" để sử dụng thông báo Minecraft mặc định,
+# hoặc đặt giá trị này thành "" để ẩn toàn bộ tin nhắn.
+
+# Phần giữ chỗ có sẵn:
+# {PLAYER}: Hiển thị tên người chơi hiển thị (display name) của người tham gia hoặc rời server.
+# {USERNAME}: Hiển thị tên đăng nhập (username) của người chơi.
+# {PREFIX}: Hiển thị tiền tố (prefix) của người chơi, nếu có (tùy thuộc vào plugin quản lý quyền, như PermissionsEx hoặc LuckPerms).
+# {SUFFIX}: Hiển thị hậu tố (suffix) của người chơi, nếu có.
+# {ONLINE}: Hiển thị số lượng người chơi hiện tại đang online trên server.
+# {UNIQUE}: Hiển thị số lượng người chơi duy nhất đã tham gia vào server từ khi bắt đầu.
+# {UPTIME}: Hiển thị thời gian server đã hoạt động kể từ khi khởi động.
+custom-join-message: "none"
+custom-quit-message: "none"
+
+# Bạn có thể đặt thông báo tham gia tùy chỉnh cho người dùng tham gia bằng tên người dùng mới tại đây.
+# Thông báo này sẽ chỉ được sử dụng nếu người dùng đã tham gia trước đây và sau đó đã thay đổi tên người dùng của họ.
+# Điều này sẽ được hiển thị THAY VỀ thông báo tham gia tùy chỉnh, vì vậy nếu bạn định giữ chúng giống nhau, hãy đảm bảo chúng khớp với nhau.
+# Đặt giá trị này thành "none" để sử dụng "thông báo tham gia tùy chỉnh" ở trên cho mỗi lần tham gia.
+
+# Phần giữ chỗ có sẵn:
+# {PLAYER} - Tên hiển thị của người chơi.
+# {USERNAME} - Tên người dùng của người chơi.
+# {OLDUSERNAME} - Tên người dùng cũ của người chơi.
+# {PREFIX} - Tiền tố của người chơi.
+# {SUFFIX} - Hậu tố của người chơi.
+# {TRỰC TUYẾN} - Số lượng người chơi trực tuyến.
+# {UNIQUE} - Số lượng người chơi duy nhất tham gia máy chủ.
+# {UPTIME} - Lượng thời gian máy chủ trực tuyến.
+custom-new-username-message: "none"
+
+# Essentials có nên ghi đè thông báo "Server Full" thông thường bằng thông báo của chính nó từ tệp ngôn ngữ không?
+# Đặt thành false để giữ thông báo cơ bản.
+use-custom-server-full-message: false
+
+# Bạn có thể tắt tin nhắn tham gia và thoát khi số lượng người chơi đạt đến một giới hạn nhất định.
+# Khi số lượng người chơi thấp hơn con số này, thông báo tham gia/thoát sẽ luôn được hiển thị.
+# Đặt giá trị này thành -1 để luôn hiển thị thông báo tham gia và thoát bất kể số lượng người chơi.
+hide-join-quit-messages-above: -1
+
+# cho phép bạn chỉ định các thế giới mà trong đó god mode sẽ bị tắt tự động. Khi người chơi ở trong các thế giới này, họ không thể sử dụng chế độ god mode (không thể bị sát thương).
+no-god-in-worlds:
+  # - world_nether
+  # - world_the_end
+
+# Đặt thành true để bật quyền theo thế giới để dịch chuyển tức thời giữa các thế giới bằng các lệnh cần thiết.
+# Điều này áp dụng cho /world, /back, /tp[a|o][here|all], nhưng không áp dụng cho warp.
+# Cho phép ai đó dịch chuyển tức thời đến một thế giới có Essentials.worlds.<worldname>
+# Điều này không ảnh hưởng đến lệnh /home, có một nút chuyển đổi riêng bên dưới cho việc này.
+world-teleport-permissions: false
+
+# Số lượng mặt hàng được cung cấp nếu tham số số lượng bị bỏ qua trong /item hoặc /give.
+# Nếu số này nhỏ hơn 1, kích thước kích thước ngăn xếp tối đa sẽ được đưa ra. Nếu ngăn xếp có kích thước quá lớn.
+# không được bật, bất kỳ số nào cao hơn kích thước ngăn xếp tối đa sẽ dẫn đến nhiều hơn một ngăn xếp.
+default-stack-size: -1
+
+# Ngăn xếp quá khổ là ngăn xếp bỏ qua kích thước ngăn xếp tối đa bình thường.
+# Chúng có thể nhận được bằng cách sử dụng /give và /item, nếu người chơi có quyền cần essentials.oversizedstacks
+# Nên có bao nhiêu mục trong một ngăn xếp có kích thước quá lớn?
+oversized-stacksize: 64
+
+# Cho phép sửa chữa vũ khí và áo giáp mê hoặc.
+# Nếu bạn đặt giá trị này thành false, bạn vẫn có thể cho phép điều đó đối với một số người chơi nhất định bằng quyền.
+# essentials.repair.enchanted
+repair-enchanted: true
+
+# Cho phép bùa mê 'unsafe' trong bộ dụng cụ và sinh vật phẩm.
+# Cảnh báo: Việc trộn lẫn và nâng cấp quá cao một số bùa chú có thể gây ra sự cố với máy khách, máy chủ và plugin.
+unsafe-enchantments: false
+
+# Phạm vi tối đa từ người chơi mà lệnh /tree và /bigtree có thể sinh ra cây.
+tree-command-range-limit: 300
+
+#Bạn có muốn Essentials theo dõi vị trí trước đó của /back trong trình nghe dịch chuyển không?
+#Nếu bạn đặt điều này thành true thì bất kỳ plugin nào sử dụng dịch chuyển tức thời sẽ được đăng ký vị trí trước đó.
+register-back-in-listener: true
+
+#Chậm trễ trước khi mọi người có thể gây sát thương tấn công sau khi đăng nhập.
+login-attack-delay: 5
+
+#Đặt tốc độ bay tối đa, các giá trị nằm trong khoảng từ 0,1 đến 1,0
+max-fly-speed: 0.8
+
+#Đặt tốc độ đi bộ tối đa, các giá trị nằm trong khoảng từ 0,1 đến 1,0
+max-walk-speed: 0.8
+
+#Đặt số lượng thư tối đa có thể được gửi trong vòng một phút.
+mails-per-minute: 1000
+
+# Đặt thời gian /mute tối đa có thể được sử dụng trong vài giây.
+# Đặt thành -1 để tắt và có thể sử dụng Essentials.mute.unlimited để ghi đè.
+max-mute-time: -1
+
+# Đặt thời gian /tempban tối đa có thể được sử dụng trong vài giây.
+# Đặt thành -1 để tắt và có thể sử dụng Essentials.tempban.unlimited để ghi đè.
+max-tempban-time: -1
+
+# Thay đổi chức năng /reply. Điều này có thể được thay đổi tùy theo từng người chơi bằng cách sử dụng /rtoggle.
+# Nếu đúng, /r sẽ chuyển đến người bạn nhắn tin cuối cùng, nếu không thì sẽ là người đầu tiên nhắn tin cho bạn.
+# Nếu sai, /r sẽ chuyển đến người cuối cùng nhắn tin cho bạn.
+last-message-reply-recipient: true
+
+# Nếu người nhận trả lời tin nhắn cuối cùng được bật cho một người chơi cụ thể,
+# điều này chỉ định khoảng thời gian, tính bằng giây, cần phải trôi qua trong
+# reply-recipient để cập nhật khi nhận được tin nhắn.
+# Mặc định là 180 (3 phút)
+last-message-reply-recipient-timeout: 180
+
+# Thay đổi chức năng /reply
+# Nếu đúng, /reply sẽ không kiểm tra xem người bạn đang trả lời đã biến mất hay chưa.
+# Nếu sai, người chơi sẽ không thể /reply những người chơi mà họ không thể gặp do đã biến mất.
+last-message-reply-vanished: false
+
+# Thay đổi việc nhấp chuột trái vào mob bằng thùng sữa có biến chúng thành em bé hay không.
+milk-bucket-easter-egg: false
+
+# Chuyển đổi xem có nên gửi thông báo trạng thái bay cho người chơi khi tham gia hay không
+send-fly-enable-on-join: true
+
+# Đặt thành true để bật quyền theo thế giới để cài đặt thời gian cho từng thế giới bằng các lệnh cần thiết.
+# Điều này áp dụng cho /time, /day, /eday, /night, /enight, /etime.
+# Cho phép ai đó dịch chuyển tức thời đến một thế giới có Essentials.time.world.<worldname>.
+world-time-permissions: false
+
+# Chỉ định thời gian hồi chiêu cho cả lệnh Essentials và lệnh bên ngoài.
+# Tất cả các lệnh không bắt đầu bằng Dấu gạch chéo chuyển tiếp (/). Thay vì /msg, hãy viết msg
+#
+# Ký tự đại diện được hỗ trợ. Ví dụ.
+# - '*i*': 50
+# thêm 50 giây hồi chiêu cho tất cả các lệnh có chữ i
+#
+# EssentialsX hỗ trợ biểu thức chính quy bằng cách bắt đầu lệnh bằng dấu mũ ^
+# Ví dụ: để nhắm mục tiêu các lệnh bắt đầu bằng cấm và không cấm, lệnh sau sẽ được sử dụng:
+# '^ban([^ip])( .*)?': 60 # 60 giây /thời gian hồi chiêu cấm.
+# Lưu ý: Nếu bạn có lệnh bắt đầu bằng ^ thì bạn có thể thoát lệnh đó bằng dấu gạch chéo ngược (\). ví dụ. \^lệnh: 123
+command-cooldowns:
+# nguồn cấp dữ liệu: thời gian hồi chiêu 100 # 100 giây trên lệnh /feed
+# '*': 5 # 5 Thời gian hồi chiêu thứ hai trên tất cả các lệnh
+
+# Liệu thời gian hồi chiêu của lệnh có nên kéo dài trong quá trình tắt máy chủ hay không
+command-cooldown-persistence: true
+
+# Liệu số dư của NPC có nên được liệt kê trong các tính năng xếp hạng số dư như /balancetop hay không.
+# Số dư NPC có thể bao gồm các tính năng như phe phái từ plugin FactionsUUID.
+npcs-in-balance-ranking: false
+
+# Cho phép mua bán số lượng lớn khi người chơi lén lút.
+# Điều này rất hữu ích khi một biển hiệu bán hoặc mua một mặt hàng tại một thời điểm và người chơi muốn bán nhiều mặt hàng cùng một lúc.
+allow-bulk-buy-sell: true
+
+# Cho phép bán các mặt hàng có tên tùy chỉnh bằng lệnh /sell.
+# Điều này có thể hữu ích để ngăn người chơi vô tình bán các vật phẩm có tên.
+allow-selling-named-items: false
+
+# Độ trễ hiển thị MOTD cho người chơi tham gia, tính bằng mili giây.
+# Điều này không có hiệu lực nếu lệnh hoặc quyền MOTD bị vô hiệu hóa.
+# Điều này cũng có thể được đặt thành -1 để vô hiệu hóa hoàn toàn việc tham gia MOTD cùng nhau.
+delay-motd: 0
+
+# Danh sách các lệnh nên bật các lệnh xác nhận bổ sung theo mặc định.
+# Theo mặc định, phần này trống, để biết danh sách lệnh hợp lệ mới nhất, hãy xem config.yml nguồn mới nhất.
+default-enabled-confirm-commands:
+#- chi trả
+#- dọn dẹp hàng tồn kho
+
+# Essentials nên dịch chuyển người chơi đến đâu khi họ được ra tù?
+# Bạn có thể đặt thành "trở lại" để dịch chuyển họ đến nơi họ ở trước khi bị bỏ tù, "sinh sản" để có họ
+# dịch chuyển để xuất hiện, hoặc "tắt" để không dịch chuyển chúng.
+teleport-when-freed: back
+
+# Thời gian ngồi tù hay không chỉ nên được tính khi người dùng trực tuyến.
+# Nếu đúng, thời gian của người chơi bị bỏ tù sẽ chỉ giảm khi họ trực tuyến.
+jail-online-time: false
+
+# Đặt thời gian chờ, tính bằng giây để người chơi chấp nhận tpa trước khi yêu cầu bị hủy.
+# Đặt về 0 để không hết thời gian chờ.
+tpa-accept-cancellation: 120
+
+# Số lượng yêu cầu tpa đồng thời tối đa có thể chờ xử lý đối với bất kỳ người chơi nào.
+# Sau khi vượt qua ngưỡng này, các yêu cầu cũ sẽ hết thời gian chờ ngay lập tức.
+# Mặc định là 5.
+tpa-max-requests: 5
+
+# Cho phép người chơi đội mũ bằng cách nhấp vào khe mũ bảo hiểm của họ.
+allow-direct-hat: true
+
+# Cho phép người chơi trong trò chơi chỉ định thế giới khi chạy /broadcastworld.
+# Nếu sai, chạy /broadcastworld trong trò chơi sẽ luôn gửi tin nhắn đến thế giới hiện tại của người chơi.
+# Điều này không ảnh hưởng đến việc chạy lệnh từ bảng điều khiển, nơi luôn cần có một thế giới.
+allow-world-in-broadcastworld: true
+
+# Coi khối nước là "an toàn", do đó cho phép người chơi dịch chuyển tức thời
+# sử dụng các lệnh như /home hoặc /spawn tới một vị trí bị chiếm đóng
+# bằng khối nước
+is-water-safe: false
+
+# Sơ đồ người dùng có nên cố gắng vệ sinh tên người dùng trước khi lưu chúng không?
+# Bạn chỉ nên thay đổi giá trị này thành false nếu bạn sử dụng Minecraft China.
+safe-usermap-names: true
+
+# Essentials có nên xuất nhật ký khi khối lệnh thực thi lệnh không?
+# Ví dụ: CommandBlock tại <x>,<y>,<z> máy chủ đưa ra lệnh: /<command>
+log-command-block-commands: true
+
+# Đặt tốc độ tối đa cho đạn được sinh ra bằng /fireball.
+max-projectile-speed: 8
+
+# EssentialsX có nên kiểm tra các bản cập nhật không?
+# Nếu được đặt thành true, EssentialsX sẽ hiển thị thông báo khi có phiên bản mới.
+# Điều này sử dụng API GitHub công khai và không có thông tin nhận dạng nào được gửi hoặc lưu trữ.
+update-check: true
+
+###################################################### ###########
+# +------------------------------------------------ ------+ #
+# |                        homes | #
+# +------------------------------------------------ ------+ #
+###################################################### ###########
+
+# Cho phép mọi người dọn giường vào ban ngày.
+# Cài đặt này không có hiệu lực trong Minecraft 1.15+, vì Minecraft sẽ luôn cho phép người chơi đặt vị trí giường của mình trong ngày.
+update-bed-at-daytime: true
+
+# Đặt thành true để bật quyền theo thế giới cho việc sử dụng nhà để dịch chuyển tức thời giữa các thế giới.
+# Điều này chỉ áp dụng cho lệnh /home.
+# Cho phép ai đó dịch chuyển tức thời đến một thế giới có Essentials.worlds.<worldname>
+world-home-permissions: false
+
+# Cho phép người chơi có nhiều nhà.
+# Người chơi cần có Essentials.sethome.multiple trước khi có thể có nhiều hơn 1 ngôi nhà.
+# Bạn có thể đặt số lượng mặc định của nhiều ngôi nhà bằng cách sử dụng thứ hạng 'mặc định' bên dưới.
+# Để loại bỏ hoàn toàn giới hạn nhà, hãy cung cấp cho mọi người 'essentials.sethome.multiple.unlimited'.
+# Để cấp số tiền nhà khác nhau cho những người khác nhau, bạn cần xác định 'thứ hạng nhà' bên dưới.
+# Tạo 'home-rank' bên dưới và cấp quyền phù hợp: Essentials.sethome.multiple.<home-rank>
+# Để biết thêm thông tin, hãy truy cập http://wiki.ess3.net/wiki/Multihome
+sethome-multiple:
+  vip0: 2  # essentials.sethome.multiple.vip0
+  vip1: 3  # essentials.sethome.multiple.vip1
+  vip2: 4  # essentials.sethome.multiple.vip2
+  vip3: 6  # essentials.sethome.multiple.vip3
+  vip4: 10  # essentials.sethome.multiple.vip4
+  vip5: -1  # essentials.sethome.multiple.vip5 (không giới hạn)
+
+# trong ví dụ này, người chơi có quyền 'essentials.sethome.multiple' và 'essentials.sethome.multiple.vip' sẽ có thể cài đặt 5 ngôi nhà.
+# nhớ rằng, họ PHẢI có cả hai quyền này để có thể thiết lập nhiều ngôi nhà.
+
+# kiểm soát xem người chơi có cần quyền "essentials.home.compass" để chỉ hướng la bàn tới ngôi nhà đầu tiên của họ không.
+#
+# Để lại giá trị false sẽ giữ lại hành vi mặc định của Essentials, đó là luôn thay đổi hướng la bàn để chỉ về ngôi nhà đầu tiên của họ.
+compass-towards-home-perm: false
+# Nếu không có ngôi nhà nào được thiết lập, bạn có muốn người chơi được dịch chuyển đến spawn không?
+# Nếu đặt là false, người chơi sẽ không được dịch chuyển khi chạy lệnh /home mà không thiết lập ngôi nhà nào trước.
+spawn-if-no-home: true
+
+# Người chơi có cần xác nhận khi cố gắng ghi đè lên một ngôi nhà đã tồn tại không?
+# Nếu đặt là false, người chơi sẽ không cần xác nhận khi ghi đè ngôi nhà.
+confirm-home-overwrite: true
+
+############################################################
+# +------------------------------------------------------+ #
+# |                       Economy                        | #
+# +------------------------------------------------------+ #
+############################################################
+# Để biết thêm thông tin, hãy truy cập http://wiki.ess3.net/wiki/Essentials_Economy
+
+# Bạn có thể kiểm soát giá trị của các vật phẩm được bán cho server bằng cách sử dụng lệnh /setworth.
+
+# Định nghĩa số dư mà người chơi mới bắt đầu có. Mặc định là 0.
+starting-balance: 0
+
+# Định nghĩa chi phí sử dụng các lệnh nhất định MỖI LẦN SỬ DỤNG.
+# Một số lệnh như /repair có chi phí phụ, hãy kiểm tra wiki để biết thêm chi tiết.
+command-costs:
+  # /example sẽ tốn $1000 MỖI LẦN SỬ DỤNG
+  #example: 1000
+  # /kit tools sẽ tốn $1500 MỖI LẦN SỬ DỤNG
+  #kit-tools: 1500
+
+# Đặt ký hiệu này thành ký hiệu tiền tệ bạn muốn sử dụng.
+# Hãy nhớ rằng, nếu bạn muốn sử dụng các ký tự đặc biệt trong tài liệu này,
+# chẳng hạn như các chữ cái có dấu, bạn PHẢI lưu tệp dưới dạng UTF-8, không phải ANSI.
+currency-symbol: 'Coin'
+
+# Kích hoạt tính năng này để làm cho ký hiệu tiền tệ xuất hiện ở cuối số tiền thay vì ở đầu.
+# Ví dụ: biểu tượng đồng euro thường xuất hiện sau số tiền hiện tại.
+currency-symbol-suffix: false
+
+# Đặt số tiền tối đa mà người chơi có thể có.
+# Số tiền luôn bị giới hạn ở mức 10 nghìn tỷ vì giới hạn của java double.
+max-money: 10000000000000
+
+# Đặt số tiền tối thiểu mà người chơi có thể có (phải cao hơn số âm của số tiền tối đa).
+# Đặt giá trị này thành 0, sẽ vô hiệu hóa hoàn toàn các khoản thấu chi/khoản vay.  Người dùng cần có perm 'essentials.eco.loan' để xuống dưới 0.
+min-money: -10000
+
+# Kích hoạt tính năng này để ghi lại tất cả các tương tác với các dấu hiệu giao dịch trade/buy/sell và lệnh sell.
+economy-log-enabled: false
+
+# Kích hoạt tính năng này để ghi lại tất cả các giao dịch từ các plugin khác thông qua Vault.
+# Điều này có thể khiến nhật ký kinh tế đầy nhanh chóng, vì vậy chỉ nên kích hoạt cho mục đích thử nghiệm!
+economy-log-update-enabled: false
+
+# Số tiền tối thiểu có thể chấp nhận được sẽ được sử dụng trong /pay.
+minimum-pay-amount: 0.001
+
+# Kích hoạt tính năng này để chặn những người dùng cố gắng /trả tiền cho người dùng khác nhưng bỏ qua họ.
+pay-excludes-ignore-list: false
+
+# Liệu người dùng có số dư nhỏ hơn hoặc bằng $0 có được hiển thị ở phần trên cùng của số dư hay không.
+# Đặt thành false sẽ không hiển thị những người có số dư <= 0 ở đầu số dư.
+# LƯU Ý: Sau khi tải lại config bạn cũng phải chạy '/baltop Force' thì cái này mới hiện ra
+show-zero-baltop: true
+
+# Định dạng tiền tệ, không bao gồm ký hiệu. Xem tiền tệ-ký hiệu-định dạng-locale để biết cấu hình ký hiệu.
+#
+# "#,##0,00" là cách phần lớn các quốc gia hiển thị tiền tệ.
+#định dạng tiền tệ: "#,##0,00"
+
+# Định dạng ký hiệu tiền tệ. Một số ngôn ngữ sử dụng , và . có thể thay thế cho nhau.
+# Một số định dạng không hiển thị chính xác trong trò chơi do hiển thị phông chữ Minecraft bị lỗi.
+#
+# Với 1.234,50, hãy sử dụng de-DE
+# Với 1.234,50, hãy sử dụng en-US
+# Đối với 1'234,50, hãy sử dụng fr-ch
+#currency-ký hiệu-định dạng-ngôn ngữ: en-US
+
+###################################################### ###########
+# +------------------------------------------------ ------+ #
+# |                         Trợ giúp | #
+# +------------------------------------------------ ------+ #
+###################################################### ###########
+
+# Hiển thị các lệnh plugin khác trong trợ giúp.
+non-ess-in-help: true
+
+# Ẩn các plugin không cấp quyền.
+# Bạn có thể ghi đè giá trị thực tại đây cho một plugin bằng cách thêm quyền cho người dùng/nhóm.
+# Quyền cá nhân là: Essentials.help.<plugin>, bất kỳ ai có Essentials.* hoặc '*' đều sẽ thấy tất cả trợ giúp bất kể.
+# Bạn có thể sử dụng các quyền phủ định để xóa quyền truy cập vào chỉ một trợ giúp bổ trợ duy nhất nếu tùy chọn sau được bật.
+hide-permissionless-help: true
+
+###################################################### ###########
+# +------------------------------------------------ ------+ #
+# |                   Trò chuyện EssentialsX | #
+# +------------------------------------------------ ------+ #
+###################################################### ###########
+
+# Bạn cần cài đặt EssentialsX Chat để phần này hoạt động.
+# Xem https://essentialsx.net/wiki/Module-Breakdown.html để biết thêm thông tin.
+chat:
+  
+  # Nếu EssentialsX Chat được cài đặt, điều này sẽ xác định khoảng cách giọng nói của người chơi truyền đi, tính theo khối. Đặt thành 0 để làm cho tất cả cuộc trò chuyện trở nên toàn cầu.
+  # Lưu ý rằng người dùng có quyền "essentials.chat.spy" sẽ nghe thấy mọi thứ, bất kể cài đặt này.
+  # Người dùng có Essentials.chat.shout có thể ghi đè điều này bằng cách thêm dấu chấm than (!)
+  # Người dùng có Essentials.chat.question có thể ghi đè điều này bằng cách thêm dấu chấm hỏi (?) vào trước tin nhắn của họ.
+  # Bạn có thể thêm chi phí lệnh cho tiếng hét/câu hỏi bằng cách thêm câu hỏi trò chuyện và câu hỏi trò chuyện vào phần chi phí lệnh.
+  radius: 0
+  
+  # Định dạng trò chuyện có thể được thực hiện theo hai cách, bạn có thể xác định định dạng chuẩn cho tất cả các cuộc trò chuyện.
+  # Hoặc bạn có thể đưa ra định dạng trò chuyện cụ thể cho nhóm để cung cấp thêm một số biến thể.
+  # Để biết thêm thông tin về định dạng trò chuyện, hãy xem wiki: http://wiki.ess3.net/wiki/Chat_Formatting
+  # Lưu ý: Việc sử dụng phần giữ chỗ {PREFIX} và {SUFFIX} cùng với {DISPLAYNAME} có thể khiến tiền tố/hậu tố kép hiển thị trong cuộc trò chuyện trừ khi không có chú thích tiền tố bổ sung và được đặt thành sai.
+  
+  # Phần giữ chỗ có sẵn:
+  # {MESSAGE} - Nội dung tin nhắn trò chuyện.
+  # {USERNAME} - Tên người dùng của người gửi.
+  # {DISPLAYNAME} - Tên hiển thị của người gửi.
+  # {NICKNAME} - Biệt hiệu Essentials của người gửi. Nếu người gửi không có biệt hiệu, tên người dùng sẽ được hiển thị.
+  # {PREFIX} - Tiền tố của người gửi, được cung cấp bởi plugin quyền.
+  # {SUFFIX} - Hậu tố của người gửi, được cung cấp bởi plugin quyền.
+  # {GROUP} - Tên nhóm chính của người gửi, được cung cấp bởi plugin quyền.
+  # {WORLD} - Bí danh thế giới của thế giới hiện tại của người gửi. Xem phần bí danh thế giới bên dưới để biết chi tiết.
+  # {WORLDNAME} - Tên đầy đủ của thế giới hiện tại của người gửi.
+  # {SHORTWORLDNAME} - Nhân vật đầu tiên trong thế giới hiện tại của người gửi.
+  # {TEAMNAME} - Tên đội bảng điểm của người gửi.
+  # {TEAMPREFIX} - Tiền tố đội bảng điểm của người gửi.
+  # {TEAMSUFFIX} - Hậu tố đội bảng điểm của người gửi.
+  
+  format: '<{DISPLAYNAME}> {MESSAGE}'
+  #format: '&7[{GROUP}]&r {DISPLAYNAME}&7:&r {MESSAGE}'
+  #format: '&7{PREFIX}&r {DISPLAYNAME}&r &7{SUFFIX}&r: {MESSAGE}'
+  
+  group-formats:
+  # mặc định: '{WORLDNAME} {DISPLAYNAME}&7:&r {MESSAGE}'
+  # quản trị viên: '{WORLDNAME} &c[{GROUP}]&r {DISPLAYNAME}&7:&c {MESSAGE}'
+  
+  # Nếu bạn đang sử dụng định dạng nhóm, hãy đảm bảo xóa '#' để cho phép đọc cài đặt.
+  # Lưu ý: Tên nhóm phân biệt chữ hoa chữ thường nên bạn phải khớp chúng với plugin cấp phép của mình.
+  
+  # Bạn có thể sử dụng quyền để kiểm soát xem người chơi có thể sử dụng mã định dạng trong tin nhắn trò chuyện của họ hay không.
+  # Xem https://essentialsx.net/wiki/Color-Permissions.html để biết thêm thông tin.
+  
+  # Bí danh thế giới cho phép bạn thay thế tên thế giới bằng tên khác trong định dạng trò chuyện.
+  # Nếu bạn đang sử dụng bí danh thế giới, hãy nhớ xóa '#' ở đầu để cho phép đọc cài đặt.
+  world-aliases:
+  # lô: "&dP&r"
+  # quảng cáo: "&eC&r"
+  
+  # Liệu người chơi có nên được đặt ở chế độ hét theo mặc định hay không.
+  shout-default: false
+  
+  # Liệu chế độ hét của người chơi có tiếp tục khởi động lại hay không.
+  persist-shout: false
+  
+  # Có nên bật câu hỏi trò chuyện hay không.
+  question-enabled: true
+
+###################################################### ###########
+# +------------------------------------------------ ------+ #
+# |                 EssentialsX Bảo vệ | #
+# +------------------------------------------------ ------+ #
+###################################################### ###########
+
+# Bạn cần cài đặt EssentialsX Protect để phần này hoạt động.
+# Xem https://essentialsx.net/wiki/Module-Breakdown.html để biết thêm thông tin.
+protect:
+
+  # Các chỉnh sửa chung về vật lý/hành vi. Đặt giá trị thành true để vô hiệu hóa các hành vi này.
+  prevent:
+    lava-flow: false # Ngăn dung nham chảy.
+    water-flow: false # Ngăn nước chảy.
+    water-bucket-flow: false # Ngăn nước chảy từ xô nước.
+    fire-spread: true # Ngăn lửa lan.
+    lava-fire-spread: true # Ngăn dung nham làm lan lửa.
+    lava-itemdamage: false # Ngăn dung nham gây hư hại vật phẩm.
+    flint-fire: false # Ngăn đánh lửa tạo lửa.
+    lightning-fire-spread: true # Ngăn tia sét lan lửa.
+    portal-creation: false # Ngăn tạo cổng.
+    tnt-explosion: false # Ngăn TNT phát nổ.
+    tnt-playerdamage: false # Ngăn TNT gây sát thương người chơi.
+    tnt-itemdamage: false # Ngăn TNT gây hư hại vật phẩm.
+    tnt-minecart-explosion: false # Ngăn xe mìn TNT phát nổ.
+    tnt-minecart-playerdamage: false # Ngăn xe mìn TNT gây sát thương người chơi.
+    tnt-minecart-itemdamage: false # Ngăn xe mìn TNT gây hư hại vật phẩm.
+    fireball-explosion: false # Ngăn cầu lửa phát nổ.
+    fireball-fire: false # Ngăn cầu lửa tạo lửa.
+    fireball-playerdamage: false # Ngăn cầu lửa gây sát thương người chơi.
+    fireball-itemdamage: false # Ngăn cầu lửa gây hư hại vật phẩm.
+    witherskull-explosion: false # Ngăn đầu lâu của Wither phát nổ.
+    witherskull-playerdamage: false # Ngăn đầu lâu của Wither gây sát thương người chơi.
+    witherskull-itemdamage: false # Ngăn đầu lâu của Wither gây hư hại vật phẩm.
+    wither-spawnexplosion: false # Ngăn vụ nổ khi Wither xuất hiện.
+    wither-blockreplace: false # Ngăn Wither thay đổi các khối.
+    creeper-explosion: false # Ngăn Creeper phát nổ.
+    creeper-playerdamage: false # Ngăn Creeper gây sát thương người chơi.
+    creeper-itemdamage: false # Ngăn Creeper gây hư hại vật phẩm.
+    creeper-blockdamage: false # Ngăn Creeper gây hư hại các khối.
+    ender-crystal-explosion: false # Ngăn pha lê End phát nổ.
+    enderdragon-blockdamage: true # Ngăn rồng End gây hư hại các khối.
+    enderman-pickup: false # Ngăn Enderman nhặt khối.
+    villager-death: false # Ngăn dân làng chết.
+    bed-explosion: false # Ngăn giường phát nổ trong các thế giới nguy hiểm.
+    respawn-anchor-explosion: false # Ngăn điểm hồi sinh phát nổ.
+    entitytarget: false # Ngăn quái vật theo dõi người chơi. 
+    zombie-door-break: false # Ngăn zombie phá cửa.
+    ravager-thief: false # Ngăn Ravager lấy cắp các khối.
+    sheep-eat-grass: false # Ngăn cừu ăn cỏ.
+
+    # Ngăn các chuyển đổi.
+    transformation:
+      charged-creeper: false # Ngăn Creeper bị sạc khi bị sét đánh.
+      zombie-villager: false # Ngăn dân làng trở thành zombie.
+      villager: false # Ngăn zombie dân làng được chữa lành.
+      witch: false # Ngăn dân làng biến thành phù thủy khi bị sét đánh.
+      zombie-pigman: false # Ngăn lợn biến thành zombie lợn khi bị sét đánh.
+      drowned: false # Ngăn zombie trở thành drowned.
+      mooshroom: false # Ngăn Mooshroom thay đổi màu sắc khi bị sét đánh.
+
+    # Ngăn sinh vật sinh sản. Nếu thiếu sinh vật nào, bạn có thể thêm theo định dạng dưới đây.
+    spawn:
+      creeper: false
+      skeleton: false
+      spider: false
+      giant: false
+      zombie: false
+      slime: false
+      ghast: false
+      pig_zombie: false
+      enderman: false
+      cave_spider: false
+      silverfish: false
+      blaze: false
+      magma_cube: false
+      ender_dragon: false
+      pig: false
+      sheep: false
+      cow: false
+      chicken: false
+      squid: false
+      wolf: false
+      mushroom_cow: false
+      snowman: false
+      ocelot: false
+      iron_golem: false
+      villager: false
+      wither: false
+      bat: false
+      witch: false
+      horse: false
+      phantom: false
+
+  # Chiều cao tối đa mà Creeper có thể phát nổ. -1 cho phép phát nổ ở mọi nơi.
+  creeper:
+    max-height: -1
+
+  # Vô hiệu hóa các vật lý và hành vi mặc định.
+  disable:
+    fall: false # Vô hiệu hóa sát thương khi rơi.
+    pvp: false # Ngăn PVP (Người chơi đấu người chơi).
+    drown: false # Vô hiệu hóa sát thương chết đuối.
+    suffocate: false # Vô hiệu hóa sát thương ngạt thở.
+    lavadmg: false # Vô hiệu hóa sát thương từ dung nham.
+    projectiles: false # Vô hiệu hóa sát thương từ cung tên.
+    contactdmg: false # Vô hiệu hóa sát thương từ xương rồng.
+    firedmg: false # Vô hiệu hóa sát thương từ lửa.
+    lightning: false # Vô hiệu hóa sát thương từ tia sét.
+    wither: false # Vô hiệu hóa sát thương từ Wither.
+    weather:
+      storm: false # Vô hiệu hóa mưa bão.
+      thunder: false # Vô hiệu hóa sấm sét.
+      lightning: false # Vô hiệu hóa tia sét.
+
+############################################################
+# +------------------------------------------------------+ #
+# |                EssentialsX AntiBuild                 | #
+# +------------------------------------------------------+ #
+############################################################
+
+  # Bạn cần cài đặt EssentialsX AntiBuild để phần này hoạt động.
+  # Xem thêm tại https://essentialsx.net/wiki/Module-Breakdown.html và http://wiki.ess3.net/wiki/AntiBuild để biết thêm thông tin.
+
+    # Người chơi không có quyền 'essentials.build' có được phép xây dựng không?
+    # Đặt thành true để vô hiệu hóa việc xây dựng với những người chơi này.
+    # Đặt thành false có nghĩa là EssentialsAntiBuild sẽ không bao giờ ngăn bạn xây dựng.
+    build: true
+
+    # Người chơi không có quyền 'essentials.build' có được phép sử dụng vật phẩm không?
+    # Đặt thành true để vô hiệu hóa việc sử dụng với những người chơi này.
+    # Đặt thành false có nghĩa là EssentialsAntiBuild sẽ không bao giờ ngăn bạn sử dụng vật phẩm.
+    use: true
+
+    # Có cảnh báo người chơi khi họ không được phép xây dựng không?
+    warn-on-build-disallow: true
+
+  # Những loại khối nào bạn muốn nhận cảnh báo khi có tương tác?
+  # Bạn có thể tìm danh sách các vật phẩm tại: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html.
+  alert:
+    on-placement: LAVA,TNT,LAVA_BUCKET # Cảnh báo khi đặt các khối này.
+    on-use: LAVA_BUCKET # Cảnh báo khi sử dụng các vật phẩm này.
+    on-break: # Cảnh báo khi phá các khối này.
+
+  blacklist:
+
+    # Những khối nào nên bị cấm đặt?
+    placement: LAVA,TNT,LAVA_BUCKET
+
+    # Những vật phẩm nào nên bị cấm sử dụng?
+    usage: LAVA_BUCKET
+
+    # Những khối nào nên bị cấm phá?
+    break:
+
+    # Những khối nào không nên bị di chuyển bởi piston?
+    piston:
+
+    # Những khối nào không nên được phóng ra từ bộ phát (dispenser)?
+    dispenser:
+
+############################################################
+# +------------------------------------------------------+ #
+# |            EssentialsX Spawn + Người chơi mới         | #
+# +------------------------------------------------------+ #
+############################################################
+
+# Bạn cần cài đặt EssentialsX Spawn để phần này hoạt động.
+# Xem thêm tại https://essentialsx.net/wiki/Module-Breakdown.html để biết thêm thông tin.
+
+newbies:
+  # Chúng ta có nên thông báo khi một người chơi lần đầu đăng nhập không?
+  # Nếu có, sử dụng định dạng này, thay {DISPLAYNAME} bằng tên của người chơi.
+  # Nếu không, đặt giá trị là ''
+  #announce-format: ''
+  announce-format: '&dChào mừng {DISPLAYNAME}&d đến với máy chủ!'
+
+  # Khi người chơi sinh ra lần đầu, điểm spawn nào sẽ được sử dụng?
+  # Đặt giá trị là "none" nếu bạn muốn sử dụng điểm spawn mặc định của thế giới.
+  spawnpoint: newbies
+
+  # Chúng ta có muốn tặng người chơi vật phẩm khi họ tham gia lần đầu không? Đặt giá trị là '' để tắt.
+  # Bộ kit này sẽ được tặng bất kể chi phí hay quyền hạn, và không bị ảnh hưởng bởi thời gian chờ của kit.
+  #kit: ''
+  kit: tools
+
+# Ưu tiên nào nên được sử dụng khi xử lý việc hồi sinh?
+# Đặt giá trị là none nếu bạn muốn hành vi hồi sinh mặc định của Minecraft.
+# Đặt giá trị là lowest nếu bạn muốn Multiverse xử lý hồi sinh.
+# Đặt giá trị là high nếu bạn muốn EssentialsSpawn xử lý hồi sinh.
+# Đặt giá trị là highest nếu bạn muốn bắt buộc EssentialsSpawn xử lý hồi sinh.
+# Lưu ý: Thay đổi sẽ không áp dụng cho đến khi máy chủ được khởi động lại.
+respawn-listener-priority: high
+
+# Ưu tiên nào nên được sử dụng khi xử lý việc sinh ra khi tham gia máy chủ?
+# Xem các giá trị có thể ở trên (respawn-listener-priority).
+# Lưu ý: Thay đổi giá trị này có thể ảnh hưởng hoặc làm hỏng chức năng spawn-on-join.
+# Lưu ý: Thay đổi sẽ không áp dụng cho đến khi máy chủ được khởi động lại.
+spawn-join-listener-priority: high
+
+# Khi người chơi chết, họ sẽ hồi sinh tại nhà đầu tiên hoặc giường thay vì tại điểm spawn chứ?
+respawn-at-home: false
+
+# Khi người chơi chết, họ sẽ hồi sinh tại giường của mình thay vì tại điểm spawn chứ?
+# Giá trị của respawn-at-home (ở trên) phải được đặt là true.
+respawn-at-home-bed: true
+
+# Khi người chơi chết, EssentialsSpawn có tôn trọng điểm respawn anchor của họ không?
+respawn-at-anchor: false
+
+# Dịch chuyển tất cả người chơi vào điểm spawn khi tham gia máy chủ.
+spawn-on-join: false
+# Giá trị dưới đây chỉ định rằng tất cả người chơi trong nhóm `guests` sẽ được dịch chuyển đến điểm spawn khi tham gia.
+#spawn-on-join: guests
+# Giá trị danh sách dưới đây chỉ định rằng tất cả người chơi trong nhóm `guests` và `admin` sẽ được dịch chuyển đến điểm spawn khi tham gia.
+#spawn-on-join:
+#- guests
+#- admin
+
+# Hết tệp <-- Nghiêm túc đấy, bạn đã hoàn thành việc cấu hình.

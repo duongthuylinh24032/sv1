@@ -1,0 +1,23 @@
+Plugin:
+  plugin-enabled: '[P]&a Plugin đã được bật thành công.'
+  plugin-link: '[P]&a Kết nối với&6 %Link%&a thành công!'
+  plugin-update: |-
+    [P]&a Phiên bản mới có sẵn:&6 %NewVersion%&a!
+    [P]&a Phiên bản hiện tại:&6 %Version%&a!
+    [P]&a Tải phiên bản mới nhất:
+    [P]&6 %Path%
+  plugin-data: '[P]&c Không thể kết nối với lưu trữ dữ liệu. Vui lòng kiểm tra console của máy chủ!'
+  plugin-version: '[P]&c Plugin không thể sử dụng với phiên bản máy chủ này! (&b%Version%&c)'
+  plugin-reload: '[P]&a Plugin đã được tải lại thành công.'
+  plugin-disabled: '[P]&a Plugin đã được vô hiệu hóa thành công.'
+  plugin-prefix: '&7[&6GSit&7]'
+
+Messages:
+  command-permission-error: '[P]&c Bạn không có quyền sử dụng lệnh này!'
+  command-sender-error: '[P]&c Bạn không thể chạy lệnh này!'
+  command-version-error: |-
+    [P]&c Phiên bản máy chủ lỗi thời! (&b%Version%&c)
+    [P]&c Cập nhật máy chủ để sử dụng tính năng này!
+  
+  command-gsit-toggle-on: '[P]&a Bạn đã bật&6 tính năng ngồi&a tương tác nhấn.'
+  command-gsit-toggle-off: '[P]&a Bạn đã tắt&6 tính năng ngồi&a tương tác nh

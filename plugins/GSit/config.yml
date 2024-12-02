@@ -1,0 +1,109 @@
+# người dịch chanhne
+
+Lang:
+  # Ngôn ngữ của plugin
+  lang: vi_vn
+  # Gửi tin nhắn cho người chơi theo ngôn ngữ của họ, nếu có sẵn
+  client-lang: true
+
+Options:
+  # Plugin sẽ gửi thông báo khi có bản cập nhật mới
+  check-for-update: true
+  # Ép người chơi đứng dậy sau khi bị sát thương
+  get-up-damage: false
+  # Cho phép đứng dậy bằng cách ngồi
+  get-up-sneak: true
+  # Đưa người chơi trở lại vị trí ban đầu khi đứng dậy
+  get-up-return: false
+  # Ép người chơi đứng dậy khi khối bên dưới bị phá
+  get-up-break: true
+  # Cho phép ngồi hoặc tạo dáng ở vị trí không an toàn
+  allow-unsafe: false
+  # Chỉ cho phép một người chơi trên một khối
+  same-block-rest: false
+  # Đặt người chơi ở giữa khối khi ngồi hoặc tạo dáng
+  center-block: true
+  # Hiển thị tin nhắn tùy chỉnh khi người chơi bắt đầu ngồi hoặc tạo dáng
+  custom-message: true
+
+Sit:
+  # Các khối mà người chơi có thể ngồi khi nhấn chuột (materials & tags) ('*' cho tất cả các khối)
+  # Tạo độ lệch chiều cao bằng cách sử dụng dấu ';' giữa material hoặc tag
+  SitMaterials:
+    - '#stairs'
+    - '#slabs'
+    - '#carpets'
+    - '#wool_carpets'
+    - moss_carpet
+    - snow
+  # Chỉ cho phép ngồi trên phần dưới của bậc thang và slab
+  bottom-part-only: true
+  # Yêu cầu tay chính không cầm vật phẩm để ngồi bằng cách nhấn
+  empty-hand-only: true
+  # Khoảng cách tối đa để ngồi bằng cách nhấn (0 có nghĩa là không giới hạn)
+  max-distance: 0.0
+  # Cho phép ngồi mặc định mà không cần sử dụng 'sit toggle'
+  default-sit-mode: true
+
+PlayerSit:
+  # Cho phép người chơi ngồi trên người khác bằng cách nhấn chuột
+  allow-sit: true
+  # Cho phép người chơi ngồi trên NPC bằng cách nhấn chuột
+  allow-sit-npc: true
+  # Số lượng người chơi tối đa có thể xếp chồng (0 có nghĩa là không giới hạn)
+  max-stack: 0
+  # Ép đẩy hành khách ra khi ngồi xuống
+  sneak-ejects: true
+  # Đưa người chơi xuống dưới cùng khi gỡ bỏ
+  bottom-return: false
+  # Yêu cầu tay chính không cầm vật phẩm để ngồi lên người khác
+  empty-hand-only: true
+  # Khoảng cách tối đa để ngồi lên người khác (0 có nghĩa là không giới hạn)
+  max-distance: 0.0
+  # Cho phép ngồi lên người khác mặc định mà không cần sử dụng 'sit playertoggle'
+  default-sit-mode: true
+
+Pose:
+  # Cho phép tương tác với môi trường hoặc người chơi khác khi tạo dáng
+  interact: false
+  # Đặt lại thời gian kể từ lần nghỉ cuối cùng của người chơi khi nằm xuống (ảnh hưởng đến đồng hồ phantom)
+  lay-rest: true
+  # Phát âm thanh ngáy khi nằm xuống
+  lay-snoring-sounds: false
+  # Chỉ phát âm thanh ngáy vào ban đêm
+  lay-snoring-night-only: true
+  # Tính số người nằm để bỏ qua ban đêm (ít nhất một người phải ngủ trên giường)
+  lay-night-skip: true
+
+Crawl:
+  # Cho phép đứng dậy từ trạng thái bò bằng cách ngồi
+  get-up-sneak: true
+  # Bật tính năng "nhấn ngồi hai lần" để bắt đầu bò (yêu cầu nhìn thẳng xuống)
+  double-sneak: false
+  # Cho phép bò mặc định mà không cần sử dụng 'crawl toggle'
+  default-crawl-mode: true
+
+# Giới hạn tất cả tính năng chỉ hoạt động trong các vùng đáng tin cậy (cho các plugin vùng)
+trusted-region-only: false
+
+# Danh sách thế giới mà tất cả tính năng bị vô hiệu hóa
+WorldBlacklist:
+  - blocked_world
+
+# Danh sách thế giới mà tất cả tính năng được kích hoạt (các thế giới khác sẽ bị chặn nếu danh sách không rỗng)
+WorldWhitelist: []
+
+# Các khối bị cấm ngồi hoặc tạo dáng
+MaterialBlacklist:
+  - lava
+
+# Các lệnh không thể thực thi khi sử dụng một tính năng
+CommandBlacklist:
+  - skin
+  - nick
+
+# Bật chế độ tương thích mở rộng cho tất cả tính năng (chỉ sử dụng khi cần thiết, ví dụ, để giải quyết lỗi từ các plugin chống gian lận)
+enhanced-compatibility: false
+
+# Danh sách các cờ tính năng đang hoạt động (chủ yếu dành cho các tính năng không chính thức sử dụng riêng)
+FeatureFlags: []

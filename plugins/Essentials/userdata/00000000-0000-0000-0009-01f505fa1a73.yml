@@ -1,0 +1,63 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 171.225.199.242
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1732896227825
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1732898636029
+  login: 1732895997303
+money: '425999'
+last-account-name: Chanhne
+logoutlocation:
+  world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+  world-name: world
+  x: -557.552
+  y: 77.0
+  z: -102.27103
+  yaw: 107.93341064453125
+  pitch: 89.89999389648438
+lastlocation:
+  world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+  world-name: world
+  x: -488.5801
+  y: 77.0
+  z: -113.974915
+  yaw: -168.57943725585938
+  pitch: 88.50689697265625
+homes:
+  qq:
+    world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+    world-name: world
+    x: -499.7492
+    y: 80.0
+    z: -326.74286
+    yaw: 55.26936340332031
+    pitch: 51.662200927734375
+  q:
+    world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+    world-name: world
+    x: -503.63907
+    y: 77.0
+    z: -328.42667
+    yaw: -174.82077026367188
+    pitch: 89.81747436523438
+  qqq:
+    world: ddf4441b-26dc-4625-b72e-9d1875c213c2
+    world-name: world
+    x: -503.52026
+    y: 77.0
+    z: -330.89865
+    yaw: 175.35784912109375
+    pitch: 89.89999389648438

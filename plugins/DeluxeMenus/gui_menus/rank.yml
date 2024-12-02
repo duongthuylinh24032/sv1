@@ -1,0 +1,199 @@
+menu_title: '&aMenu Rank VIP'
+open_command: rank
+size: 54
+
+items:
+  # Rank VIP0 (Dirt)
+  vip0_rank:
+    material: DIRT
+    slot: 20
+    display_name: '&7VIP0'
+    lore:
+      - '&7Rank khởi đầu.'
+      - '&7Giá xu yêu cầu: &e0'
+      - '&aNhấn để nhận quyền VIP0.'
+    enchantments:
+      - enchantment: DURABILITY
+        level: 1
+    left_click_requirement:
+      requirements:
+        Quyen:
+          type: has permission
+          permission: deluxemenus.default
+    deny_commands:
+      - "[message] &cBạn chưa mua rank VIP0!"
+    left_click_commands:
+      - '[console] lp user %player_name% promote rank'
+      - '[message] &aBạn đã được cấp &7VIP0&7!'
+
+  # Rank VIP1 (Stone)
+  vip1_rank:
+    material: STONE
+    slot: 21
+    display_name: '&8VIP1'
+    lore:
+      - '&7Rank nâng cao.'
+      - '&7Giá xu yêu cầu: &e2000'
+      - '&aNhấn để nâng cấp lên VIP1.'
+    enchantments:
+      - enchantment: UNBREAKING
+        level: 1
+    left_click_requirement:
+      requirements:
+        Quyen:
+          type: has permission
+          permission: deluxemenus.vip0
+        EnoughCoins:
+          type: 'has money'
+          amount: 2000
+    deny_commands:
+      - "[message] &cBạn cần ít nhất &e2000 xu&c để nâng cấp!"
+      - "[message] &cBạn phải mua rank VIP0 trước!"
+    left_click_commands:
+      - '[console] lp user %player_name% promote rank'
+      - '[console] eco take %player_name% 2000'
+      - '[message] &aBạn đã nâng cấp lên &8VIP1&7!'
+
+  # Rank VIP2 (Iron Block)
+  vip2_rank:
+    material: IRON_BLOCK
+    slot: 22
+    display_name: '&fVIP2'  # Đổi màu sang trắng
+    lore:
+      - '&7Rank cao cấp.'
+      - '&7Giá xu yêu cầu: &e4000'
+      - '&aNhấn để nâng cấp lên VIP2.'
+    enchantments:
+      - enchantment: SHARPNESS
+        level: 1
+    left_click_requirement:
+      requirements:
+        Quyen:
+          type: has permission
+          permission: deluxemenus.vip1
+        EnoughCoins:
+          type: 'has money'
+          amount: 4000
+    deny_commands:
+      - "[message] &cBạn cần ít nhất &e4000 xu&c để nâng cấp!"
+      - "[message] &cBạn phải mua rank VIP1 trước!"
+    left_click_commands:
+      - '[console] lp user %player_name% promote rank'
+      - '[console] eco take %player_name% 4000'
+      - '[message] &aBạn đã nâng cấp lên &fVIP2&7!'
+
+  # Rank VIP3 (Gold Block)
+  vip3_rank:
+    material: GOLD_BLOCK
+    slot: 23
+    display_name: '&eVIP3'
+    lore:
+      - '&7Rank đặc biệt.'
+      - '&7Giá xu yêu cầu: &e8000'
+      - '&aNhấn để nâng cấp lên VIP3.'
+    enchantments:
+      - enchantment: FIRE_ASPECT
+        level: 1
+    left_click_requirement:
+      requirements:
+        Quyen:
+          type: has permission
+          permission: deluxemenus.vip2
+        EnoughCoins:
+          type: 'has money'
+          amount: 8000
+    deny_commands:
+      - "[message] &cBạn cần ít nhất &e8000 xu&c để nâng cấp!"
+      - "[message] &cBạn phải mua rank VIP2 trước!"
+    left_click_commands:
+      - '[console] lp user %player_name% promote rank'
+      - '[console] eco take %player_name% 8000'
+      - '[message] &aBạn đã nâng cấp lên &eVIP3&7!'
+
+  # Rank VIP4 (Diamond Block)
+  vip4_rank:
+    material: DIAMOND_BLOCK
+    slot: 24
+    display_name: '&3VIP4'
+    lore:
+      - '&7Rank tối cao.'
+      - '&7Giá xu yêu cầu: &e16000'
+      - '&aNhấn để nâng cấp lên VIP4.'
+    enchantments:
+      - enchantment: LOOT_BONUS_BLOCKS
+        level: 1
+    left_click_requirement:
+      requirements:
+        Quyen:
+          type: has permission
+          permission: deluxemenus.vip3
+        EnoughCoins:
+          type: 'has money'
+          amount: 16000
+    deny_commands:
+      - "[message] &cBạn cần ít nhất &e16000 xu&c để nâng cấp!"
+      - "[message] &cBạn phải mua rank VIP3 trước!"
+    left_click_commands:
+      - '[console] lp user %player_name% promote rank'
+      - '[console] eco take %player_name% 16000'
+      - '[message] &aBạn đã nâng cấp lên &3VIP4&7!'
+
+  # Rank VIP5 (Emerald Block)
+  vip5_rank:
+    material: EMERALD_BLOCK
+    slot: 31
+    display_name: '&2VIP5'
+    lore:
+      - '&7Rank cao nhất.'
+      - '&7Giá xu yêu cầu: &e32000'
+      - '&aNhấn để nâng cấp lên VIP5.'
+    enchantments:
+      - enchantment: DAMAGE_ALL
+        level: 1
+    left_click_requirement:
+      requirements:
+        Quyen:
+          type: has permission
+          permission: deluxemenus.vip4
+        EnoughCoins:
+          type: 'has money'
+          amount: 32000
+    deny_commands:
+      - "[message] &cBạn cần ít nhất &e32000 xu&c để nâng cấp!"
+      - "[message] &cBạn phải mua rank VIP4 trước!"
+    left_click_commands:
+      - '[console] lp user %player_name% promote rank'
+      - '[console] eco take %player_name% 32000'
+      - '[message] &aBạn đã nâng cấp lên &2VIP5&7!'
+
+  # Filler item
+  filler_item:
+    material: GRAY_STAINED_GLASS_PANE 
+    slots: 
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 17
+      - 18
+      - 26
+      - 27
+      - 35
+      - 36
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+    display_name: ' '

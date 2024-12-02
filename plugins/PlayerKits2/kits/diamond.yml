@@ -1,0 +1,91 @@
+cooldown: 43200
+permission_required: true
+items:
+  1:
+    id: DIAMOND_AXE
+    amount: 1
+  2:
+    id: DIAMOND_PICKAXE
+    amount: 1
+  3:
+    id: DIAMOND_SWORD
+    name: "&4Super Sword"
+    amount: 1
+    lore:
+      - "&7Thanh kiếm tốt nhất trên server."
+      - ""
+      - "&7Chủ sở hữu: &6%player_name%"
+    enchants:
+      - "FIRE_ASPECT;5"
+actions:
+  claim:
+    1:
+      action: "console_command: bc &6%player% &eđã nhận một &aDIAMOND KIT&e!"
+      display_item:
+        id: BOOK
+        name: "&4Thông Báo"
+        lore:
+          - "&7Nhận bộ quà này sẽ gửi một thông báo"
+          - "&7đến toàn bộ server."
+    2:
+      action: "playsound: BLOCK_NOTE_BLOCK_PLING;10;2"
+  error:
+    1:
+      action: "playsound: BLOCK_NOTE_BLOCK_PLING;10;0.1"
+requirements:
+  one_time_requirements: false
+  price: 5000
+  message:
+  - '&fBạn cần $5000'
+  - '&8Trạng thái: &7$%vault_eco_balance% %status_symbol_price%'
+  - ''
+  - '&fBạn cần cấp độ 20+'
+  - '&8Trạng thái: &7%player_level% %status_symbol_requirement_1%'
+  extra_requirements:
+  - "%player_level% >= 20"
+display:
+  default:
+    id: DIAMOND_SWORD
+    name: '&c&lDiamond &cKit'
+    amount: 1
+    lore:
+      - '&fBộ quà này bao gồm:'
+      - '&8- &7x1 Rìu Kim Cương'
+      - '&8- &7x1 Cuốc Kim Cương'
+      - '&8- &7x1 Kiếm Kim Cương'
+      - ''
+      - '&7Thời gian chờ: &c12 giờ'
+      - '&7Giá: &a$5000'
+      - ''
+      - '&aNhấn Chuột Trái để mua!'
+      - '&bNhấn Chuột Phải để xem trước!'
+    item_flags:
+      - HIDE_ATTRIBUTES
+  no_permission:
+    id: BARRIER
+    name: '&c&lDiamond &cKit'
+    amount: 1
+    lore:
+      - '&fBộ quà này bao gồm:'
+      - '&8- &7x1 Rìu Kim Cương'
+      - '&8- &7x1 Cuốc Kim Cương'
+      - '&8- &7x1 Kiếm Kim Cương'
+      - ''
+      - '&cBạn không có quyền'
+      - '&cđể nhận bộ quà này.'
+      - ''
+      - '&7Bạn cần: &bVIP&6+ &7hạng.'
+  cooldown:
+    id: DIAMOND_SWORD
+    name: '&c&lDiamond &cKit'
+    amount: 1
+    lore:
+      - '&fBộ quà này bao gồm:'
+      - '&8- &7x1 Rìu Kim Cương'
+      - '&8- &7x1 Cuốc Kim Cương'
+      - '&8- &7x1 Kiếm Kim Cương'
+      - ''
+      - '&cBạn cần đợi &7%time%'
+      - '&cđể nhận bộ quà này lại.'
+    item_flags:
+      - HIDE_ATTRIBUTES

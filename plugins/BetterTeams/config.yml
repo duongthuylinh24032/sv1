@@ -1,0 +1,576 @@
+# Nếu cấu hình của bạn thiếu nhận xét đầy đủ, hãy xem phiên bản nhận xét của cấu hình tại đây: https://github.com/booksaw/BetterTeams/blob/master/src/main/resources/config.yml
+# Vấn đề này xảy ra do việc thêm các giá trị mới vào cấu hình, trong quá trình này các bình luận sẽ bị xóa
+
+# ##################################################### ###################
+# ____ _ _ _____ #
+# | __ ) ___| |_| |_ ___ _ __ |_ _|__ __ _ _ __ ___ ___ #
+# |  _ \ / _ \ __| __/ _ \ '__|   | |/ _ \/ _` | '_ ` _ \/ __|   #
+# | |_) |  __/ |_| ||  __/ |      | |  __/ (_| | | | | | \__ \ #
+# |____/ \___|\__|\__\___|_|      |_|\___|\__,_|_| |_| |_|___/ #
+# #
+# ##################################################### ###################
+
+
+# Cảm ơn các bạn đã tải các team hay hơn, trước khi config file đây là 1 số link hữu ích cho các bạn:
+# Trang chủ của BetterTeams: https://www.spigotmc.org/resources/better-teams.17129/
+#
+# Tìm thấy một lỗi? Báo cáo tại đây: https://github.com/booksaw/BetterTeams/issues/new/choose (Sử dụng mẫu lỗi)
+#
+# Có điều gì làm bạn khó chịu về cách hoạt động của plugin hoặc thiếu thứ gì đó không?
+# Đưa ra đề xuất cho tương lai của plugin tại đây: https://github.com/booksaw/BetterTeams/issues/new/choose (Sử dụng mẫu tính năng)
+#
+# Bạn muốn nói chuyện về plugin với những người dùng khác? Tham gia bất hòa: https://discord.gg/JF9DNs3
+#
+# Nếu bạn cần chỉnh sửa tin nhắn đã gửi cho người dùng, hãy tìm trong tệp messages.yml
+
+# Chọn ngôn ngữ mặc định của Betterteams
+# Nếu bạn chọn một ngôn ngữ không phải là tiếng Anh, hãy nhớ rằng đó là bản dịch do cộng đồng thực hiện,
+# Điều này có nghĩa là chúng có thể bị tụt hậu so với phiên bản tiếng Anh hoặc có một chút sai sót, nhưng vẫn tốt hơn là không có gì
+#
+# Có thể trợ giúp dịch thuật? Hoặc cải thiện ngôn ngữ đã có hoặc thêm một ngôn ngữ hoàn toàn mới. Tham gia máy chủ bất hòa: https://discord.gg/JF9DNs3
+# hoặc nhắn tin cho tôi trên spigot: https://www.spigotmc.org/members/booksaw123.120955/
+#
+# Để biết danh sách đầy đủ các ngôn ngữ được hỗ trợ, hãy sử dụng liên kết này: https://github.com/booksaw/BetterTeams/wiki/Language
+# ca - Catlan
+# vi - Tiếng Anh
+# de - tiếng Đức
+# nó - tiếng Ý
+# es_mx - Tiếng Tây Ban Nha Mexico
+# pl - tiếng Ba Lan
+# sr - Tiếng Serbia
+# es - tiếng Tây Ban Nha
+# zh_tw - Tiếng Trung phồn thể
+# tr - Thổ Nhĩ Kỳ
+# vi - Tiếng Việt
+language: vi
+
+# Xác định cách lưu trữ dữ liệu nhóm
+# Các giá trị có thể có:
+# * SQL - đây là phương thức lưu trữ được đề xuất, hãy đảm bảo bạn định cấu hình cài đặt cơ sở dữ liệu bên dưới nếu không plugin sẽ được bật
+# * YAML - đây là phương thức lưu trữ mặc định vì nó không yêu cầu kết nối cơ sở dữ liệu, nên chuyển sang MySQL
+# Sẽ có thêm nhiều loại bộ nhớ trong tương lai
+storageType: YAML
+
+# Phần này chỉ được sử dụng nếu bạn chọn kiểu lưu trữ của SQL
+database:
+  host: localhost
+  port: 3306
+  database: spigot
+  user: root
+  password: password
+
+# Đây là giá trị để xác định xem tiền tố trò chuyện có được bật hay không
+# - Nếu tính năng này được bật (true / name), tiền tố [TeamName] sẽ được hiển thị khi bắt đầu tin nhắn trò chuyện.
+# - Nếu người chơi không ở trong đội, sẽ không có gì được hiển thị
+# - Đây là tiền tố trò chuyện khi người chơi nói, điều này sẽ không tắt tiền tố trước các tin nhắn do plugin tạo ra (xem prefixFormat [bên dưới] để thay đổi điều đó)
+# - Nếu điều này được đặt thành thẻ, nó sẽ hiển thị thẻ đội thay vì tên đội (trong trường hợp không có thẻ đội, nó sẽ hiển thị tên đội)
+#
+# Các giá trị có thể có: [true, false, name, tag]
+prefix: name
+
+# Đặt định dạng cho tiền tố của tất cả tin nhắn gửi tới người dùng
+# - Có thể sử dụng bất kỳ màu trò chuyện nào, để tham khảo, hãy xem: https://www.spigotmc.org/attachments/example2-png.188806/
+# - Đảm bảo tiền tố của bạn được bao quanh bởi dấu ngoặc đơn --> '' <-- nếu không thì có khả năng nó sẽ không hoạt động chính xác
+# - Nên để một khoảng trắng sau tiền tố trong dấu ngoặc kép, để nó không giống thông báo [tiền tố] này mà thay vào đó là thông báo [tiền tố]
+# - Để tắt tiền tố, đặt giá trị thành ''
+#
+# Giá trị có thể có: [Mọi văn bản, mọi màu trò chuyện sử dụng tham chiếu '&']
+prefixFormat: '&7[&6BetterTeams&7] '
+
+# Điều này được sử dụng để xác định xem người chơi tham gia đội mới có nên được thông báo hay không (Tin nhắn có thể định cấu hình trong messages.yml)
+announceTeamJoin: false
+
+# Điều này được sử dụng để xác định xem người chơi rời đội có nên được thông báo hay không (Tin nhắn có thể định cấu hình trong messages.yml)
+announceTeamLeave: false
+
+# Điều này được sử dụng để xác định xem có nên thông báo giải tán một nhóm hay không (Tin nhắn có thể định cấu hình trong messages.yml)
+announceTeamDisband: false
+
+# Đây là các phím tắt tiền tố để thay đổi nơi gửi tin nhắn trò chuyện
+# Giá trị có thể có: [Bất kỳ văn bản/ký tự nào]
+chatPrefixes:
+  # Thay vào đó, tiền tố này sẽ gửi tin nhắn chung tới cuộc trò chuyện nhóm
+  globalToTeam: '!'
+  # Thay vào đó, tiền tố này sẽ gửi tin nhắn chung tới cuộc trò chuyện của đồng minh
+  globalToAlly: '?'
+  # Thay vào đó, tiền tố này sẽ gửi tin nhắn của đội hoặc đồng minh tới cuộc trò chuyện toàn cầu
+  teamOrAllyToGlobal: '!'
+
+# Điều này được sử dụng để đặt số lượng đồng minh tối đa mà một đội có thể có
+# - Nếu tính năng này không mong muốn, hãy đặt allyLimit thành -1 và sẽ có số lượng đồng minh không giới hạn cho mỗi đội
+# - Giữ giá trị này ở mức hợp lý, vì Java không thể xử lý số lượng lớn hơn (trên 2 tỷ), vì vậy nếu bạn muốn nhóm là vô hạn, hãy đặt giá trị thành -1 thay vì giá trị lớn
+#
+# Giá trị có thể có: [-1, bất kỳ số nguyên dương nào]
+allyLimit: 5
+
+# Điều này được sử dụng để giới hạn độ dài của tên nhóm (nếu tiền tố trò chuyện được bật, điều này sẽ ngăn tên nhóm làm tắc nghẽn cuộc trò chuyện)
+# - Nếu tính năng này không mong muốn, hãy đặt teamLimit thành -1 và độ dài tên nhóm sẽ không giới hạn
+#
+# Giá trị có thể có: [-1, bất kỳ số nguyên dương nào]
+maxTeamLength: 12
+
+# Cái này được sử dụng để giới hạn độ dài của thẻ đội (Nếu được bật, cái này sẽ hiển thị bên cạnh thẻ tên người chơi phía trên nhân vật của họ)
+# - Nếu tính năng này không mong muốn, hãy đặt teamLimit thành -1 và độ dài tên nhóm sẽ không giới hạn
+#
+# Giá trị có thể có: [-1, bất kỳ số nguyên dương nào]
+maxTagLength: 12
+
+# Lệnh này được sử dụng với lệnh /team title, lệnh này chỉ định giới hạn ký tự
+# Nếu bạn đang sử dụng BelowNameQuản lý, mọi tên trên 16 ký tự sẽ bị cắt bớt thông qua một số cách xử lý plugin
+#
+# Giá trị có thể có: [Bất kỳ số nguyên nào]
+maxTitleLength: 10
+
+# Điều này được sử dụng để chuyển đổi xem các đội có thể tấn công các thành viên trong đội của mình hay không
+# - Nếu tính năng này được bật, các thành viên trong cùng một đội sẽ không thể gây sát thương cho nhau
+# - Nếu bạn thay đổi tính năng này, bạn sẽ cần khởi động lại máy chủ để cập nhật giá trị (không hoạt động với /teama realod)
+#
+# Giá trị có thể có: [true, false]
+disableCombat: true
+
+# Điều này bằng cách mở rộng khả năng vô hiệu hóa chiến đấu cũng sẽ ngăn người chơi áp dụng các hiệu ứng thuốc tiêu cực cho các thành viên trong đội của họ
+# - Nếu vô hiệu hóaCombat được đặt thành sai (ở trên), hiệu ứng thuốc sẽ không bao giờ bị tắt
+# - Nếu bạn thay đổi tính năng này, bạn sẽ cần khởi động lại máy chủ để cập nhật giá trị (không hoạt động với /teama realod)
+#
+# Giá trị có thể có: [Đúng - Thuốc tiêu cực nên bị vô hiệu hóa đối với các thành viên trong cùng một đội, Sai - Thuốc tiêu cực được phép cho các thành viên của cùng một đội ]
+disablePotions: true
+
+# Điều này được sử dụng để chuyển đổi xem người chơi có thể tự làm hại mình bằng thuốc hoặc mũi tên hay không (khi họ ở trong một đội)
+# - Nếu tính năng này bị tắt, người chơi không thể áp dụng các hiệu ứng thuốc tiêu cực cho bản thân hoặc tự bắn tên vào mình
+# - Nếu bạn thay đổi tính năng này, bạn sẽ cần khởi động lại máy chủ để cập nhật giá trị (không hoạt động với /teama realod)
+# - Nếu người chơi không ở trong một đội, họ sẽ tự đánh mình bằng thuốc bất kể giá trị của tùy chọn này là bao nhiêu
+#
+# Giá trị có thể có: [true - Hiệu ứng thuốc sẽ gây sát thương cho người chơi đã ném chúng, sai - Hiệu ứng thuốc sẽ không gây sát thương cho người chơi đã ném chúng]
+playerDamageSelf: true
+
+# Đây là danh sách tất cả các tên đội bị đưa vào danh sách đen trên máy chủ của bạn (bao gồm mọi tên đội mà bạn muốn cấm)
+# - Điều này sẽ chỉ hoạt động nếu tên khớp chính xác với văn bản trong danh sách đen (không phân biệt chữ hoa chữ thường), nếu không, nhóm kiểm duyệt máy chủ của bạn sẽ xử lý hành vi phạm tội
+#
+# Giá trị có thể có: [Bất kỳ chuỗi nào (bao quanh bằng '')]
+blacklist:
+- betterteamsisbad
+
+# Đây là danh sách các ký tự không được phép sử dụng trong tên hoặc thẻ nhóm
+#
+# Giá trị có thể có: [Ký tự bất kỳ]
+# ~\|`�'
+
+# Đây là danh sách tất cả các ký tự được phép dùng trong tên đội hoặc thẻ
+# - Nếu phần này được để trống, tất cả các ký tự (ngoại trừ những ký tự trong ký tự bị cấm hoặc mã màu) sẽ được phép có trong tên đội
+#
+# Giá trị có thể có: [Ký tự bất kỳ]
+allowedChars: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+
+# Đây là danh sách tất cả các màu trò chuyện bị cấm đối với tên đội sử dụng /team color <color>
+# - Liệt kê từng ký tự, ví dụ cấm vàng và đỏ bạn sẽ cấmColors: '64'
+# Vì 6 là ký tự cho vàng và 4 là ký tự cho màu đỏ
+# - Lưu ý một số ký tự luôn bị cấm như in đậm (l)
+#
+# Giá trị có thể: bất kỳ số nào trong số: '0123456789abcdef'
+bannedColors: ''
+
+# Đây là màu của lệnh trong menu trợ giúp, có thể thay đổi
+#
+# Giá trị có thể có: [Bất kỳ mã màu trò chuyện nào]
+helpCommandColor: b
+
+# Đây là màu của thông báo đi kèm với lệnh trong menu trợ giúp, màu này có thể thay đổi
+#
+# Giá trị có thể có: [Bất kỳ mã màu trò chuyện nào]
+helpDescriptionColor: '6'
+
+# Nếu bạn đang sử dụng màn hình ba chiều, đây là số lượng đội hàng đầu sẽ được hiển thị trên hình ba chiều
+#
+# Giá trị có thể có: [Bất kỳ số nguyên dương nào]
+maxHologramLines: 10
+
+# Điều này được sử dụng để định cấu hình nếu thông báo trợ giúp hoàn toàn được tùy chỉnh hoặc thông báo được tạo tự động bởi plugin
+# - Nếu điều này sai, /team help và /teama help sẽ chỉ hiển thị các lệnh mà người dùng có quyền thực hiện
+# - Nếu điều này đúng, thông báo trợ giúp sẽ được tìm nạp từ một tệp (sẽ được tạo vào lần đầu tiên bạn tải lại plugin sau khi đặt giá trị thành đúng)
+# - Nếu bạn đang sử dụng một tập tin, nó sẽ được tìm thấy trong cùng thư mục với tập tin này
+#
+# Giá trị có thể có: [true, false]
+fullyCustomHelpMessages: false
+
+# Plugin này có tùy chọn bao gồm số dư nhóm, nếu tùy chọn này được bật, plugin sẽ liên kết với vault để kích hoạt tính năng đó
+# - Nếu giá trị không được cài đặt trên máy chủ, tính năng này sẽ không hoạt động bất kể giá trị này là gì
+#
+# Giá trị có thể có: [true, false]
+useVault: true
+
+# Điều này xác định xem tin nhắn được gửi đến cuộc trò chuyện nhóm có được ghi vào bảng điều khiển hay không
+# - Nếu tính năng này được bật, tất cả tin nhắn được gửi tới cuộc trò chuyện nhóm sẽ được ghi vào bảng điều khiển
+# - Nếu tính năng này bị tắt, tin nhắn trò chuyện nhóm sẽ không được lưu trữ ở bất kỳ đâu
+#
+# Giá trị có thể có: [true, false]
+logTeamChat: true
+
+# Tùy chọn này xác định xem người dùng có được phép thực hiện /trò chuyện nhóm để chuyển đổi cuộc trò chuyện nhóm của họ hay không, thay vì chỉ /tin nhắn trò chuyện nhóm
+# - Nếu tin nhắn trò chuyện nhóm không bị hủy chính xác (điều này có thể do một số plugin khác trên máy chủ của bạn gây ra) Tính năng này có thể được bật để ít nhất che giấu sự cố
+# - Nếu điều này được đặt thành true, người dùng có thể thực hiện /trò chuyện nhóm để chuyển đổi xem trò chuyện nhóm có được bật hay không
+# - Nếu giá trị này được đặt thành false, bạn nên sửa các thông báo trợ giúp liên quan đến trò chuyện nhóm, gợi ý rằng /cuộc trò chuyện nhóm sẽ chuyển đổi thay vì chỉ dành cho /trò chuyện nhóm <message>
+#
+# Giá trị có thể có: [true, false]
+allowToggleTeamChat: true
+
+# Tùy chọn này được sử dụng để xác định xem tên đội có nên được tô màu tương ứng với màu /team bất cứ khi nào tên đội được hiển thị trong plugin
+# - Nếu điều này đúng, bộ màu sẽ được hiển thị trong thông tin /team, bất cứ nơi nào có phần giữ chỗ %betterteams_name%%, v.v.
+#
+# Giá trị có thể có: [true, false]
+colorTeamName: true
+
+# Tùy chọn này được sử dụng để xác định màu mặc định của đội bằng mã màu của màu bạn muốn
+#
+# Giá trị có thể có: [0-9, a-f]
+defaultColor: 6
+
+# Điều này được sử dụng để xác định khoảng thời gian trễ sẽ xảy ra trước khi người dùng được dịch chuyển tức thời khi sử dụng /team home
+# - Nếu giá trị này được đặt thành 0 thì sẽ không có độ trễ khi dịch chuyển tức thời
+# - Giá trị này tính bằng giây
+#
+# Giá trị có thể có: [0, Bất kỳ số nguyên dương nào]
+tpDelay: 0
+
+# Điều này được sử dụng khi có thời gian hồi chiêu tp để kiểm tra xem người chơi có thể di chuyển trong thời gian đếm ngược không
+# - Nếu điều này đúng, người chơi không thể di chuyển xung quanh (mặc dù họ vẫn có thể nhìn xung quanh)
+# - Nếu điều này sai, người chơi có thể di chuyển xung quanh theo cách họ muốn trong khi chờ dịch chuyển
+#
+# Giá trị có thể có: [true, false]
+noMove: false
+
+# cái này được sử dụng nếu noMove được đặt thành true. đây là khoảng cách mà người chơi có thể di chuyển khi không được xếp vào loại đang di chuyển
+# - Nếu giá trị này được đặt thành 0 thì người chơi không thể di chuyển
+#
+# Giá trị có thể có: [Bất kỳ số nguyên dương nào]
+maxMove: 0
+
+# Nếu tính năng này được bật, một bộ lệnh hơi khác sẽ có sẵn cho phép một nhóm chỉ có một chủ sở hữu duy nhất
+# - Nếu điều này sai, một nhóm có thể có bao nhiêu chủ sở hữu tùy thích, các thành viên được thăng cấp thành chủ sở hữu bằng lệnh /team thăng hạng
+# - Nếu điều này đúng thì một nhóm chỉ có thể có một chủ sở hữu duy nhất, được thiết lập bằng cách thực hiện /team setowner
+# - Nếu điều này được đặt thành true sau khi một nhóm có nhiều chủ sở hữu, tất cả họ sẽ giữ trạng thái chủ sở hữu cho đến khi rời khỏi nhóm hoặc thực hiện /team setowner (khi họ làm như vậy, họ sẽ không còn là chủ sở hữu nữa mà là những người còn lại trong nhóm chủ sở hữu sẽ vẫn là chủ sở hữu
+#
+# Giá trị có thể có: [true, false]
+singleOwner: false
+
+# Được sử dụng để đặt nếu khi tạo đội mới, người chơi phải cung cấp thẻ cho đội cũng như tên đội
+# - Nếu điều này được đặt thành sai, tên đội sẽ được sử dụng thay cho thẻ đội nếu tên này không được đặt
+# - Nếu điều này được đặt thành đúng, tất cả các đội sẽ phải đặt thẻ
+#
+# Giá trị có thể: [true, false]
+enforceTag: false
+
+# Điều này được sử dụng để xác định xem một sợi dọc có được phép đặt mật khẩu hay không, mật khẩu này có thể được sử dụng để hạn chế việc sử dụng trong toàn nhóm
+# - Nếu điều này đúng, mật khẩu có thể được đặt cho một sợi dọc, vì vậy chỉ những người dùng có mật khẩu đó mới có thể dịch chuyển tức thời đến nó
+#
+# Giá trị có thể có: [true, false]
+#
+allowPassword: true
+
+# Điều này được sử dụng để xác định xem người chơi có thể mở rương đã được nhận của đồng minh của họ hay không
+# - Nếu điều này được đặt thành đúng, đồng minh sẽ có thể mở các rương đã được nhận
+# - Nếu điều này được đặt thành sai, đồng minh sẽ không thể mở các rương đã được nhận
+#
+# Giá trị có thể có: [true, false]
+allowAllyChests: true
+
+# Đây là số giây lời mời kéo dài
+# - Nếu giá trị này được đặt thành 0, lời mời sẽ hết hạn ngay lập tức (không làm điều này)
+# - Nếu điều này được đặt thành -1 lời mời sẽ không hết hạn
+#
+# Giá trị có thể: [-1, bất kỳ số nguyên dương nào]]
+invite: 120
+
+# Được sử dụng để thêm bí danh mới cho các lệnh tốt hơn
+# Bất kỳ lệnh nào được liệt kê ở đây đều có thể được sử dụng thay cho các lệnh cơ bản (/team và /teamadmin)
+#
+# Giá trị có thể có: [Bất kỳ tập hợp chữ thường nào]
+command:
+  team: []
+  teama:
+  - teama
+
+levels:
+  # Xem trang wiki về phần này để biết thêm thông tin: https://github.com/booksaw/BetterTeams/wiki/Team-Levels
+  l1:
+    # Điều này được sử dụng để đặt kích thước tối đa cho một nhóm.
+    # - Nếu tính năng này không mong muốn, hãy đặt teamLimit thành -1 và sẽ có số lượng vị trí không giới hạn trong mỗi đội
+    # - Giữ giá trị này ở mức hợp lý, vì Java không thể xử lý số lượng lớn hơn (trên 2 tỷ), vì vậy nếu bạn muốn nhóm là vô hạn, hãy đặt giá trị thành -1 thay vì giá trị lớn
+    #
+    # Giá trị có thể có: [-1, bất kỳ số nguyên dương nào]
+    teamLimit: 10
+    # Điều này được sử dụng để xác định số lượng rương tối đa mà một đội có thể nhận được
+    # - Nếu điều này được đặt thành 0, các đội sẽ không được phép bất kỳ khiếu nại nào (mặc dù bạn nên thực hiện điều đó thông qua quyền thay vì tùy chọn cấu hình)
+    # - Nếu giá trị này được đặt thành -1 thì sẽ không có giới hạn về số lượng rương
+    #
+    # Giá trị có thể có: [Bất kỳ số nguyên dương nào, 0, -1]
+    maxChests: 2
+    # Điều này được sử dụng để xác định số lượng sợi dọc tối đa mà một đội có thể đặt
+    # - Nếu điều này được đặt thành 0, các đội sẽ không được phép thực hiện bất kỳ hành vi sai lệch nào (mặc dù bạn nên thực hiện điều đó thông qua quyền thay vì tùy chọn cấu hình)
+    # - Nếu giá trị này được đặt thành -1 thì sẽ không có giới hạn về số lần cong vênh
+    #
+    # Giá trị có thể có: [Bất kỳ số nguyên dương nào, 0, -1]
+    maxWarps: 2
+    # Được sử dụng để giới hạn số dư mà đội có thể có trong ngân hàng đội của mình
+    # - Nếu giá trị này được đặt thành -1 thì sẽ không có giới hạn về số dư của đội
+    # - Nếu điều này được đặt thành 0, các đội ở cấp độ đó sẽ không có ngân hàng nhóm (để tắt hoàn toàn hãy sử dụng teampermissions.yml)
+    #
+    # Giá trị có thể [-1, 0, bất kỳ số dương nào]
+    maxBal: -1
+    # Số lượng quản trị viên tối đa mà một nhóm được phép khi có thứ hạng này
+    # - Nếu giá trị này được đặt thành -1 thì sẽ không có giới hạn
+    #
+    # Giá trị có thể [-1, bất kỳ số dương nào]
+    maxAdmins: 5
+    # Số lượng chủ sở hữu tối đa mà một nhóm được phép ở cấp bậc này
+    # - Nếu SingleOwner được đặt thành true thì giá trị này sẽ bị bỏ qua
+    #
+    # Giá trị có thể [bất kỳ số nguyên dương nào]
+    maxOwners: 2
+    # - giả sử %player% không còn ở cấp 1 nữa
+
+        # Thông báo này được bao gồm trong lệnh /team xếp hạng để cung cấp thêm chi tiết về thứ hạng
+    # ví dụ: thông báo này có thể bao gồm các đặc quyền của cấp bậc nhóm này cùng với các đặc quyền của cấp bậc tiếp theo
+    rankLore:
+    - '&7The first level'
+  l2:
+    # Giá được xác định cho tất cả các cấp trừ cấp 1,
+    # - Nếu giá trị này kết thúc bằng 's' thì đội đó sẽ trừ điểm
+    # - Nếu giá trị này kết thúc bằng 'm' thì số tiền trong số dư của đội sẽ bị lấy đi
+    price: 100s
+    # - giả sử %player% đã lên cấp
+    teamLimit: 20
+    maxChests: 2
+    maxWarps: 2
+    maxBal: -1
+    maxAdmins: 5
+    maxOwners: 1
+    rankLore:
+    - '&7The second level'
+
+# Điều này xác định xem giới hạn nhóm được xác định theo cấp độ nhóm có được sử dụng hay không
+# Tính năng này yêu cầu vault hoạt động
+# - Nếu điều này được đặt thành sai, giới hạn nhóm được xác định ở trên sẽ được sử dụng
+# - Nếu điều này được đặt thành giới hạn thực sự của nhóm sẽ được xác định bởi quyền của chủ sở hữu
+# - Để cấp cho chủ sở hữu quyền đối với quy mô nhóm, nút quyền là `betterteams.limit.<limit>` với giới hạn nhóm tối đa là 100
+#
+# Giá trị có thể có: [true, false]
+permissionLevels: false
+
+
+# Các lệnh được gọi khi người chơi được thăng cấp
+# - Nếu để trống thì sẽ không có lệnh nào được gọi
+# %player% được thay thế bằng tất cả người chơi trong đội
+# %level% được thay thế bằng cấp độ mà nhóm đang trở thành
+# %team% được thay thế bằng tên đội
+#
+# Giá trị có thể: [Bất kỳ lệnh hợp lệ nào]
+promoteCommands: {}
+# lệnh dành cho quản trị viên --> chủ sở hữu
+# - giả sử %player% đã được thăng hạng
+
+# Các lệnh được gọi khi người chơi được thăng cấp
+# - Nếu để trống thì sẽ không có lệnh nào được gọi
+# %player% được thay thế bằng tất cả người chơi trong đội
+# %level% được thay thế bằng cấp độ mà nhóm đang trở thành
+# %team% được thay thế bằng tên đội
+#
+# Giá trị có thể: [Bất kỳ lệnh hợp lệ nào]
+demoteCommands: {}
+# lệnh dành cho chủ sở hữu --> quản trị viên
+# - giả sử %player% đã bị giáng cấp
+
+# xác định xem thông báo tiêu đề có được hiển thị cho người chơi khi họ bị đá hoặc bị cấm khỏi đội của mình hay không
+# bản thân các tin nhắn có thể được cấu hình trong tệp messages.yml
+#
+# Giá trị có thể có: [true, false]
+titleRemoval: true
+
+# xác định kênh nào sẽ được sử dụng để nhắn tin cho người chơi trực tuyến khi trạng thái đội của họ thay đổi với kênh khác
+# bản thân các tin nhắn có thể được cấu hình trong tệp messages.yml
+#
+# Giá trị có thể có: [CHAT, TITLE, NONE] (mặc định: CHAT,TITLE)
+onAllyMessageChannel:
+- CHAT
+- TITLE
+onNeutralMessageChannel:
+- CHAT
+- TITLE
+
+
+# ##################################################### ####################
+# #
+# ____ ____ _ _ _ #
+# / ___|  ___ ___ _ __ ___ / ___|  ___| |_| |_(_)_ __ __ _ ___ #
+# \___ \ / __/ _ \| '__/ _ \ \___ \ / _ \ __| __| | '_ \ / _` / __| #
+# ___) | (_| (_) | | | __/ ___) |  __/ |_| |_| | | | | (_| \__ \ #
+# |____/ \___\___/|_|  \___| |____/ \___|\__|\__|_|_| |_|\__, |___/ #
+# |___/ #
+# #
+# ##################################################### ####################
+# Tất cả cài đặt tùy thuộc vào khía cạnh điểm số của plugin này
+# Để tích hợp các plugin khác có điểm, hãy xem phần dưới cùng của cấu hình
+
+
+# Đây là danh sách các lệnh được bảng điều khiển chạy trước khi quá trình thanh lọc diễn ra
+# Cuộc thanh lọc là nơi điểm của tất cả các đội được đặt lại về 0
+# Nếu phần này được để trống, sẽ không có lệnh nào được chạy trước khi quá trình thanh lọc xảy ra
+# Bạn có thể sử dụng trình giữ chỗ từ API giữ chỗ, mặc dù trình phát được đặt thành rỗng (vì vậy những thứ như %betterteams_team% sẽ không hoạt động)
+# lý do chính của phần giữ chỗ là để bạn có thể sử dụng %betterteams_score_{rank}% để giới thiệu một người chơi trên bảng xếp hạng
+#
+# Giá trị có thể có: [Bất kỳ lệnh nào hợp lệ trên máy chủ của bạn]
+purgeCommands:
+- give @a minecraft:dirt 1
+
+# Cái này được sử dụng để kích hoạt cấu hình tự động lọc bên dưới
+# Nếu điều này được đặt thành đúng, điểm của đội sẽ bị xóa tương ứng với thời gian bên dưới
+#
+# Giá trị có thể có: true, false
+enableAutoPurge: false
+
+# Điều này được sử dụng để theo dõi thời điểm xảy ra lần thanh lọc tiếp theo. Đây là danh sách các ngày sẽ tiến hành thanh lọc
+# Nếu danh sách này được để trống, sẽ không có cuộc thanh lọc nào xảy ra
+# những ngày này phải theo thứ tự từ sớm nhất đến mới nhất
+#
+# Giá trị có thể có: [{dateOfMonth}:{Giờ trong ngày}]
+autoPurge:
+- '1:6'
+# Điều này sẽ lọc điểm của người dùng vào lúc 6 giờ sáng ngày đầu tiên hàng tháng
+
+# Khoảng thời gian sau khi một sự kiện xảy ra mà các sự kiện lặp lại được coi là thư rác
+# Tính bằng giây
+# Nhận dạng thư rác rất hữu ích vì điều đó có nghĩa là người chơi không thể spam giết 1 người để nhận điểm, điều này có nghĩa là bạn có thể giảm điểm cho việc giết thư rác
+# - Trình theo dõi tiêu diệt thư rác là duy nhất cho mọi sự kiện, vì vậy việc chết sẽ không kích hoạt bộ đếm thời gian spam khi tiêu diệt
+#
+# Giá trị có thể có: [Bất kỳ số nguyên nào, 0 để tắt]
+spamThreshold: 60
+
+# ĐẢM BẢO BẠN ĐỌC BÌNH LUẬN NGƯỠNG THƯ RÁC TRÊN
+# Nếu có điều gì đó xảy ra trên máy chủ của bạn mà bạn muốn tác động đến điểm số không được liệt kê bên dưới, hãy yêu cầu điều đó tại đây: https://github.com/booksaw/BetterTeams/issues/new/choose
+
+# Điểm thay đổi khi người chơi chết
+events:
+  death:
+    score: 0
+    spam: -1
+  
+  # Thay đổi điểm khi người chơi giết người chơi khác
+  kill:
+    score: 1
+    spam: 0
+
+# Điểm tối thiểu mà một đội có thể có
+#
+# Giá trị có thể có: [Bất kỳ số nguyên nào]
+minScore: 0
+
+
+# ##################################################### ###############################
+# #
+# __ __ _ __ _ _____ #
+# |  \/ (_)_ __ ___ ___ _ __ __ _ / _| |_ |_ _|__ __ _ _ __ ___ ___ #
+# | |\/| | | '_ \ / _ \/ __| '__/ _` | |_| __|   | |/ _ \/ _` | '_ ` _ \/ __| #
+# | |  | | | | | |  __/ (__| | | (_| | _| |_ | | __/ (_| | | | | | \__ \ #
+# |_|  |_|_|_| |_|\___|\___|_|  \__,_|_|  \__|   |_|\___|\__,_|_| |_| |_|___/ #
+# #
+# ##################################################### ###############################
+
+# Phần này được sử dụng để xác định hành vi của nhóm minecraft để kích hoạt trong plugin này
+# Cơ chế bảng điểm minecraft có một số tính năng tích hợp có thể được ghi đè để tính năng này hoạt động
+# Không có plugin nào khác có thể sử dụng các tính năng này, nếu không chúng sẽ xung đột và cả hai plugin có thể bị hỏng (người chơi chỉ có thể là thành viên của một nhóm minecraft duy nhất)
+
+# Điều này được sử dụng để định cấu hình xem các đội tốt hơn có nên thử và sử dụng cơ chế của nhóm minecraft hay không
+# - Nếu phần này được đặt thành false, bạn có thể bỏ qua phần còn lại của phần này vì tất cả sẽ chỉ hoạt động nếu phần này được bật
+#
+# Giá trị có thể có: [true, false]
+useTeams: true
+
+# Điều này được sử dụng để định cấu hình nếu nên thay đổi tên người chơi (hiển thị tên đội của người chơi phía trên đầu họ
+# - Nếu giá trị sai, tên đội sẽ không được hiển thị
+# - Nếu giá trị là đúng, tên nhóm sẽ được hiển thị dưới dạng tiền tố (để tương thích ngược)
+# - Nếu giá trị là tiền tố, tên đội sẽ được hiển thị trước tên người chơi
+# - Nếu giá trị là hậu tố, tên đội sẽ được hiển thị sau tên người chơi
+#
+# Các giá trị có thể có: [true, false, tiền tố, hậu tố]
+displayTeamName: prefix
+
+# Điều này được sử dụng để xác định xem người chơi có thể va chạm với các thành viên khác trong đội của họ hay không
+# - Nếu điều này được đặt thành sai, xung đột thực thể sẽ bị vô hiệu hóa giữa các thành viên trong nhóm
+#
+# Giá trị có thể có: [true, false]
+collide: true
+
+# Điều này được sử dụng để xác định xem mọi người có thể xem tin nhắn tử vong của người chơi hay chỉ đội của người chơi đó mới có thể
+# - Nếu bạn có plugin thông báo tử vong tùy chỉnh, plugin này có thể không hoạt động, bạn phải tự chịu rủi ro khi sử dụng
+# - Nếu điều này là sai, các đội tốt hơn sẽ không tương tác với các thông báo tử vong
+# - Nếu điều này đúng, Betterteams sẽ chỉ hiển thị thông báo tử vong cho các thành viên của đội đó
+# - Nếu thành viên không có trong đội, tính năng này sẽ không có hiệu lực
+#
+# Giá trị có thể có: [true, false]
+privateDeath: false
+
+# Điều này được sử dụng để xác định xem mọi người có thể xem thẻ tên người chơi hay chỉ đội của người chơi đó mới có thể
+# - Nếu bạn có plugin thông báo tử vong tùy chỉnh, plugin này có thể không hoạt động, bạn phải tự chịu rủi ro khi sử dụng
+# - Nếu điều này sai, các đội tốt hơn sẽ không tương tác với tên người chơi
+# - Nếu thành viên không có trong đội, tính năng này sẽ không có hiệu lực
+#
+# Giá trị có thể có: [true, false]
+privateName: false
+
+# Điều này được sử dụng để xác định xem người chơi xem các thành viên vô hình trong đội của họ là bán trong suốt hay hoàn toàn vô hình
+# - Nếu giá trị này được đặt thành false, tính năng tàng hình sẽ hoạt động như bình thường
+# - Nếu điều này được đặt thành true, các thành viên vô hình của một nhóm sẽ xuất hiện nửa trong suốt đối với các thành viên khác trong nhóm
+#
+# Giá trị có thể có: [true, false]
+canSeeFriendlyInvisibles: false
+
+
+# ##################################################### #######################################
+# ____ _ _ ___ _ _ _ #
+# |  _ \| |_ _ __ _(_)_ __ |_ _|_ __ | |_ ___ __ _ _ __ __ _| |_(_) ___ _ __ #
+# | |_) | | | | |/ _` | | '_ \ | || '_ \| __/ _ \/ _` | '__/ _` | __| |/ _ \| '_ \ #
+# |  __/| | |_| | (_| | | | | | | || | | | || __/ (_| | | | (_| | |_| | (_) | | | | #
+# |_|   |_|\__,_|\__, |_|_| |_| |___|_| |_|\__\___|\__, |_|  \__,_|\__|_|\___/|_| |_| #
+# |___/ |___/ #
+# ##################################################### #######################################
+
+# Phần cấu hình này được sử dụng để chỉnh sửa cài đặt về cách plugin tích hợp với các plugin khác nhau
+# Nếu bạn không sử dụng một trong các plugin trong phần này, đừng thay đổi bất kỳ giá trị nào như thể plugin đó không có trên máy chủ
+# Sẽ không có gì thay đổi
+
+
+# TÍCH HỢP VỚI ZKOTH
+# Liên kết plugin: https://www.spigotmc.org/resources/zkoth-king-of-the-hill.76749/
+zkoth:
+  # Điều này được sử dụng để xác định số điểm được thưởng khi một đội chiếm được vị trí KOTH
+  # Nếu giá trị này được đặt thành 0, người chơi sẽ không nhận được bất kỳ điểm nào khi chiếm được vị trí koth
+  #
+  # Giá trị có thể có: [Bất kỳ số dương nào, 0]
+  pointsPerCapture: 5
+
+# TÍCH HỢP VỚI TUYỆT VỜI TUYỆT VỜI
+# Liên kết plugin: https://songoda.com/marketplace/product/ultimateclaims-the-ultimate-claiming-plugin.65
+ultimateClaims:
+  # Điều này được sử dụng để xác định xem tích hợp utlimateclaims có hoạt động không
+  # Nếu đúng như vậy, chỉ chủ sở hữu nhóm mới có thể đưa ra yêu cầu
+  # Tất cả các thành viên của một nhóm đều được tin cậy trong xác nhận quyền sở hữu
+  enabled: true
+
+# TÍCH HỢP VỚI WORLDGUARD
+# Liên kết plugin: https://dev.bukkit.org/projects/worldguard
+worldGuard:
+  # Điều này được sử dụng để xác định xem tích hợp worldgaurd có hoạt động không
+  # Hiện tại các phiên bản worldgaurd dưới 7.0 không được hỗ trợ, hãy đặt giá trị này thành false nếu máy chủ của bạn đang chạy bất kỳ phiên bản nào thấp hơn 1.13
+  enabled: true
+
+
+# Tùy chọn gỡ lỗi:
+
+# Được sử dụng để tắt thông báo trong trò chơi về việc phát hành bản cập nhật
+# XIN LƯU Ý: nếu bạn không cập nhật Betterteams lên phiên bản mới nhất, bạn sẽ không nhận được các bản sửa lỗi và tính năng mới từ các bản cập nhật thông thường
+# bạn cũng sẽ không nhận được hỗ trợ
+checkUpdates: true
+
+# Tùy chọn này có thể được sử dụng để xây dựng lại các tra cứu trong tệp Teams.yml, tùy chọn này không bao giờ phải được sử dụng trừ khi được Booksaw khuyên
+# Đặt giá trị này thành true để xây dựng lại các bảng tra cứu trong Team.yml cho seperatedYamlStorage
+rebuildLookups: false
+bannedChars: ',.!"�$%^&*()[]{};:#~\|`�'

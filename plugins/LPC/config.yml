@@ -1,0 +1,24 @@
+# Cấu hình LPC
+# Vui lòng đọc tài liệu tại https://luckperms.net/wiki/Prefixes,-Suffixes-&-Meta trước khi cấu hình.
+#
+# Các Placeholder:
+# {message} - tin nhắn trò chuyện
+# {name} - tên người chơi
+# {displayname} - tên hiển thị / biệt danh của người chơi
+# {world} - tên thế giới hiện tại của người chơi
+# {prefix} - tiền tố của người chơi có độ ưu tiên cao nhất
+# {suffix} - hậu tố của người chơi có độ ưu tiên cao nhất
+# {prefixes} - các tiền tố của người chơi theo thứ tự ưu tiên từ cao đến thấp
+# {suffixes} - các hậu tố của người chơi theo thứ tự ưu tiên từ cao đến thấp
+# {username-color} - màu sắc tên người chơi hoặc nhóm của họ
+# {message-color} - màu sắc tin nhắn của người chơi hoặc nhóm của họ
+#
+# Để tải lại cấu hình, chạy lệnh '/lpc reload'. Hãy chắc chắn rằng bạn đã cấp quyền 'lpc.reload'.
+# Thông tin chi tiết có thể tìm thấy tại https://www.spigotmc.org/resources/68965.
+chat-format: "{prefix} {name}&r: {message}"
+
+# Đặt định dạng cho từng nhóm.
+# Lưu ý: Tùy chọn dành cho người dùng nâng cao. Xóa các bình luận để thực thi.
+group-formats:
+#  default: "[default] {name}&r: {message}"
+#  admin: "[admin] {name}&r: {message}"
